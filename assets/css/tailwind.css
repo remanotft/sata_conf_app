@@ -8,7 +8,11 @@
   
 @import 'primeicons/primeicons.css';
 
-
+:root {
+    --color-primary: #1e9d57;
+    --color-primary-light: #ffffff;
+    --color-primary-dark: #000000;
+  }
 
 @layer components {
     html {
@@ -913,17 +917,15 @@ h1{
     width: 10rem /* 160px */;
     border-radius: 100px;
     margin-bottom: 1rem /* 16px */;
-  
-  
   }
-  
   
   #media-hub{
-  
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    }
     
-  }
-  
-  
+    
   
   .emergency-info-items{
   

@@ -1,4 +1,5 @@
 <template>
+  <div>  
     <!-- HEADER -->
     <div>
       <Header />
@@ -32,7 +33,7 @@
   
     <!-- media Hub -->
     <section id="media-hub">
-      <MediaHub />
+      <Button class="bg-green-600 text-white">See Full Media</Button>
     </section>
   
     <!-- emergency info -->
@@ -44,6 +45,8 @@
       <Footer />
     </div>
   
+
+  </div>
   </template>
   
   <script lang="ts" setup>
