@@ -43,8 +43,9 @@ export default NuxtAuthHandler({
         CredentialsProvider.default({
             name: 'Credentials',
             async authorize(credentials: any) {
-                const response: any = await $fetch('CreateToken', {
+                const response: any = await $fetch('Authentication/CreateToken', {
                     baseURL: apiBase,
+                    method: 'POST',
                     body: {
                         username: credentials.email,
                         password: credentials.password

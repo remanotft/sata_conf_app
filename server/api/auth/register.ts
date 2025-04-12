@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
 
 	const { firstName, lastName, phoneNo, email, password } = await readBody(event);
 
-	const registeredUser: any = await $fetch('Users/RegisterNewUser', {
+	const registeredUser: any = await $fetch('Users', {
 		baseURL: apiBase,
 		method: 'post',
 		body: {

@@ -1,6 +1,6 @@
 <template>
 	<div class="md:px-80 pt-20">
-		<LoginForm />
+		<RegisterForm />
 	</div>
 </template>
 
@@ -9,7 +9,7 @@ definePageMeta({
 	layout: 'auth-layout'
 });
 
-import LoginForm from '~/components/auth/LoginForm.vue';
+import RegisterForm from '~/components/auth/RegisterForm.vue';
 
 </script>
 
