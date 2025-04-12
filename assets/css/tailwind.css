@@ -1,9 +1,14 @@
 /* animation */
 @import 'animate.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "./primevue/tailwind.css";
+@import "tailwindcss/utilities";
+  
+@import 'primeicons/primeicons.css';
+
+
 
 @layer components {
     html {
@@ -664,3 +669,271 @@
 .no-animtion [data-height-collapsible] {
     transition: none !important;
 }
+
+
+
+h1{
+    text-align: center;
+    font: Open Sans;
+    font-weight:600;
+    font-size: 18px; 
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+  }
+  
+  span{
+    font-size: 0.8rem;
+  }
+  
+  p{
+    font-size: 12px;
+  }
+  
+  .underline{
+    background-color: #1e9d57;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem /* 24px */;
+    width: 6rem /* 96px */;
+    height: 0.125rem /* 2px */;
+  }
+  
+  #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background-color: #000000 0% 0% no-repeat padding-box;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000; 
+      opacity: 0.3;
+    }
+  
+  .header-container {
+      display: flex;
+      justify-content:center;
+      align-items: center;
+    }
+  
+    #footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background-color: #000000 0% 0% no-repeat padding-box;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      opacity: 0.3;
+    }
+    
+    .footer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #hero-section {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      border: 1px solid #000;
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit:cover;
+    }
+  
+    .label {
+      color: #1e9d57;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+  
+    .subtitle{
+      font-size: 12px;
+      margin-bottom: 0.5rem /* 8px */;
+    }
+  
+    .description{
+      margin-bottom: 1rem /* 16px */;
+      max-width: 20rem /* 320px */;
+      color: rgb(209 213 219);
+      font-size: 10px;
+      line-height: 1.25rem /* 20px */;
+    }
+      
+    #agenda{
+      display: flex;
+      justify-content: center;
+      margin: 0.5rem;
+    }
+  
+    .schedule-list {
+      width: 90vw; 
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .schedule-card {
+      border-left: 2px solid #16a34a; /* green-600 */
+      background-color: white;
+      margin-bottom: 1rem;
+    }
+    
+    .schedule-header {
+      background-color: black;
+      color: white;
+      display: flex;
+      padding: 5px;
+      justify-content: center;
+      align-items: center;
+  
+    }
+    
+    .schedule-title {
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .schedule-meta {
+      background-color: black;
+      color: white;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .meta-separator {
+      width: 1px;
+      height: 20px;
+      background-color: #6b7280; /* gray-500 */
+      margin: 0 12px;
+    }
+    
+    .icon {
+      color: #16a34a;
+      font-size: 1rem;
+    }
+    
+    .schedule-body {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+  .icon {
+    font-size: 0.75rem;
+    color: #16a34a;
+  }
+  
+  .schedule-body {
+    padding-top: 0.25rem;
+  }
+  
+  .info-block {
+    margin-bottom: 0.25rem;
+    width: 100%;
+  }
+  
+  .info-label {
+    color: #4a5568;
+    margin-right: 0.25rem;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+  }
+  
+  
+  .participants-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    gap: 0.25rem;
+    width: 100%;
+  }
+  
+  .participants-list li {
+    background-color: #f7fafc;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.375rem;
+    color: #4a5568;
+  }
+  
+    #map{
+      margin: 1rem;
+    }
+  
+    #speakers{
+      background-color: #000;
+  color: white;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
+  
+    }
+  
+    #speakers .title{
+      font-weight: 600;
+      font-size: 12px;
+    }
+  
+    #speaker .subtitle{
+      color: #1e9d57;
+    }
+  
+  .speaker-image{
+    object-fit: cover;
+    height: 10rem /* 160px */;
+    width: 10rem /* 160px */;
+    border-radius: 100px;
+    margin-bottom: 1rem /* 16px */;
+  
+  
+  }
+  
+  
+  #media-hub{
+  
+    
+  }
+  
+  
+  
+  .emergency-info-items{
+  
+  display: flex;
+  direction: row;
+  }
+  
+  /* Desktop adjustments */
+  @media (min-width: 768px) {
+    .hero-image {
+      object-fit: cover; /* Fill the container on desktop */
+    }
+  }

@@ -1,5 +1,53 @@
 <template>
+    <!-- HEADER -->
     <div>
-        <h1>starter page</h1>
+      <Header />
     </div>
-</template>
+  
+    <!-- Hero Section -->
+    <section id="hero-section">
+      <img src="/assets/images/mobile hero.png" alt="Hero image" class="hero-image">
+    </section>
+  
+    <!-- Agenda -->
+    <section id="agenda" class="p-4">
+      <AgendaTab />
+    </section>
+  
+    <!-- Conference Map -->
+    <section id="map" class="p-4">
+      <ConferenceMap />
+    </section>
+  
+    <!-- Speakers -->
+    <section id="speakers">
+      <Speakers />
+    </section>
+  
+    <!-- Things to do -->
+    <section id="things-to-do" class="p-4">
+      <ThingsToDo />
+    </section>
+  
+  
+    <!-- media Hub -->
+    <section id="media-hub">
+      <MediaHub />
+    </section>
+  
+    <!-- emergency info -->
+    <section id="emergency-info">
+      <EmergencyInfo />
+    </section>
+  
+    <div>
+      <Footer />
+    </div>
+  
+  </template>
+  
+  <script lang="ts" setup>
+  
+  </script>
+  
+  <style></style>

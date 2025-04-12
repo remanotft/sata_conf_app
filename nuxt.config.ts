@@ -2,7 +2,6 @@ export default defineNuxtConfig({
     app: {
         head: {
             title: 'Admin Portal | 45th SATA Conference 2025',
-            // titleTemplate: '%s | VRISTO - Multipurpose Tailwind Dashboard Template',
             htmlAttrs: {
                 lang: 'en',
             },
@@ -28,6 +27,7 @@ export default defineNuxtConfig({
     css: ['~/assets/css/app.css'],
     postcss: {
         plugins: {
+            'postcss-import': {},
             tailwindcss: {},
             autoprefixer: {},
         },
@@ -35,9 +35,14 @@ export default defineNuxtConfig({
     runtimeConfig: {
 		apiBase: process.env.NUXT_DNA_API_BASE,
 	},
-    modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@sidebase/nuxt-auth'],
+    modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@sidebase/nuxt-auth', '@primevue/nuxt-module'],
     auth: {
         baseURL: process.env.AUTH_ORIGIN
+    },
+    primevue: {
+        options: {
+            theme: 'none'
+        }
     },
     i18n: {
         locales: [
