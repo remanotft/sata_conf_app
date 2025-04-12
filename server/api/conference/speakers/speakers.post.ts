@@ -21,4 +21,6 @@ export default defineEventHandler(async (event) => {
 			loggedInUser: loggedInUser
 		}
 	});
+
+	return response;
 });

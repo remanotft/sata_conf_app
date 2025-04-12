@@ -9,6 +9,7 @@ export const useMySpeakersStore = defineStore("mySpeakersStore", () => {
 	const linkedIn = ref('');
 	const company = ref('');
 	const speakersList = ref([]);
+	const speakerAddModalVisible = ref(false);
 
 	const createSpeaker = async () => {
 		const response: any = await $fetch('/api/conference/speakers/speakers', {
@@ -40,7 +41,13 @@ export const useMySpeakersStore = defineStore("mySpeakersStore", () => {
 	return {
 		createSpeaker,
 		getAllSpeakers,
-		speakersList
+		speakersList,
+		speakerAddModalVisible,
+		firstName,
+		lastName,
+		title,
+		linkedIn,
+		company,
 	}
 
 });
