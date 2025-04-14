@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1>THINGS TO DO</h1>
+    <h1 class="font-extrabold md:font-extrabold md:text-3xl">THINGS TO DO</h1>
     <!-- underline -->
     <div class="underline"></div>
 
-    <!-- Tab Selector-->
+    <!--Things To Do Tab Selector-->
     <div class="relative flex justify-evenly gap-1 bg-black px-2 py-0.5 rounded-md text-white">
       <div v-for="(item, index) in categories" :key="index" @click="selected = index"
         class="px-2 py-2 text-center cursor-pointer">
@@ -14,47 +14,38 @@
     </div>
 
     <!-- Carousel -->
-    <Carousel :value="filteredThings" :numVisible="1" :numScroll="1" circular :autoplayInterval="3000">
-      <template #item="{ data }">
-       
-        <!-- content -->
-        <div class="flex flex-col items-center shadow m-2 border border-gray-200 rounded">
-          
-          <!-- image -->
-          <img src="/assets/images/Sandton Sun and Towers.png" :alt="data.name" class="w-full h-48 object-cover" />
-
-            <!-- name -->
-            <div class="font-semibold text-lg">{{ data.name }}</div>
-            <div class="text-gray-500 text-sm">{{ data.email }}</div>
-            <div class="text-gray-500 text-sm">{{ data.phone }}</div>
-
-            <!-- icon -->
-            <div class="flex justify-end mt-2">
-              <button class="bg-gray-100 p-2 rounded-full">
-                <a class="text-gray-500 pi pi-envelope" :href="data.website"></a>
-              </button>
+    <Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions"
+      :autoplayInterval="3000">
+      <template #item="slotProps">
+        <div class="p-2 sm:p-3 md:p-4">
+          <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="mb-3">
+              <div class="w-full">
+                <img :src="slotProps.data.img" :alt="slotProps.data.name" class="w-full h-40 md:h-48 object-cover" />
+              </div>
             </div>
-      
+            <div class="p-3 md:p-4">
+              <div class="mb-2 md:mb-4 font-medium text-base md:text-lg">{{ slotProps.data.name }}</div>
+              <div class="mt-0 font-semibold text-sm md:text-base">{{ slotProps.data.email }}</div>
+              <div class="mt-3 md:mt-4">
+                <Button icon="pi pi-envelope" severity="secondary" outlined />
+              </div>
+            </div>
+          </div>
         </div>
-
       </template>
     </Carousel>
-
 
   </div>
 </template>
 
-
-
-
 <script setup>
-
 const selected = ref(0);
 
 const thingsToDo = [
   {
     category: 'Restaurants',
-    img: '/assets/images/Sandton Sun and Towers.png',
+    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
     alt: '',
     name: 'Sandton Sun & Towers',
     description: 'An iconic 5-star landmark...',
@@ -65,18 +56,31 @@ const thingsToDo = [
 
   {
     category: 'Restaurants',
-    img: '/assets/images/Sandton Sun and Towers.png',
+    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
     alt: '',
-    name: 'Cilantro',
+    name: 'Restaurants',
     description: 'An iconic 5-star landmark...',
     phone: '+27 71 558 9858',
     email: 'SandtonSun.Hotessa@southernsun.com',
-    website: 'http://www.cilantros.co.za/'
+    website: 'https://www.southernsun.com/sandton-sun-and-towers'
+  },
+
+  {
+    category: 'Restaurants',
+    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
+
+    alt: '',
+    name: 'Restaurants',
+    description: 'An iconic 5-star landmark...',
+    phone: '+27 71 558 9858',
+    email: 'SandtonSun.Hotessa@southernsun.com',
+    website: 'https://www.southernsun.com/sandton-sun-and-towers'
   },
 
   {
     category: 'Attractions',
-    img: '/assets/images/Sandton Sun and Towers.png',
+    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
+
     alt: '',
     name: 'Nelson Mandela Square',
     description: 'Cultural and shopping destination...',
@@ -87,14 +91,40 @@ const thingsToDo = [
 
   {
     category: 'Attractions',
-    img: '/assets/images/Sandton Sun and Towers.png',
+    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
+
+    alt: '',
+    name: 'Attractions',
+    description: 'Cultural and shopping destination...',
+    phone: '+27 11 123 4567',
+    email: 'info@mandelasquare.co.za',
+    website: 'https://www.nelsonmandelasquare.co.za'
+  },
+
+  {
+    category: 'Attractions',
+    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
+
     alt: '',
     name: 'Nelson Mandela Square',
     description: 'Cultural and shopping destination...',
     phone: '+27 11 123 4567',
     email: 'info@mandelasquare.co.za',
     website: 'https://www.nelsonmandelasquare.co.za'
-  }
+  },
+
+  {
+    category: 'Amenities',
+    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
+
+    alt: '',
+    name: 'Nelson Mandela Square',
+    description: 'Cultural and shopping destination...',
+    phone: '+27 11 123 4567',
+    email: 'info@mandelasquare.co.za',
+    website: 'https://www.nelsonmandelasquare.co.za'
+  },
+
 ]
 
 const categories = [
@@ -107,17 +137,32 @@ const filteredThings = computed(() => {
   return thingsToDo.filter(item => item.category === categories[selected.value].name)
 })
 
-
-const responsiveOptions = [
+const responsiveOptions = ref([
   {
-    breakpoint: '1024px',
+    breakpoint: '1400px',
     numVisible: 2,
-    numScroll: 1
+    numScroll: 1,
   },
   {
-    breakpoint: '768px',
+    breakpoint: '1199px',
+    numVisible: 3,
+    numScroll: 1,
+  },
+  {
+    breakpoint: '767px',
     numVisible: 2,
-    numScroll: 1
-  }
-];
+    numScroll: 1,
+  },
+  {
+    breakpoint: '575px',
+    numVisible: 1,
+    numScroll: 1,
+  },
+]);
+
+
 </script>
+
+<style scoped>
+
+</style>

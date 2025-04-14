@@ -5,6 +5,8 @@
 </template>
 
 <script lang="ts" setup>
+import 'primeicons/primeicons.css';
+
 definePageMeta({
 	layout: 'admin'
 });

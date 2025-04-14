@@ -674,7 +674,6 @@
 }
 
 
-
 h1{
     text-align: center;
     font: Open Sans;
@@ -770,12 +769,13 @@ h1{
     .subtitle{
       font-size: 12px;
       margin-bottom: 0.5rem /* 8px */;
+      
     }
   
     .description{
       margin-bottom: 1rem /* 16px */;
       max-width: 20rem /* 320px */;
-      color: rgb(209 213 219);
+      color: rgb(209, 219, 217);
       font-size: 10px;
       line-height: 1.25rem /* 20px */;
     }
@@ -890,6 +890,8 @@ h1{
   
     #map{
       margin: 1rem;
+      display: flex;
+      justify-content: center;
     }
   
     #speakers{
@@ -912,8 +914,8 @@ h1{
   
   .speaker-image{
     object-fit: cover;
-    height: 10rem /* 160px */;
-    width: 10rem /* 160px */;
+    height: 5rem /* 160px */;
+    width: 5rem /* 160px */;
     border-radius: 100px;
     margin-bottom: 1rem /* 16px */;
   }
@@ -924,14 +926,74 @@ h1{
     margin: 2rem;
     }
     
-    
-  
-  .emergency-info-items{
-  
-  display: flex;
-  direction: row;
-  }
-  
+    .carousel-container {
+        max-width: 80vw;
+        margin: 0 auto;
+      }
+      
+      .swiper {
+        width: 100%;
+        padding: 50px 0;
+      }
+      
+      .swiper-slide {
+        width: 30px;
+        height: 300px;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .slide-image {
+        background-color: #333;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      }
+      
+      /* Navigation buttons */
+      :deep(.swiper-button-next),
+      :deep(.swiper-button-prev) {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.8);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      :deep(.swiper-button-next:after),
+      :deep(.swiper-button-prev:after) {
+        font-size: 18px;
+        color: #333;
+      }
+      
+      /* Style the pagination dots */
+      :deep(.swiper-pagination-bullet) {
+        background: #fff;
+        opacity: 0.5;
+      }
+      
+      :deep(.swiper-pagination-bullet-active) {
+        opacity: 1;
+        background: #fff;
+      }
+
+      .card {
+        background: #fff;
+        border: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+
+      #media-gallery {
+        display: flex;
+        justify-content: center;
+      }
+      
+
   /* Desktop adjustments */
   @media (min-width: 768px) {
     .hero-image {

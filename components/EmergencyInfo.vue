@@ -2,30 +2,33 @@
   <div class="bg-black px-4 py-8 text-white">
 
     <!-- Title -->
-    <h1 class="text-white">EMERGENCY INFO</h1>
+
+    <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">EMERGENCY INFO</h1>
     <div class="underline"></div>
 
     <!-- Emergency Info Cards -->
-    <div class="flex flex-col gap-6 mt-6">
-      <div
-        v-for="(info, index) in emergencyInfo"
-        :key="index"
-        class="flex items-start gap-4 bg-neutral-900 p-4 rounded-lg"
-      >
+    <div class="flex md:flex-row flex-col md:justify-around gap-6 mt-6">
+      <div v-for="(info, index) in emergencyInfo" :key="index"
+        class="flex flex-wrap items-start gap-4 bg-neutral-900 px-6 py-4 rounded-lg w-full break-words">
+
         <!-- Icon -->
-        <div class="flex justify-center items-center bg-green-600 p-3 rounded-full">
+        <div class="bg-green-600 p-3 rounded-full shrink-0">
           <i :class="info.icon" class="text-white text-lg"></i>
         </div>
 
         <!-- Info -->
-        <div class="text-left">
-          <div class="mb-1 font-bold text-sm">{{ info.name }}</div>
-          <div class="mb-1 text-gray-300 text-xs">Address: {{ info.Address }}</div>
-          <div class="text-gray-300 text-xs">Phone: {{ info.Phone }}</div>
+        <div class="w-full text-left">
+          <div class="mb-1 font-bold text-sm md:text-xl">{{ info.name }}</div>
+          <div class="mb-1 text-gray-300 text-xs md:text-lg">
+            <strong class="font-extrabold">Address:</strong> {{ info.Address }}
+          </div>
+          <div class="text-gray-300 text-xs md:text-lg">
+            <strong class="font-bold">Phone:</strong> {{ info.Phone }}
+          </div>
+
         </div>
       </div>
     </div>
-
   </div>
 </template>
 

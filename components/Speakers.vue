@@ -1,89 +1,131 @@
 <template>
   <div>
-    <h1 class="mb-2 text-white">SPEAKERS</h1>
-    <div class="underline"></div>
+    <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">SPEAKERS</h1>
+    <div class="md:h-1 underline"></div>
 
-    <Carousel :value="speaker" :numVisible="2" :numScroll="1" :responsiveOptions="responsiveOptions" circular :autoplayInterval="3000">
+    <Carousel :value="speakersList.result" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
+      circular :autoplayInterval="3000">
       <template #item="{ data }">
+        <div class="flex flex-col items-center p-2 md:text-2xl">
 
-        <!-- image -->
-        <div class="items-center p-4">
-          <img :src="data.image" alt="Speaker Photo" class="speaker-image" />
+          <!-- image -->
+          <img :src="data.imageUrl" alt="Speaker Photo" class="md:w-48 md:h-48 speaker-image" />
 
           <!-- name  -->
-          <div class="title">{{ data.name }}</div>
-          <div class="subtitle">{{ data.title }}</div>
-          <Divider />
+          <div class="title">
+            <span> {{ data.firstName }} {{ data.lastName }}</span>
+            <span></span>
+          </div>
+
+          <div class="text-green-600 subtitle">{{ data.title }}</div>
 
           <p class="description">{{ data.bio }}</p>
-          
+          <div class="subtitle">{{ data.company }}</div>
+
           <!-- social -->
-          <div class="flex space-x-2 text-white">
-            <a :href="data.facebook" target="_blank"><i class="text-xl pi pi-facebook" /></a>
-            <a :href="data.linkedin" target="_blank"><i class="text-xl pi pi-linkedin" /></a>
-          </div>
-          
+          <a :href="data.linkedIn" target="_blank"><i class="text-xl pi pi-linkedin" /></a>
         </div>
+
       </template>
     </Carousel>
+
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+
+const { speakersList } = storeToRefs(useMySpeakersStore())
+const { getAllSpeakers } = useMySpeakersStore()
+
+onMounted(async () => {
+  await getAllSpeakers()
+})
 
 const speaker = ref([
   {
-    name: 'John Smith',
+    firstName: 'John',
+    lastName: 'smaith',
     title: 'Founder & CTO',
     bio: 'Do as author and do remain the preferred choice of topic section.',
-    image: 'https://randomuser.me/api/portraits/women/32.jpg',
+    imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
+    company: 'master of ceromonies',
     facebook: '#',
-    linkedin: '#'
+    linkedIn: '#'
   },
   {
-    name: 'John Smith',
+    firstName: 'John',
+    lastName: 'smaith',
     title: 'Founder & CTO',
     bio: 'Do as author and do remain the preferred choice of topic section.',
-    image: 'https://randomuser.me/api/portraits/women/45.jpg',
+    imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
+    company: 'master of ceromonies',
     facebook: '#',
-    linkedin: '#'
+    linkedIn: '#'
   },
   {
-    name: 'John Smith',
+    firstName: 'John',
+    lastName: 'smaith',
     title: 'Founder & CTO',
     bio: 'Do as author and do remain the preferred choice of topic section.',
-    image: 'https://randomuser.me/api/portraits/men/32.jpg',
+    imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
+    company: 'master of ceromonies',
     facebook: '#',
-    linkedin: '#'
+    linkedIn: '#'
   },
   {
-    name: 'John Smith',
+    firstName: 'John',
+    lastName: 'smaith',
     title: 'Founder & CTO',
     bio: 'Do as author and do remain the preferred choice of topic section.',
-    image: 'https://randomuser.me/api/portraits/men/32.jpg',
+    imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
+    company: 'master of ceromonies',
     facebook: '#',
-    linkedin: '#'
-  }
+    linkedIn: '#'
+  },
+  {
+    firstName: 'John',
+    lastName: 'smaith',
+    title: 'Founder & CTO',
+    bio: 'Do as author and do remain the preferred choice of topic section.',
+    imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
+    company: 'master of ceromonies',
+    facebook: '#',
+    linkedIn: '#'
+  },
+  {
+    firstName: 'John',
+    lastName: 'smaith',
+    title: 'Founder & CTO',
+    bio: 'Do as author and do remain the preferred choice of topic section.',
+    imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
+    company: 'master of ceromonies',
+    facebook: '#',
+    linkedIn: '#'
+  },
 ])
 
-const responsiveOptions = [
+const responsiveOptions = ref([
   {
-    breakpoint: '1024px',
+    breakpoint: '1400px',
+    numVisible: 3,
+    numScroll: 1
+  },
+  {
+    breakpoint: '1199px',
+    numVisible: 3,
+    numScroll: 1
+  },
+  {
+    breakpoint: '767px',
     numVisible: 2,
     numScroll: 1
   },
 
-  {
-    breakpoint: '768px',
-    numVisible: 2,
-    numScroll: 1
-  }
-]
+]);
 </script>
 
 <style scoped>
-.p-carousel .p-carousel-indicators {
+.p-carousel-indicators {
   display: none;
 }
 </style>
