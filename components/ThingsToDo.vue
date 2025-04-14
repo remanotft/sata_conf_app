@@ -4,14 +4,20 @@
     <!-- underline -->
     <div class="underline"></div>
 
+
+    <div class="tab-selector-container">
+
     <!--Things To Do Tab Selector-->
-    <div class="relative flex justify-evenly gap-1 bg-black px-2 py-0.5 rounded-md text-white">
-      <div v-for="(item, index) in categories" :key="index" @click="selected = index"
+    <div 
+    class="md:w-[30rem] text-white text-sm tab-selector">
+    <div v-for="(item, index) in categories" :key="index" @click="selected = index"
         class="px-2 py-2 text-center cursor-pointer">
         <div class="font-semibold"> <span :class="selected === index ? 'text-green-500' : 'text-white'"> {{
           item.name.toUpperCase() }} </span></div>
       </div>
     </div>
+  </div>
+
 
     <!-- Carousel -->
     <Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions"

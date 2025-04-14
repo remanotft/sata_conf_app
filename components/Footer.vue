@@ -1,13 +1,9 @@
 <template>
   <div>
     <footer id="footer">
-      <div class="footer-container">
-        
+      <div class="md:justify-end footer-container">
         <!-- logo -->
-        <div class="logo">
-          <img src="/assets/images/SATA Conference Logo.png" alt="Logo" style="height: 50px;">
-        </div>
-        
+          <img src="/assets/images/Hosted by 1.png" alt="Logo" style="height: 100px;">
       </div>
     </footer>
   </div>

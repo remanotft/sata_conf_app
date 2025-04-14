@@ -5,10 +5,10 @@
     </div>
     <div class="md:h-1 underline"></div>
 
-    <div class="flex justify-center">
+    <div class="tab-selector-container">
       <!-- Tab Selector-->
       <div
-        class="relative flex justify-evenly gap-2 bg-black mb-8 md:p- px-5 py-2 rounded-lg md:w-[30rem] text-white text-sm">
+        class="md:w-[30rem] text-white text-sm tab-selector">
         <div v-for="(day, index) in days" :key="index" @click="selectedDay = index"
           class="px-2 text-center cursor-pointer">
           <div class="font-semibold">

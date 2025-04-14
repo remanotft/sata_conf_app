@@ -21,30 +21,30 @@
           width: '33.33%',
           left: `${selectedDay * 33.33}%`
         }"></div>
-
       </div>
     </div>
 
-      <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="images"
-        :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true"
-        :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" containerStyle="max-width: 100%">
-        <template #item="slotProps">
-          <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
-        </template>
-        <template #thumbnail="slotProps">
-          <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt"  class="thumbnail"/>
-        </template>
-      </Galleria>
-    
-      <div v-if="images" class="gap-4 grid grid-cols-2 md:grid-cols-4" >
-        <div v-for="(image, index) of filteredEvents" :key="index" class="">
-          <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
-        </div>
+    <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredEvents"
+      :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true"
+      :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" containerStyle="max-width: 100%">
+      <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+      </template>
+      <template #thumbnail="slotProps">
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" class="thumbnail"/>
+      </template>
+    </Galleria>
+  
+    <div v-if="images" class="gap-4 grid grid-cols-2 md:grid-cols-4" >
+      <div v-for="(image, index) of filteredEvents" :key="index" class="">
+        <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue';
 
 const images = ref([
   {
@@ -78,92 +78,81 @@ const images = ref([
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
-        day: 'day2',
+    day: 'day2',
     alt: 'Description for Image 5',
     title: 'Title 5'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria6.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria6.jpg',
-        day: 'day2',
-
+    day: 'day2',
     alt: 'Description for Image 6',
     title: 'Title 6'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria7.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria7.jpg',
-        day: 'day2',
-
+    day: 'day2',
     alt: 'Description for Image 7',
     title: 'Title 7'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria8.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria8.jpg',
-        day: 'day2',
-
+    day: 'day2',
     alt: 'Description for Image 8',
     title: 'Title 8'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria9.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria9.jpg',
-        day: 'day2',
-
+    day: 'day2',
     alt: 'Description for Image 9',
     title: 'Title 9'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria10.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria10.jpg',
-        day: 'day2',
-
+    day: 'day2',
     alt: 'Description for Image 10',
     title: 'Title 10'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg',
-        day: 'day3',
-
+    day: 'day3',
     alt: 'Description for Image 11',
     title: 'Title 11'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria12.jpg',
-        day: 'day3',
-
+    day: 'day3',
     alt: 'Description for Image 12',
     title: 'Title 12'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria13.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria13.jpg',
-        day: 'day3',
-
+    day: 'day3',
     alt: 'Description for Image 13',
     title: 'Title 13'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria14.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria14.jpg',
-        day: 'day3',
-
+    day: 'day3',
     alt: 'Description for Image 14',
     title: 'Title 14'
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria15.jpg',
     thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria15.jpg',
-        day: 'day3',
-
+    day: 'day3',
     alt: 'Description for Image 15',
     title: 'Title 15'
   }
 ])
-
 
 const activeIndex = ref(0);
 const responsiveOptions = ref([
@@ -200,9 +189,7 @@ const filteredEvents = computed(() => {
   const currentDayId = days[selectedDay.value].id
   return images.value.filter(image => image.day === currentDayId)
 })
-
 </script>
 
 <style scoped>
-
 </style>
