@@ -35,7 +35,6 @@
         "primeicons": "^7.0.0",
         "primevue": "^4.3.3",
         "sweetalert2": "^11.17.2",
-        "tailwindcss-primeui": "^0.6.1",
         "vue-height-collapsible": "^0.1.1",
         "vue3-perfect-scrollbar": "^2.0.0",
         "vue3-popper": "^1.5.0"

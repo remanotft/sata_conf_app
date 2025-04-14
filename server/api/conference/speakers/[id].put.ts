@@ -3,10 +3,13 @@ export default defineEventHandler(async (event) => {
 	const { apiBase } = useRuntimeConfig();
 	const authorization = getRequestHeader(event, "Authorization");
 	const body = await readBody(event);
+	//@ts-expect-error
+	const { id } = event.context.params;
 
-	const response: any = await $fetch('Speakers', {
-		baseURL: apiBase,
-		method: 'post',
+	const uri = `${apiBase}Speakers/${id}`;
+
+	const respose: any = await $fetch(uri, {
+		method: 'put',
 		//@ts-expect-error
 		headers: {
 			Authorization: authorization,
@@ -15,5 +18,6 @@ export default defineEventHandler(async (event) => {
 		body: body
 	});
 
-	return response;
+	return respose;
+
 });

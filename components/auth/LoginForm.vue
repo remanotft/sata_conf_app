@@ -10,7 +10,7 @@
 		</div>
 		<h2 class="mt-8 text-center text-3xl font-montserrat font-bold leading-9 tracking-tight text-gray-900 lg:pb-4">
 			Login</h2>
-		<form class="card h-96"
+		<form class="card"
 			@submit.prevent="$event => signIn('credentials', { email, password, callbackUrl: '/admin' })">
 			<div class="pt-6">
 				<label for="email" class="block text-sm font-montserrat font-medium leading-6 text-gray-900">Email
@@ -18,7 +18,7 @@
 				<div>
 					<input id="email" name="email" type="email" autocomplete="email" placeholder="name@company.com"
 						required v-model="email"
-						class="block w-96 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+						class="block w-96 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6" />
 				</div>
 			</div>
 			<div class="pt-6">
@@ -33,15 +33,15 @@
 				<div class="mt-2 ">
 					<input id="password" name="password" type="password" autocomplete="current-password" required
 						v-model="password"
-						class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+						class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6" />
 				</div>
 			</div>
 			<div class="px-8 pt-10">
 				<button type="submit"
-					class="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-montserrat font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
+					class="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-montserrat font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Sign
 					in</button>
 			</div>
-			<p class="mt-10 text-center text-base font-montserrat text-gray-500">
+			<p class="mt-10 mb-10 text-center text-base font-montserrat text-gray-500">
 				Not a member?
 				{{ ' ' }}
 				<NuxtLink to="/auth/register"

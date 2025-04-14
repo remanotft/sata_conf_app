@@ -1,3 +1,5 @@
+import Aura from '@primevue/themes/aura';
+
 export default defineNuxtConfig({
     app: {
         head: {
@@ -23,7 +25,7 @@ export default defineNuxtConfig({
             ],
         },
     },
-
+    devtools: { enabled: true },
     css: ['~/assets/css/app.css'],
     postcss: {
         plugins: {
@@ -40,10 +42,15 @@ export default defineNuxtConfig({
         baseURL: process.env.AUTH_ORIGIN
     },
     primevue: {
-        options: {
-            theme: 'none'
-        }
-    },
+		options: {
+			theme: {
+				preset: Aura,
+                options: {
+                    darkModeSelector: false
+                }
+			}
+		}
+	},
     i18n: {
         locales: [
             { code: 'da', file: 'da.json' },
