@@ -1,9 +1,8 @@
 <template>
-  <div class="bg-black px-4 py-8 text-white">
+  <div>
 
     <!-- Title -->
-
-    <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">EMERGENCY INFO</h1>
+    <h1 class="font-extrabold text-white md:text-2xl">EMERGENCY INFO</h1>
     <div class="underline"></div>
 
     <!-- Emergency Info Cards -->
@@ -18,20 +17,18 @@
 
         <!-- Info -->
         <div class="w-full text-left">
-          <div class="mb-1 font-bold text-sm md:text-xl">{{ info.name }}</div>
-          <div class="mb-1 text-gray-300 text-xs md:text-lg">
+          <div class="mb-1 font-bold text-sm md:text-base">{{ info.name }}</div>
+          <div class="mb-1 text-gray-300 text-xs md:text-sm">
             <strong class="font-extrabold">Address:</strong> {{ info.Address }}
           </div>
-          <div class="text-gray-300 text-xs md:text-lg">
+          <div class="text-gray-300 text-xs md:text-sm">
             <strong class="font-bold">Phone:</strong> {{ info.Phone }}
           </div>
-
         </div>
       </div>
     </div>
   </div>
 </template>
-
 
 <script setup lang="ts">
 const emergencyInfo = [

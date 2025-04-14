@@ -25,28 +25,32 @@
     </div>
 
     <div class="pt-20">
-      <h1 class="p-4 font-extrabold text-2xl md:text-3xl">Content Bites</h1>
-      <div class="bg-gray-200 mx-4 md:mx-6 h-1"></div>
+
+      <div class="flex justify-center mb-2">
+        <h1 class="font-extrabold md:font-extrabold md:text-3xl">CONTENT BITES</h1>
+      </div>
+
+      <div class="underline"></div>
 
       <!-- Video Carousel -->
       <Carousel :value="videos" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
-        class="video-carousel" :showIndicators="true">
+        class="mx-auto px-4 md:px-0 max-w-5xl video-carousel" :showIndicators="true">
         <template #item="{ data }">
-          <div class="p-2 md:p-4">
-            <div class="md:w-96 h-96 video-wrapper">
-              <iframe class="shadow-md rounded-lg video-container" :src="data.embedUrl" frameborder="0"
+          <div class="p-2 md:p-6">
+            <div class="shadow-md rounded-lg overflow-hidden video-wrapper">
+              <iframe class="video-container" :src="data.embedUrl" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             </div>
-            <h3 class="mt-3 md:mt-4 font-medium text-lg text-center">{{ data.title }}</h3>
+            <h3 class="mt-3 md:mt-5 font-medium text-lg text-center">{{ data.title }}</h3>
           </div>
         </template>
       </Carousel>
 
 
       <div class="flex justify-center">
-      <NuxtLink to="/media-hub" class="m-4 btn">See Full Media</NuxtLink>
-    </div>
+        <NuxtLink to="/content-bites" class="m-4 btn">See Full Media</NuxtLink>
+      </div>
 
     </div>
 
@@ -79,8 +83,8 @@ const images = ref([
 // Video data
 const videos = ref([
   {
-    url: 'https://www.youtube.com/watch?v=kmiSdKYNDQk',
-    embedUrl: 'https://www.youtube.com/embed/kmiSdKYNDQk',
+    url: 'https://www.youtube.com/watch?v=uvrpzdaQQ8Y',
+    embedUrl: 'https://www.youtube.com/embed/uvrpzdaQQ8Y',
     title: 'Video 1'
   },
   {
@@ -119,7 +123,8 @@ const responsiveOptions = ref([
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
 }
 
 .video-container {
@@ -129,6 +134,7 @@ const responsiveOptions = ref([
   width: 100%;
   height: 100%;
 }
+
 
 
 </style>

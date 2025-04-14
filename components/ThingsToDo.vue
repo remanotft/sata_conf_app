@@ -18,16 +18,25 @@
     </div>
   </div>
 
-
-    <!-- Carousel -->
-    <Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions"
-      :autoplayInterval="3000">
+  <!-- Carousel -->
+  <Carousel 
+      :value="filteredThings" 
+      :numVisible="3" 
+      :numScroll="1" 
+      circular 
+      :responsiveOptions="responsiveOptions"
+      :autoplayInterval="3000"
+    >
       <template #item="slotProps">
         <div class="p-2 sm:p-3 md:p-4">
           <div class="bg-white shadow-md rounded-lg overflow-hidden">
             <div class="mb-3">
               <div class="w-full">
-                <img :src="slotProps.data.img" :alt="slotProps.data.name" class="w-full h-40 md:h-48 object-cover" />
+                <img 
+                  :src="slotProps.data.img" 
+                  :alt="slotProps.data.name" 
+                  class="rounded-t-lg w-full h-40 md:h-48 object-cover" 
+                />
               </div>
             </div>
             <div class="p-3 md:p-4">
@@ -44,7 +53,6 @@
 
   </div>
 </template>
-
 <script setup>
 const selected = ref(0);
 

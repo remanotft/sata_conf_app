@@ -26,23 +26,31 @@
       <Speakers />
     </section>
 
-    <!-- Things to do -->
-    <section id="things-to-do" class="py-20">
-      <ThingsToDo />
-    </section>
-
     <!-- media Hub -->
     <section id="media-hub" class="py-20">
       <MediaHub />
     </section>
 
-    <!-- emergency info -->
-    <section id="emergency-info" class="py-20">
-      <EmergencyInfo />
+
+    <section id="exhibitors" class="py-20">
+      EXHIBIT
     </section>
+
+
+
+    <!-- emergency info -->
+    <!-- <section id="emergency-info" class="py-20">
+      <EmergencyInfo />
+    </section> -->
 
     <section id="sponsors" class="py-20">
       <Sponsors />
+    </section>
+
+
+    <!-- Things to do -->
+    <section id="things-to-do" class="py-20">
+      <ThingsToDo />
     </section>
 
     <div id="footer" class="py-20">

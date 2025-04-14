@@ -4,9 +4,7 @@
       <MediaHubGallery />
     </div>
 
-    <div id="media-hub-video" class="p-8">
-      <MediaHubVideo />
-    </div>
+  
   </div>
 </template>
 

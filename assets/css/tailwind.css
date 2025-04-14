@@ -1011,6 +1011,23 @@ h1{
       }
 
 
+
+      #emergency-info{
+        background-color: #000;
+        padding-left: 1rem /* 16px */;
+    padding-right: 1rem /* 16px */;
+    color: #fff
+      }
+
+      #sponsors{
+        position: relative;
+        padding-top: 3rem /* 48px */;
+        padding-bottom: 3rem /* 48px */;
+        text-align: center;
+color: #fff;
+background-color: #000;
+      }
+
       #media-gallery {
         display: flex;
         justify-content: center;

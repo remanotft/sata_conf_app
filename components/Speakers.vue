@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">SPEAKERS</h1>
+    <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">Meet Our Speakers</h1>
     <div class="md:h-1 underline"></div>
 
     <Carousel :value="speakersList.result" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
