@@ -112,7 +112,6 @@ export const useMySpeakersStore = defineStore("mySpeakersStore", () => {
 				}
 			}
 		})
-
 	}
 
 	const createSpeaker = async () => {

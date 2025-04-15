@@ -50,6 +50,14 @@
 					<Column field="participants" header="Participants" style="min-width: 10rem"
 						class="font-montserrat font-medium">
 					</Column>
+					<Column style="min-width: 4rem">
+						<template #body="slotProps">
+							<div class=" cursor-pointer">
+								<i @click="deleteAgendaItem(slotProps.data.id)"
+									class="pi pi-trash text-red-700 hover:text-red-500"></i>
+							</div>
+						</template>
+					</Column>
 				</DataTable>
 			</div>
 		</Panel>
@@ -60,41 +68,44 @@
 		<Dialog v-model:visible="agendaAddModalVisible" modal header="Add Speaker" :style="{ width: '40rem' }"
 			style="--p-dialog-border-radius: 0">
 			<form @submit.prevent="createAgendaItem" class="space-y-6" action="">
-				<div class="grid gap-6 mb-6 md:grid-cols-2">
-					<div>
-						<label for="day" class="block mb-2 text-sm font-bold text-gray-900">
+				<div class="grid gap-6 mb-6 md:grid-cols-3 items-center">
+					<div class="col-span-1">
+						<label for="day" class="block mb-2 text-base font-bold text-gray-900">
 							Day
 						</label>
 						<Select v-model="day" :options="AgendaDays" optionLabel="name" optionValue="name"
-							class="w-40 h-10" />
+							class="w-40 h-10 text-base" />
+					</div>
+					<div class="col-span-2">
+						<span class=" text-base font-bold text-gray-900">Date:</span> {{ setDate }}
 					</div>
 				</div>
-				<div>
+				<!-- <div>
 					<FloatLabel variant="in">
 						<DatePicker class="w-96 text-xs" v-model="date" inputId="over_label" showIcon
 							iconDisplay="input" dateFormat="yy-mm-dd" />
 						<label for="over_label">Date</label>
 					</FloatLabel>
-				</div>
+				</div> -->
 				<div class="grid gap-6 mb-6 md:grid-cols-2">
 					<div class="flex-auto">
-						<label for="datepicker-12h" class="font-bold text-sm block mb-2"> Start Time </label>
+						<label for="datepicker-12h" class="font-bold text-base block mb-2"> Start Time </label>
 						<DatePicker id="datepicker-12h" v-model="startTime" timeOnly fluid />
 					</div>
 					<div class="flex-auto">
-						<label for="datepicker-12h" class="font-bold text-sm block mb-2"> End Time </label>
+						<label for="datepicker-12h" class="font-bold text-base block mb-2"> End Time </label>
 						<DatePicker id="datepicker-12h" v-model="endTime" timeOnly fluid />
 					</div>
 				</div>
 				<div class="grid grid-cols-5 gap-10">
 					<div class="col-span-4">
-						<label for="linkedIn" class="block mb-2 text-sm font-bold text-gray-900">
+						<label for="linkedIn" class="block mb-2 text-base font-bold text-gray-900">
 							Activity
 						</label>
 						<InputText type="text" v-model="activity" class="w-full" required />
 					</div>
 					<div class="col-span-1">
-						<label for="linkedIn" class="block mb-2 text-sm font-bold text-gray-900">
+						<label for="linkedIn" class="block mb-2 text-base font-bold text-gray-900">
 							Break?
 						</label>
 						<Checkbox v-model="isBreak" binary />
@@ -102,7 +113,7 @@
 				</div>
 				<div>
 					<div>
-						<label for="linkedIn" class="block mb-2 text-sm font-bold text-gray-900">
+						<label for="linkedIn" class="block mb-2 text-base font-bold text-gray-900">
 							Participants
 						</label>
 						<Textarea type="text" v-model="participants" class="w-full" required />
@@ -124,8 +135,8 @@ definePageMeta({
 });
 
 const { assignUserData } = useMyAuthStore();
-const { showEditAgendaModal, showAddAgentModal, createAgendaItem, getAgendaItems } = useMyAgendaStore();
-const { agendaAddModalVisible, agendaEditModalVisible, day, date, startTime, endTime, duration, isBreak, activity, participants, splitParticipants, agendaList } = storeToRefs(useMyAgendaStore());
+const { showEditAgendaModal, showAddAgentModal, createAgendaItem, getAgendaItems, deleteAgendaItem } = useMyAgendaStore();
+const { agendaAddModalVisible, agendaEditModalVisible, day, date, startTime, endTime, duration, isBreak, activity, participants, splitParticipants, agendaList, setDate } = storeToRefs(useMyAgendaStore());
 
 onMounted(async () => {
 	assignUserData();
