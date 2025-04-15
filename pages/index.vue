@@ -1,7 +1,7 @@
 <template>
   <div class="pb-32">
     <!-- HEADER -->
-    <div>
+    <div id="header">
       <Header />
     </div>
 
