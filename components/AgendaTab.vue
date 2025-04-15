@@ -6,6 +6,7 @@
     <div class="md:h-1 underline"></div>
 
     <div class="tab-selector-container">
+      
       <!-- Tab Selector-->
       <div
         class="md:w-[30rem] text-white text-sm tab-selector">
@@ -29,7 +30,7 @@
 
     <!-- Content -->
     <div class="mt-5">
-      <div class="gap-4 md:px-72 schedule-list">
+      <div class="gap-4 md:gap-16 md:px-72 schedule-list">
         <div v-for="(item, index) in filteredEvents" :key="index" class="schedule-card">
 
           <!-- Header -->
@@ -55,7 +56,7 @@
             <div class="info-block text-xs">
               <span class="font-medium md:text-lg info-label">Participants:</span>
               <ul class="participants-list">
-                <li v-for="(participant, pIndex) in item.participants" :key="pIndex" class="text-xs md:text-lg">
+                <li v-for="(participant, pIndex) in item.participants" :key="pIndex" class="p-10 text-xs md:text-lg">
                   {{ participant }}
                 </li>
               </ul>
@@ -79,8 +80,6 @@ onMounted(async () => {
   await getAgendaItems()
 })
 
-
-
 // Days data 
 const selectedDay = ref(0)
 const days = [
@@ -89,75 +88,75 @@ const days = [
   { number: '03', date: 'April 19', id: 'day3' }
 ]
 
-const allEvents = ref([
-  // Day 1 Events
-  {
-    id: 1,
-    day: 'day1',
-    startTime: "08:00 AM",
-    endTime: "09:00 AM",
-    activity: "Delegates Registration",
-    participants: ["Openserve Events Team", "Reception Staff", "Security Team"]
-  },
-  {
-    id: 2,
-    day: 'day1',
-    startTime: "09:00 AM",
-    endTime: "10:00 AM",
-    activity: "Opening Keynote",
-    participants: ["CEO - Openserve", "CTO - Openserve"]
-  },
-  {
-    id: 3,
-    day: 'day1',
-    startTime: "10:30 AM",
-    endTime: "12:00 PM",
-    activity: "Panel Discussion",
-    participants: ["Moderator - Jane Smith", "Panelist - John Doe", "Panelist - Alex Johnson", "Panelist - Sarah Williams"]
-  },
-  {
-    id: 4,
-    day: 'day1',
-    startTime: "10:30 AM",
-    endTime: "12:00 PM",
-    activity: "Panel Discussion",
-    participants: ["Moderator - Jane Smith", "Panelist - John Doe", "Panelist - Alex Johnson", "Panelist - Sarah Williams"]
-  },
-  // Day 2 Events
-  {
-    id: 5,
-    day: 'day2',
-    startTime: "09:00 AM",
-    endTime: "10:30 AM",
-    activity: "Technical Workshop",
-    participants: ["Lead Engineer - Mark Davis", "Product Manager - Lisa Wong"]
-  },
-  {
-    id: 6,
-    day: 'day2',
-    startTime: "11:00 AM",
-    endTime: "12:30 PM",
-    activity: "Future Trends Presentation",
-    participants: ["Industry Analyst - Robert Chen", "Head of Innovation - Emily Parker"]
-  },
-  // Day 3 Events
-  {
-    id: 7,
-    day: 'day3',
-    startTime: "09:30 AM",
-    endTime: "11:00 AM",
-    activity: "Closing Remarks",
-    participants: ["CEO - Openserve", "Board Chairman - Michael Johnson"]
-  },
-  {
-    id: 8,
-    day: 'day3',
-    startTime: "11:30 AM",
-    endTime: "01:00 PM",
-    activity: "Networking Lunch",
-    participants: ["All Attendees"]
-  }
-])
+// const allEvents = ref([
+//   // Day 1 Events
+//   {
+//     id: 1,
+//     day: 'day1',
+//     startTime: "08:00 AM",
+//     endTime: "09:00 AM",
+//     activity: "Delegates Registration",
+//     participants: ["Openserve Events Team", "Reception Staff", "Security Team"]
+//   },
+//   {
+//     id: 2,
+//     day: 'day1',
+//     startTime: "09:00 AM",
+//     endTime: "10:00 AM",
+//     activity: "Opening Keynote",
+//     participants: ["CEO - Openserve", "CTO - Openserve"]
+//   },
+//   {
+//     id: 3,
+//     day: 'day1',
+//     startTime: "10:30 AM",
+//     endTime: "12:00 PM",
+//     activity: "Panel Discussion",
+//     participants: ["Moderator - Jane Smith", "Panelist - John Doe", "Panelist - Alex Johnson", "Panelist - Sarah Williams"]
+//   },
+//   {
+//     id: 4,
+//     day: 'day1',
+//     startTime: "10:30 AM",
+//     endTime: "12:00 PM",
+//     activity: "Panel Discussion",
+//     participants: ["Moderator - Jane Smith", "Panelist - John Doe", "Panelist - Alex Johnson", "Panelist - Sarah Williams"]
+//   },
+//   // Day 2 Events
+//   {
+//     id: 5,
+//     day: 'day2',
+//     startTime: "09:00 AM",
+//     endTime: "10:30 AM",
+//     activity: "Technical Workshop",
+//     participants: ["Lead Engineer - Mark Davis", "Product Manager - Lisa Wong"]
+//   },
+//   {
+//     id: 6,
+//     day: 'day2',
+//     startTime: "11:00 AM",
+//     endTime: "12:30 PM",
+//     activity: "Future Trends Presentation",
+//     participants: ["Industry Analyst - Robert Chen", "Head of Innovation - Emily Parker"]
+//   },
+//   // Day 3 Events
+//   {
+//     id: 7,
+//     day: 'day3',
+//     startTime: "09:30 AM",
+//     endTime: "11:00 AM",
+//     activity: "Closing Remarks",
+//     participants: ["CEO - Openserve", "Board Chairman - Michael Johnson"]
+//   },
+//   {
+//     id: 8,
+//     day: 'day3',
+//     startTime: "11:30 AM",
+//     endTime: "01:00 PM",
+//     activity: "Networking Lunch",
+//     participants: ["All Attendees"]
+//   }
+// ])
 
 //  filters events based on selected day
 const filteredEvents = computed(() => {
@@ -166,6 +165,20 @@ const filteredEvents = computed(() => {
 })
 
 
+const allEvents = computed(() => {
+  if (!agendaList.value || !agendaList.value.result) return []
+  
+  return agendaList.value.result.map(item => {
+    return {
+      id: item.id,
+      day: `day${item.day.replace('Day ', '')}`, // Convert "Day 1" to "day1"
+      startTime: item.startTime,
+      endTime: item.endTime,
+      activity: item.actvity,
+      participants: item.participants.replace(/^\{\[|\]\}$/g, '').split(',')
+    }
+  })
+})
 
 
 // // Mapping agenda data to days array

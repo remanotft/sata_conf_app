@@ -1,5 +1,6 @@
 <template>
-  <div class="pb-32">
+  <div class="bg-white pb-32">
+
     <!-- HEADER -->
     <div id="header">
       <Header />
@@ -7,8 +8,8 @@
 
     <!-- Hero Section -->
     <section id="hero-section">
-      <img src="/assets/images/final/Openserve SATA - Mobile.png" alt="Hero image" class="hero-image mobile-hero">
-      <img src="/assets/images/final/Openserve SATA - Desktop.png" alt="Hero image" class="hero-image desktop-hero">
+      <img src="/assets/images/final/Openserve SATA - Mobile.png" alt="Hero image" class="mobile-hero">
+      <img src="/assets/images/final/Openserve SATA - Desktop.png" alt="Hero image" class="desktop-hero">
     </section>
 
     <!-- Agenda -->
@@ -21,23 +22,28 @@
       <ConferenceMap />
     </section>
 
+    
     <!-- Speakers -->
     <section id="speakers" class="py-20">
       <Speakers />
     </section>
 
-    <!-- media Hub -->
-    <section id="media-hub" class="py-20">
-      <MediaHub />
-    </section>
-
+    <!-- Exhibitors -->
     <section id="exhibitors" class="py-10">
       <Exhibitors />
     </section>
 
+    <!-- Sponsors -->
     <section id="sponsors" class="py-20">
       <Sponsors />
     </section>
+
+
+    <!-- media Hub -->
+    <section id="media-hub" class="pt-20">
+      <MediaHub />
+    </section>
+
 
     <!-- Things to do -->
     <section id="things-to-do" class="py-20">
@@ -49,7 +55,7 @@
       <EmergencyInfo />
     </section>
 
-    <div id="footer" class="">
+    <div id="footer">
       <Footer />
     </div>
 

@@ -2,10 +2,19 @@
   <div>
     <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">Meet Our Speakers</h1>
     <div class="md:h-1 underline"></div>
+  <div class="">
+
+    <img
+      src="/assets/images/final/speaker Banner.png"
+      alt="handshake background"
+      class="green-overlay"
+    />
 
     <Carousel :value="speakersList.result" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
-      circular :autoplayInterval="3000">
+      circular :autoplayInterval="3000" >
       <template #item="{ data }">
+ 
+
         <div class="flex flex-col items-center p-2 md:text-2xl">
 
           <!-- image -->
@@ -28,6 +37,9 @@
 
       </template>
     </Carousel>
+
+  </div>
+
 
   </div>
 </template>
@@ -127,4 +139,17 @@ const responsiveOptions = ref([
 .p-carousel-indicators {
   display: none;
 }
+
+
+.green-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+
 </style>
