@@ -11,7 +11,7 @@
 		<h2 class="mt-8 text-center text-3xl font-montserrat font-bold leading-9 tracking-tight text-gray-900 lg:pb-4">
 			Login</h2>
 		<form class="card"
-			@submit.prevent="$event => signIn('credentials', { email, password, callbackUrl: '/admin' })">
+			@submit.prevent="$event => signIn('credentials', { email, password, callbackUrl: '/admin/agenda' })">
 			<div class="pt-6">
 				<label for="email" class="block text-sm font-montserrat font-medium leading-6 text-gray-900">Email
 					address</label>
@@ -33,7 +33,7 @@
 				<div class="mt-2 ">
 					<input id="password" name="password" type="password" autocomplete="current-password" required
 						v-model="password"
-						class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6" />
+						class="block w-96 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6" />
 				</div>
 			</div>
 			<div class="px-8 pt-10">

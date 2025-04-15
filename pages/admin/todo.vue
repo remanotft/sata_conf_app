@@ -18,10 +18,10 @@
 				</Breadcrumb>
 			</div>
 
-			<div class="md:flex justify-between items-center pt-4 px-12">
-				<h2 style="font-size: x-large; font-weight: 650;">THINGS TO DO</h2>
+			<div class="flex justify-between items-center pt-4 md:px-12">
+				<h2 style="font-size: x-large; font-weight: 650;">TO DO</h2>
 				<button @click="showAddToDoItemModal"
-					class="w-52 h-10 text-white font-montserrat font-semibold bg-black">Add
+					class="w-36 md:w-52 h-8 md:h-10 text-white text-xs md:text-sm font-montserrat font-semibold bg-black">Add
 					Things To Do</button>
 			</div>
 
@@ -132,7 +132,8 @@
 
 <script lang="ts" setup>
 definePageMeta({
-	layout: 'admin'
+	layout: 'admin',
+	middleware: ['auth-user']
 });
 
 const { assignUserData } = useMyAuthStore();
