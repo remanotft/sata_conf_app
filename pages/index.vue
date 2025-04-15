@@ -22,7 +22,6 @@
       <ConferenceMap />
     </section>
 
-    
     <!-- Speakers -->
     <section id="speakers" class="py-20">
       <Speakers />
@@ -38,12 +37,10 @@
       <Sponsors />
     </section>
 
-
     <!-- media Hub -->
     <section id="media-hub" class="pt-20">
       <MediaHub />
     </section>
-
 
     <!-- Things to do -->
     <section id="things-to-do" class="py-20">

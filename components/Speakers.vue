@@ -2,44 +2,32 @@
   <div>
     <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">Meet Our Speakers</h1>
     <div class="md:h-1 underline"></div>
-  <div class="">
+    <div class="relative bg-cover bg-no-repeat bg-center speaker-carousel-wrapper">
+  <div class="z-0 absolute inset-0 bg-black/60"></div> 
 
-    <img
-      src="/assets/images/final/speaker Banner.png"
-      alt="handshake background"
-      class="green-overlay"
-    />
-
-    <Carousel :value="speakersList.result" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
-      circular :autoplayInterval="3000" >
-      <template #item="{ data }">
- 
-
-        <div class="flex flex-col items-center p-2 md:text-2xl">
-
-          <!-- image -->
-          <img :src="data.imageUrl" alt="Speaker Photo" class="md:w-48 md:h-48 speaker-image" />
-
-          <!-- name  -->
-          <div class="title">
-            <span> {{ data.firstName }} {{ data.lastName }}</span>
-            <span></span>
-          </div>
-
-          <div class="text-green-600 subtitle">{{ data.title }}</div>
-
-          <p class="description">{{ data.bio }}</p>
-          <div class="subtitle">{{ data.company }}</div>
-
-          <!-- social -->
-          <a :href="data.linkedIn" target="_blank"><i class="text-xl pi pi-linkedin" /></a>
+  <Carousel
+    :value="speakersList.result"
+    :numVisible="3"
+    :numScroll="1"
+    :responsiveOptions="responsiveOptions"
+    circular
+    :autoplayInterval="3000"
+    class="z-10 relative"
+  >
+    <template #item="{ data }">
+      <div class="flex flex-col items-center p-2 md:text-2xl">
+        <img :src="data.imageUrl" alt="Speaker Photo" class="md:w-48 md:h-48 speaker-image" />
+        <div class="title">
+          <span>{{ data.firstName }} {{ data.lastName }}</span>
         </div>
-
-      </template>
-    </Carousel>
-
-  </div>
-
+        <div class="text-green-600 subtitle">{{ data.title }}</div>
+        <p class="description">{{ data.bio }}</p>
+        <div class="subtitle">{{ data.company }}</div>
+        <a :href="data.linkedIn" target="_blank"><i class="text-xl pi pi-linkedin" /></a>
+      </div>
+    </template>
+  </Carousel>
+</div>
 
   </div>
 </template>
@@ -138,17 +126,6 @@ const responsiveOptions = ref([
 <style scoped>
 .p-carousel-indicators {
   display: none;
-}
-
-
-.green-overlay {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.3;
-  z-index: 0;
 }
 
 

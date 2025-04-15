@@ -1,14 +1,8 @@
 <template>
-  <div class="sponsor-section">
-    <!-- Background overlay image -->
-    <img
-      src="/assets/images/final/Green overlay.png"
-      alt="handshake background"
-      class="green-overlay"
-    />
+  <div class="relative sponsor-section-with-bg">
+    <div class="z-0 absolute inset-0 bg-black/40"></div>
 
-    <!-- Foreground content -->
-    <div class="sponsor-content">
+    <div class="relative sponsor-content">
       <h2 class="section-title">TRUSTED BY SPONSORS</h2>
 
       <div class="logos-grid">
@@ -26,64 +20,6 @@
 </template>
 
 <style scoped>
-.sponsor-section {
-  position: relative;
-  overflow: hidden;
-  padding: 2rem;
-  text-align: center;
-}
 
-.green-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.5;
-  z-index: 0;
-}
-
-.sponsor-content {
-  position: relative;
-  z-index: 1;
-}
-
-.section-title {
-  margin-bottom: 2rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.logos-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  justify-items: center;
-  align-items: center;
-}
-
-.logo {
-  position: relative;
-  height: 2rem;
-  filter: grayscale(1);
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.logo::after {
-  background-color: #16B14B;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.logo:hover {
-  filter: grayscale(0);
-  opacity: 1;
-}
-
-.logo:hover::after {
-  opacity: 0.4;
-}
 
 </style>

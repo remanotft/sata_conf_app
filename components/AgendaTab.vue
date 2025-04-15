@@ -6,33 +6,30 @@
     <div class="md:h-1 underline"></div>
 
     <div class="tab-selector-container">
-      
       <!-- Tab Selector-->
-      <div
-        class="md:w-[30rem] text-white text-sm tab-selector">
-        <div v-for="(day, index) in days" :key="index" @click="selectedDay = index"
+      <div class="md:w-[30rem] text-white text-sm tab-selector">
+        <div v-for="(day, index) in uniqueDays" :key="index" @click="selectedDay = index"
           class="px-2 text-center cursor-pointer">
           <div class="font-semibold">
-            <span class="md:text-xl" :class="selectedDay === index ? 'text-green-500' : 'text-white'"> DAY {{ day.number
-              }} </span>
+            <span class="md:text-xl" :class="selectedDay === index ? 'text-green-500' : 'text-white'">
+              DAY {{ day.dayNumber }}
+            </span>
           </div>
-          <div class="mt-0.5 text-white text-xs">{{ day.date }}</div>
+          <div class="mt-0.5 text-white text-xs">{{ day.formattedDate }}</div>
         </div>
 
         <!-- Green Indicator -->
         <div class="bottom-0 absolute bg-green-500 h-1 transition-all duration-300" :style="{
-          width: '33.33%',
-          left: `${selectedDay * 33.33}%`
+          width: `${100/uniqueDays.length}%`,
+          left: `${selectedDay * (100/uniqueDays.length)}%`
         }"></div>
-
       </div>
     </div>
 
-    <!-- Content -->
+    <!-- Content section remains the same -->
     <div class="mt-5">
       <div class="gap-4 md:gap-16 md:px-72 schedule-list">
         <div v-for="(item, index) in filteredEvents" :key="index" class="schedule-card">
-
           <!-- Header -->
           <div class="schedule-header">
             <h2 class="font-medium text-sm md:text-lg schedule-title">{{ item.activity.toUpperCase() }}</h2>
@@ -68,133 +65,63 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script setup>
-const {agendaList} = storeToRefs(useMyAgendaStore())
-const {getAgendaItems} = useMyAgendaStore()
+const { agendaList } = storeToRefs(useMyAgendaStore())
+const { getAgendaItems } = useMyAgendaStore()
 
 onMounted(async () => {
   await getAgendaItems()
 })
 
-// Days data 
 const selectedDay = ref(0)
-const days = [
-  { number: '01', date: 'April 17', id: 'day1' },
-  { number: '02', date: 'April 18', id: 'day2' },
-  { number: '03', date: 'April 19', id: 'day3' }
-]
 
-// const allEvents = ref([
-//   // Day 1 Events
-//   {
-//     id: 1,
-//     day: 'day1',
-//     startTime: "08:00 AM",
-//     endTime: "09:00 AM",
-//     activity: "Delegates Registration",
-//     participants: ["Openserve Events Team", "Reception Staff", "Security Team"]
-//   },
-//   {
-//     id: 2,
-//     day: 'day1',
-//     startTime: "09:00 AM",
-//     endTime: "10:00 AM",
-//     activity: "Opening Keynote",
-//     participants: ["CEO - Openserve", "CTO - Openserve"]
-//   },
-//   {
-//     id: 3,
-//     day: 'day1',
-//     startTime: "10:30 AM",
-//     endTime: "12:00 PM",
-//     activity: "Panel Discussion",
-//     participants: ["Moderator - Jane Smith", "Panelist - John Doe", "Panelist - Alex Johnson", "Panelist - Sarah Williams"]
-//   },
-//   {
-//     id: 4,
-//     day: 'day1',
-//     startTime: "10:30 AM",
-//     endTime: "12:00 PM",
-//     activity: "Panel Discussion",
-//     participants: ["Moderator - Jane Smith", "Panelist - John Doe", "Panelist - Alex Johnson", "Panelist - Sarah Williams"]
-//   },
-//   // Day 2 Events
-//   {
-//     id: 5,
-//     day: 'day2',
-//     startTime: "09:00 AM",
-//     endTime: "10:30 AM",
-//     activity: "Technical Workshop",
-//     participants: ["Lead Engineer - Mark Davis", "Product Manager - Lisa Wong"]
-//   },
-//   {
-//     id: 6,
-//     day: 'day2',
-//     startTime: "11:00 AM",
-//     endTime: "12:30 PM",
-//     activity: "Future Trends Presentation",
-//     participants: ["Industry Analyst - Robert Chen", "Head of Innovation - Emily Parker"]
-//   },
-//   // Day 3 Events
-//   {
-//     id: 7,
-//     day: 'day3',
-//     startTime: "09:30 AM",
-//     endTime: "11:00 AM",
-//     activity: "Closing Remarks",
-//     participants: ["CEO - Openserve", "Board Chairman - Michael Johnson"]
-//   },
-//   {
-//     id: 8,
-//     day: 'day3',
-//     startTime: "11:30 AM",
-//     endTime: "01:00 PM",
-//     activity: "Networking Lunch",
-//     participants: ["All Attendees"]
-//   }
-// ])
-
-//  filters events based on selected day
-const filteredEvents = computed(() => {
-  const currentDayId = days[selectedDay.value].id
-  return allEvents.value.filter(event => event.day === currentDayId)
-})
-
-
-const allEvents = computed(() => {
-  if (!agendaList.value || !agendaList.value.result) return []
+const uniqueDays = computed(() => {
+  if (!agendaList.value?.result) return []
   
-  return agendaList.value.result.map(item => {
-    return {
-      id: item.id,
-      day: `day${item.day.replace('Day ', '')}`, // Convert "Day 1" to "day1"
-      startTime: item.startTime,
-      endTime: item.endTime,
-      activity: item.actvity,
-      participants: item.participants.replace(/^\{\[|\]\}$/g, '').split(',')
+  // Get unique day entries
+  const dayMap = new Map()
+  
+  agendaList.value.result.forEach(item => {
+    const dayNumber = item.day.replace('Day ', '')
+    
+    if (!dayMap.has(dayNumber)) {
+      // Format the date (2025-04-14 → April 14)
+      const date = new Date(item.date)
+      const formattedDate = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
+      
+      dayMap.set(dayNumber, {
+        dayNumber,
+        formattedDate,
+        dayId: `day${dayNumber}`
+      })
     }
   })
+  
+  return Array.from(dayMap.values())
+    .sort((a, b) => parseInt(a.dayNumber) - parseInt(b.dayNumber))
 })
 
+const allEvents = computed(() => {
+  if (!agendaList.value?.result) return []
+  
+  return agendaList.value.result.map(item => ({
+    id: item.id,
+    day: `day${item.day.replace('Day ', '')}`,
+    startTime: item.startTime,
+    endTime: item.endTime,
+    activity: item.actvity,
+    participants: item.participants.replace(/^\{\[|\]\}$/g, '').split(',')
+  }))
+})
 
-// // Mapping agenda data to days array
-// const days = computed(() => {
-//   return agenda.value.map((event, index) => ({
-//     number: (index + 1).toString().padStart(2, '0'),
-//     date: new Date(event.date).toLocaleDateString(),
-//     id: `day${index + 1}`,
-//   }));
-// });
-
-// // Filtering events based on selected day
-// const filteredEvents = computed(() => {
-//   const currentDayId = days.value[selectedDay.value]?.id;
-//   return agenda.value.filter(event => event.day === currentDayId);
-// });
-
-
+// Filter events for the selected day
+const filteredEvents = computed(() => {
+  if (uniqueDays.value.length === 0) return []
+  
+  const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
+  return allEvents.value.filter(event => event.day === currentDayId)
+})
 </script>
