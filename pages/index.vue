@@ -7,12 +7,12 @@
 
     <!-- Hero Section -->
     <section id="hero-section">
-      <img src="/assets/images/final/SATA - Mobile Hero Section.png" alt="Hero image" class="hero-image mobile-hero">
-      <img src="/assets/images/final/SATA - Desktop Hero Section_.png" alt="Hero image" class="hero-image desktop-hero">
+      <img src="/assets/images/final/Openserve SATA - Mobile.png" alt="Hero image" class="hero-image mobile-hero">
+      <img src="/assets/images/final/Openserve SATA - Desktop.png" alt="Hero image" class="hero-image desktop-hero">
     </section>
 
     <!-- Agenda -->
-    <section id="agenda" class="md:gap-4 md:grid md:grid-cols-2 p-4">
+    <section id="agenda" class="md:gap-4 md:grid md:grid-cols-2">
       <AgendaTab />
     </section>
 
@@ -31,8 +31,7 @@
       <MediaHub />
     </section>
 
-
-    <section id="exhibitors" class="py-20">
+    <section id="exhibitors" class="py-10">
       <Exhibitors />
     </section>
 
@@ -40,20 +39,17 @@
       <Sponsors />
     </section>
 
-
     <!-- Things to do -->
     <section id="things-to-do" class="py-20">
       <ThingsToDo />
     </section>
-    
 
     <!-- emergency info -->
     <section id="emergency-info" class="py-20">
       <EmergencyInfo />
     </section>
 
-
-    <div id="footer" class="mt-4">
+    <div id="footer" class="">
       <Footer />
     </div>
 

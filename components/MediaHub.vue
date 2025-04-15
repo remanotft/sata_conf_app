@@ -47,7 +47,6 @@
         </template>
       </Carousel>
 
-
       <div class="flex justify-center">
         <NuxtLink to="/content-bites" class="m-4 btn">See Full Media</NuxtLink>
       </div>
@@ -65,7 +64,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Rename modules to avoid Vue warnings about component naming
 const SwiperEffectCoverflow = EffectCoverflow;
 const SwiperNavigation = Navigation;
 const SwiperPagination = Pagination;

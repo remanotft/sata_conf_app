@@ -1,33 +1,48 @@
 <template>
   <div>
     <h2 class="mb-8 font-semibold text-xl">TRUSTED BY SPONSORS</h2>
-    
+
     <div class="z-10 relative justify-items-center items-center gap-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 px-4">
-      <img 
-        v-for="(logo, index) in logos" 
-        :key="index" 
-        :src="logo.src" 
-        :alt="logo.alt" 
+      <img
+        src="/assets/images/final/appcues.png"
+        alt="Appcues"
+        class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
+      <img
+        src="/assets/images/final/appcues.png"
+        alt="Insightly"
+        class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
+      <img
+        src="/assets/images/final/codeship.png"
+        alt="Codeship"
+        class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
+      <img
+        src="/assets/images/final/instapage.png"
+        alt="Instapage"
+        class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
+      <img
+        src="/assets/images/final/appcues.png"
+        alt="Prezi"
+        class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
+      <img
+        src="/assets/images/final/typeform.png"
+        alt="Typeform"
+        class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
+      <img
+        src="/assets/images/final/meetup.png"
+        alt="Meetup"
+        class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
+      <img
+        src="/assets/images/final/pipedrive.png"
+        alt="Pipedrive"
         class="opacity-80 hover:opacity-100 grayscale h-8 sm:h-10 md:h-12 transition" />
     </div>
 
-    <!-- Optional background handshake -->
     <img 
       src="/assets/images/final/Green overlay.png" 
       alt="handshake background" 
-      class="z-0 absolute inset-0 opacity-5 w-full h-full object-contain pointer-events-none" />
+      class="z-0 absolute inset-0 opacity-5 object-contain pointer-events-none" />
   </div>
 </template>
 
 <script setup>
-const logos = [
-  { src: '/images/sponsors/appcues.svg', alt: 'Appcues' },
-  { src: '/images/sponsors/insightly.svg', alt: 'Insightly' },
-  { src: '/images/sponsors/codeship.svg', alt: 'Codeship' },
-  { src: '/images/sponsors/instapage.svg', alt: 'Instapage' },
-  { src: '/images/sponsors/prezi.svg', alt: 'Prezi' },
-  { src: '/images/sponsors/typeform.svg', alt: 'Typeform' },
-  { src: '/images/sponsors/meetup.svg', alt: 'Meetup' },
-  { src: '/images/sponsors/pipedrive.svg', alt: 'Pipedrive' },
-]
 </script>
