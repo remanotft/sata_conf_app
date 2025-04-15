@@ -19,7 +19,6 @@
       </swiper>
     </div>
 
-
     <div class="flex justify-center">
       <NuxtLink to="/media-hub" class="m-4 btn">See Full Media</NuxtLink>
     </div>

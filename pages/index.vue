@@ -17,7 +17,7 @@
     </section>
 
     <!-- Conference Map -->
-    <section id="map" class="py-20">
+    <section id="map" class="py-10">
       <ConferenceMap />
     </section>
 
