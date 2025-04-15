@@ -112,7 +112,7 @@ export const useAppStore = defineStore('app', {
             this.isShowMainLoader = true;
             setTimeout(() => {
                 this.isShowMainLoader = false;
-            }, 500);
+            }, 2000);
         },
     },
     getters: {},

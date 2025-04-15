@@ -168,7 +168,6 @@
 				</div>
 			</Dialog>
 		</div>
-
 	</div>
 </template>
 
