@@ -33,7 +33,6 @@
 </template>
 
 <script setup>
-
 const { speakersList } = storeToRefs(useMySpeakersStore())
 const { getAllSpeakers } = useMySpeakersStore()
 

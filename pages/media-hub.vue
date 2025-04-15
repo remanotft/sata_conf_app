@@ -9,7 +9,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+layout: 'event-layout'
 
+})
 </script>
 
 

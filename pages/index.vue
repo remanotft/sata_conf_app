@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-32">
     <!-- HEADER -->
     <div>
       <Header />
@@ -33,15 +33,8 @@
 
 
     <section id="exhibitors" class="py-20">
-      EXHIBIT
+      <Exhibitors />
     </section>
-
-
-
-    <!-- emergency info -->
-    <!-- <section id="emergency-info" class="py-20">
-      <EmergencyInfo />
-    </section> -->
 
     <section id="sponsors" class="py-20">
       <Sponsors />
@@ -52,8 +45,15 @@
     <section id="things-to-do" class="py-20">
       <ThingsToDo />
     </section>
+    
 
-    <div id="footer" class="py-20">
+    <!-- emergency info -->
+    <section id="emergency-info" class="py-20">
+      <EmergencyInfo />
+    </section>
+
+
+    <div id="footer" class="mt-4">
       <Footer />
     </div>
 

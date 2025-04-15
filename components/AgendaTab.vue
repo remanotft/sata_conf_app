@@ -29,7 +29,7 @@
 
     <!-- Content -->
     <div class="mt-5">
-      <div class="gap-4 md:grid md:grid-cols-2 schedule-list">
+      <div class="gap-4 md:px-72 schedule-list">
         <div v-for="(item, index) in filteredEvents" :key="index" class="schedule-card">
 
           <!-- Header -->
@@ -72,6 +72,14 @@
 </template>
 
 <script setup>
+const {agendaList} = storeToRefs(useMyAgendaStore())
+const {getAgendaItems} = useMyAgendaStore()
+
+onMounted(async () => {
+  await getAgendaItems()
+})
+
+
 
 // Days data 
 const selectedDay = ref(0)

@@ -3,7 +3,7 @@ import Aura from '@primevue/themes/aura';
 export default defineNuxtConfig({
     app: {
         head: {
-            title: 'Admin Portal | 45th SATA Conference 2025',
+            title: '45th SATA Conference 2025',
             htmlAttrs: {
                 lang: 'en',
             },

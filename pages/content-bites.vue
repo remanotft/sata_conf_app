@@ -99,6 +99,12 @@ const filteredVideos = computed(() => {
   const currentDayId = days[selectedDay.value].id;
   return videos.value.filter(video => video.day === currentDayId);
 });
+
+
+definePageMeta({
+layout: 'event-layout'
+})
+
 </script>
 
 <style scoped>
