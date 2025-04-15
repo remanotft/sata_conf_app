@@ -23,6 +23,35 @@
 					class="w-52 h-10 text-white font-montserrat font-semibold bg-black">Add
 					Agenda Item</button>
 			</div>
+
+			<!-- AGENDA ITEMS TABLE -->
+			<div class="pt-10">
+				<DataTable ref="dt" :value="agendaList.result" dataKey="id" scrollable scroll-height="600px">
+					<Column field="id" header="ID" style="min-width: 2rem" class="font-montserrat font-medium">
+					</Column>
+					<Column field="day" header="Day" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="date" header="Date" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="startTime" header="Start Time" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="endTime" header="End Time" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="actvity" header="Actvity" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="isBreak" header="Break?" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="participants" header="Participants" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+				</DataTable>
+			</div>
 		</Panel>
 	</div>
 
@@ -96,7 +125,7 @@ definePageMeta({
 
 const { assignUserData } = useMyAuthStore();
 const { showEditAgendaModal, showAddAgentModal, createAgendaItem, getAgendaItems } = useMyAgendaStore();
-const { agendaAddModalVisible, agendaEditModalVisible, day, date, startTime, endTime, duration, isBreak, activity, participants, splitParticipants } = storeToRefs(useMyAgendaStore());
+const { agendaAddModalVisible, agendaEditModalVisible, day, date, startTime, endTime, duration, isBreak, activity, participants, splitParticipants, agendaList } = storeToRefs(useMyAgendaStore());
 
 onMounted(async () => {
 	assignUserData();

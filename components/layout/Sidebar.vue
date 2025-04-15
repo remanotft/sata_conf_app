@@ -75,7 +75,7 @@
                                                 <icon-menu-invoice class="shrink-0 group-hover:!text-primary" />
 
                                                 <span class="text-white-light ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{{
-                                                    $t('image_hub')
+                                                    $t('media_hub')
                                                 }}</span>
                                             </div>
                                             <div :class="{ '-rotate-90 rtl:rotate-90': activeDropdown !== 'invoice' }">
@@ -85,16 +85,10 @@
                                         <vue-collapsible :isOpen="activeDropdown === 'invoice'">
                                             <ul class="sub-menu text-gray-500">
                                                 <li>
-                                                    <NuxtLink to="/apps/invoice/list" @click="toggleMobileMenu">{{ $t('list') }}</NuxtLink>
+                                                    <NuxtLink to="/apps/invoice/list" @click="toggleMobileMenu">{{ $t('image_gallery') }}</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="/apps/invoice/preview" @click="toggleMobileMenu">{{ $t('preview') }}</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/apps/invoice/add" @click="toggleMobileMenu">{{ $t('add') }}</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/apps/invoice/edit" @click="toggleMobileMenu">{{ $t('edit') }}</NuxtLink>
+                                                    <NuxtLink to="/apps/invoice/preview" @click="toggleMobileMenu">{{ $t('content_bites') }}</NuxtLink>
                                                 </li>
                                             </ul>
                                         </vue-collapsible>

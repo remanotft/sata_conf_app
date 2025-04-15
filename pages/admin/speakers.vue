@@ -115,7 +115,7 @@
 		<!-- EDIT SPEAKER MODAL -->
 		<div>
 			<Dialog v-model:visible="speakerEditModalVisible" modal
-				:header="'Editing ' + selectedSpeaker.firstName + ' ' + selectedSpeaker.lastName"
+				:header="selectedSpeaker.firstName + ' ' + selectedSpeaker.lastName"
 				:style="{ width: '45rem' }" style="--p-dialog-border-radius: 0">
 				<div class="flex justify-center">
 					<img :src="selectedSpeaker.imageUrl" alt="" class="border rounded-full w-28 md:w-48">

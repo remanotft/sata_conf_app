@@ -33,23 +33,15 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 	};
 
 	const getAgendaItems = async () => {
+		const response: any = await $fetch('/api/conference/agenda/agenda', {
+			method: 'get'
+		});
 
+		agendaList.value = response;
 	}
 
 	const createAgendaItem = async () => {
 		agendaAddModalVisible.value = false;
-		// const body = {
-		// 	day: day.value,
-		// 	date: getFormattedDate(date.value),
-		// 	startTime: getMomentTime(startTime.value),
-		// 	endTime: getMomentTime(endTime.value),
-		// 	isBreak: isBreak.value,
-		// 	participants: '{[' + splitParticipants.value + ']}',
-		// 	loggedInUser: loggedInUser.value.userId
-		// }
-
-		// console.log(body);
-
 
 		//@ts-expect-error
 		$swal.fire({
@@ -127,7 +119,8 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 		activity,
 		participants,
 		agendaAddModalVisible,
-		agendaEditModalVisible
+		agendaEditModalVisible,
+		agendaList
 	}
 
 });

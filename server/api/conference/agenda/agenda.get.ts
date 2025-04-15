@@ -1,3 +1,10 @@
 export default defineEventHandler(async (event) => {
-  return 'Hello Nitro'
-})
+	
+	const { apiBase } = useRuntimeConfig();
+
+	const response: any = await $fetch('Agenda/GetAllAgendaitems', {
+		baseURL: apiBase
+	});
+
+	return response;
+});
