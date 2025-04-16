@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white pb-32">
+<div class="bg-white pb-32 overflow-x-hidden">
 
     <!-- HEADER -->
     <div id="header">
