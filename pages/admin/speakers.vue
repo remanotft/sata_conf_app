@@ -17,10 +17,10 @@
 					</template>
 				</Breadcrumb>
 			</div>
-			<div class="md:flex justify-between items-center pt-4 px-12">
+			<div class="flex justify-between items-center pt-4 md:px-12">
 				<h2 style="font-size: x-large; font-weight: 650;">SPEAKERS</h2>
 				<button @click="showAddSpeakerModal"
-					class="w-52 h-10 text-white font-montserrat font-semibold bg-black">Add
+					class="w-36 md:w-52 h-8 md:h-10 text-white text-xs md:text-sm font-montserrat font-semibold bg-black">Add
 					Speakers</button>
 				<!-- <Button @click="showAddSpeakerModal" class="w-56 h-10"
 					style="background-color: var(--color-primary); color: white; font-weight: 700;">
@@ -175,7 +175,8 @@
 import UploadSpeakerAvatar from '~/components/admin/speakers/UploadSpeakerAvatar.vue';
 
 definePageMeta({
-	layout: 'admin'
+	layout: 'admin',
+	middleware: ['auth-user']
 });
 
 const { assignUserData } = useMyAuthStore();

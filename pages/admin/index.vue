@@ -1,6 +1,5 @@
 <template>
 	<div>
-
 	</div>
 </template>
 
@@ -8,16 +7,18 @@
 import 'primeicons/primeicons.css';
 
 definePageMeta({
-	layout: 'admin'
+	layout: 'admin',
+	middleware: ['auth-user']
 });
 
 const { assignUserData } = useMyAuthStore();
 const { loggedInUser } = storeToRefs(useMyAuthStore());
+const { status } = useAuth();
 
 onMounted(async () => {
-	assignUserData();
+	await assignUserData();
 });
 
 </script>
 
-<style></style>
+<style></style>``
