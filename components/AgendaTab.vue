@@ -26,8 +26,8 @@
       </div>
     </div>
 
-    <!-- Content section remains the same -->
-    <div class="mt-5">
+    <!-- Content section -->
+    <div  class="mt-5">
       <div class="gap-4 md:gap-16 md:px-72 schedule-list">
         <div v-for="(item, index) in filteredEvents" :key="index" class="schedule-card">
           <!-- Header -->
@@ -113,6 +113,7 @@ const allEvents = computed(() => {
     startTime: item.startTime,
     endTime: item.endTime,
     activity: item.actvity,
+    isBreak: item.isBreak, 
     participants: item.participants.replace(/^\{\[|\]\}$/g, '').split(',')
   }))
 })
@@ -122,6 +123,6 @@ const filteredEvents = computed(() => {
   if (uniqueDays.value.length === 0) return []
   
   const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
-  return allEvents.value.filter(event => event.day === currentDayId)
+  return allEvents.value.filter(event => event.day === currentDayId && !event.isBreak)
 })
 </script>
