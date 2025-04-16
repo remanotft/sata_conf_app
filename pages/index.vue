@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white pb-32">
+<div class="bg-white pb-32 overflow-x-hidden">
 
     <!-- HEADER -->
     <div id="header">
@@ -8,8 +8,9 @@
 
     <!-- Hero Section -->
     <section id="hero-section">
-      <img src="/assets/images/final/Openserve SATA - Mobile.png" alt="Hero image" class="mobile-hero">
-      <img src="/assets/images/final/Openserve SATA - Desktop.png" alt="Hero image" class="desktop-hero">
+      <img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/Openserve+SATA+Mobile.png" alt="Hero image" class="mobile-hero">
+
+      <img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/Openserve+SATA+Desktop.png" alt="Hero image" class="desktop-hero">
     </section>
 
     <!-- Agenda -->
