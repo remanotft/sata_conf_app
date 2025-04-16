@@ -22,7 +22,7 @@
       </p>
 
       <!-- Carousel -->
-      <Carousel :value="exhibitors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" showIndicators="false">
+      <Carousel :value="exhibitors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" :showIndicators="false">
         <template #item="slotProps">
           <div class="p-4">
             <div class="flex flex-col items-center bg-white shadow-sm p-6 rounded-xl h-full">
@@ -37,7 +37,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 
 const exhibitors = ref([
   {

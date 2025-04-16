@@ -138,9 +138,9 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 						partipantFlag: participantFlag.value,
 						participants: '{[' + splitParticipants.value + ']}',
 						facilitatorFlag: facilitatorFlag.value,
-						facilitators: '{[' + facilitators.value + ']}',
+						facilitators: '{[' + splitFacilitators.value + ']}',
 						panelMemberFlag: panelMemberFlag.value,
-						panelMembers: '{[' + panelMembers.value + ']}',
+						panelMembers: '{[' + splitPanelMembers.value + ']}',
 						loggedInUser: loggedInUser.value.userId
 					}
 				});
