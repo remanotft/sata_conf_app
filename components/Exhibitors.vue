@@ -1,15 +1,27 @@
 <template>
-  <section class="relative bg-white px-4 py-12 text-center">
-    <div class="z-0 absolute inset-0 bg-contain bg-no-repeat bg-bottom opacity-10 pointer-events-none"></div>
+  <section class="relative bg-white px-4 py-12 overflow-hidden text-center">
+    <!-- Globe Backgrounds -->
+    <img
+    src="/assets/images/final/Black overlay.png"
+    alt="Top left globe"
+      class="top-0 left-0 z-0 absolute opacity-10 w-1/2 max-w-[300px] pointer-events-none"
+    />
+    <img
+    src="/assets/images/final/Black overlay.png"
+    alt="Bottom right globe"
+      class="right-0 bottom-0 z-0 absolute opacity-10 w-1/2 max-w-[300px] rotate-180 pointer-events-none"
+    />
 
+   
+
+    <!-- Content -->
     <div class="z-10 relative">
       <h2 class="mb-2 font-bold text-xl">EXHIBITORS</h2>
       <div class="md:h-1 underline"></div>
       <p class="mx-auto mb-10 max-w-md text-gray-500 md:text-lg">
+        In consequat, quam id sodales hendrerit, eros mi molestie leo, nec lacinia risus neque tristique
       </p>
 
-      <img src="/assets/images/final/Black overlay.png" alt="Speaker Banner"
-        class="z-0 absolute inset-0 opacity-30 w-full h-full object-cover" />
       <!-- Carousel -->
       <Carousel :value="exhibitors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
         <template #item="slotProps">
@@ -24,6 +36,7 @@
     </div>
   </section>
 </template>
+
 
 <script setup>
 import { ref } from 'vue'
