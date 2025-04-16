@@ -21,8 +21,8 @@
     <Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions"
       :autoplayInterval="3000">
       <template #item="slotProps">
-        <div class="p-2 sm:p-3 md:p-4 h-[520px]">
-          <div class="flex flex-col bg-white shadow-md rounded-lg h-full overflow-hidden">
+        <div class="p-2 sm:p-3 md:p-4">
+          <div class="flex flex-col bg-white shadow-md rounded-lg h- overflow-hidden">
 
             <!-- Image -->
             <div class="w-full">
@@ -51,22 +51,22 @@
                       {{ slotProps.data.email }}
                     </a>
                   </div>
-                  <div class="font-semibold">
-                    <i class="p-2 text-gray-600 text-base pi pi-phone"></i>
-
-                    <a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline">
-                      {{ slotProps.data.phoneNo }}
-                    </a>
+                  <div class="flex justify-between font-semibold">
+                    <div>
+                      <i class="p-2 text-gray-600 text-base pi pi-phone"></i>
+                      <a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline">
+                        {{ slotProps.data.phoneNo }}
+                      </a>
+                    </div>
+                    <div class="pt-2">
+                      <a :href="slotProps.data.website" target="_blank" rel="noopener noreferrer">
+                        <i class="text-blue-500 text-sm pi pi-external-link"></i>
+                      </a>
+                    </div>
                   </div>
-
                 </div>
               </div>
 
-              <div class="pt-2">
-                <a :href="slotProps.data.website" target="_blank" rel="noopener noreferrer">
-                  <Button icon="pi pi-window-maximize" severity="secondary" outlined class="w-full md:w-auto" />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -130,10 +130,7 @@ const responsiveOptions = ref([
 
 </script>
 
-<style >
-
-
-</style>
+<style></style>
 
 
 <!-- const thingsToDo = [

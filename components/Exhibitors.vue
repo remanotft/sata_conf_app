@@ -4,16 +4,15 @@
     <img
     src="/assets/images/final/Black overlay.png"
     alt="Top left globe"
-      class="top-0 left-0 z-0 absolute opacity-10 w-1/2 max-w-[300px] pointer-events-none"
+      class="top-0 left-0 z-0 absolute opacity-30 w-1/2 max-w-[300px] pointer-events-none"
     />
     <img
     src="/assets/images/final/Black overlay.png"
     alt="Bottom right globe"
-      class="right-0 bottom-0 z-0 absolute opacity-10 w-1/2 max-w-[300px] rotate-180 pointer-events-none"
+      class="right-0 bottom-0 z-0 absolute opacity-30 w-1/2 max-w-[300px] rotate-180 pointer-events-none"
     />
 
-   
-
+  
     <!-- Content -->
     <div class="z-10 relative">
       <h2 class="mb-2 font-bold text-xl">EXHIBITORS</h2>
@@ -36,7 +35,6 @@
     </div>
   </section>
 </template>
-
 
 <script setup>
 import { ref } from 'vue'
@@ -79,7 +77,6 @@ const exhibitors = ref([
   //   image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Exhibitors/Inspur+-+Blue.png'
   // }
 ])
-
 
 const responsiveOptions = ref([
   {
