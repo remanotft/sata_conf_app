@@ -1,6 +1,6 @@
 <template>
 	<div class="">
-		<div class="flex justify-center mb-2">
+		<div class="flex justify-center mb-2 pt-8">
 			<h1 class="font-extrabold md:font-extrabold md:text-3xl">CONFERENCE AGENDA</h1>
 		</div>
 		<div class="md:h-1 underline"></div>
@@ -44,8 +44,7 @@
 						<div class="meta-separator" />
 						<div class="text-xs md:text-lg meta-item">
 							<i class="pi pi-users icon" />
-							<strong>Participants: {{ item.participants.length }}</strong> 
-							<!-- <strong>Participants: {{ item.participants.length + item. }}</strong>  -->
+							<strong>Participants: {{ calculateParticipants(item) }}</strong> 
 
 						</div>
 					</div>
@@ -108,17 +107,29 @@ const { getAgendaItems } = useMyAgendaStore()
 
 onMounted(async () => {
 	await getAgendaItems()
-})
+});
 
 
-// const noOfParticipants = computed(() => {
+const calculateParticipants = (participants) => {
+	let a = [];
 
+	a.push(participants);
 
-// })
+	return a.reduce((total, group) => {
+		if (group.partipantFlag) {
+			total += group.participants.length;
+		}
+		if (group.facilitatorFlag) {
+			total += group.facilitators.length;
+		}
+		if (group.panelMemberFlag) {
+			total += group.panelMembers.length;
+		}
+		return total;
+	}, 0);
+}
 
-
-
-
+const noOfParticipants = ref(0);
 const selectedDay = ref(0)
 
 const uniqueDays = computed(() => {
@@ -158,6 +169,9 @@ const allEvents = computed(() => {
 		startTime: item.startTime,
 		endTime: item.endTime,
 		activity: item.actvity,
+		partipantFlag: item.partipantFlag,
+		facilitatorFlag: item.facilitatorFlag,
+		panelMemberFlag: item.panelMemberFlag,
 		participants: item.participants ?
 			item.participants.replace(/^\{\[|\]\}$/g, '').split(',').map(p => p.trim()) : [],
 
