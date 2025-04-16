@@ -13,7 +13,7 @@
 
       <!-- Carousel Content -->
       <Carousel :value="speakersList.result" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
-        circular :autoplayInterval="3000" class="z-20 relative">
+        circular :autoplayInterval="3000" class="z-20 relative" showIndicators="false">
         <template #item="{ data }">
           <div class="flex flex-col items-center p-2 md:text-xl">
             <!-- <div class="border-2 border-green-600 rounded-full">   </div> -->
