@@ -31,7 +31,7 @@
 
       <div class="underline"></div>
 
-      <!-- Video Carousel -->
+       <!-- Video Carousel -->
       <Carousel :value="videos" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
         class="mx-auto px-4 md:px-0 max-w-5xl video-carousel" :showIndicators="true">
         <template #item="{ data }">

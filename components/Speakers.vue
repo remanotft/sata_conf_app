@@ -103,6 +103,7 @@ const speaker = ref([
   },
 ])
 
+
 const responsiveOptions = ref([
   {
     breakpoint: '1400px',

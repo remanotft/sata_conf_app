@@ -39,18 +39,21 @@
                 </div>
 
                 <!-- Description -->
-                <div class="text-gray-600 text-sm md:text-base">
+                <div class="pt-2 h-20 overflow-hidden text-gray-600 text-sm md:text-base">
                   {{ slotProps.data.description }}
                 </div>
 
                 <!-- Contact Info -->
                 <div class="space-y-1 mt-2 text-gray-700 text-sm md:text-base">
                   <div class="font-semibold">
+                    <i class="p-2 text-gray-600 text-base pi pi-envelope"></i>
                     <a :href="`mailto:${slotProps.data.email}`" class="hover:underline">
                       {{ slotProps.data.email }}
                     </a>
                   </div>
                   <div class="font-semibold">
+                    <i class="p-2 text-gray-600 text-base pi pi-phone"></i>
+
                     <a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline">
                       {{ slotProps.data.phoneNo }}
                     </a>
@@ -115,7 +118,7 @@ const responsiveOptions = ref([
   },
   {
     breakpoint: '767px',
-    numVisible: 2,
+    numVisible: 4,
     numScroll: 1,
   },
   {
