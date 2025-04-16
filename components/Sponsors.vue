@@ -11,7 +11,7 @@
 
     <!-- Foreground content -->
     <div class="z-20 relative sponsor-content">
-      <h2 class="section-title">TRUSTED BY SPONSORS</h2>
+      <h2 class="section-title">SPONSORS</h2>
 
       <!-- <div class="gap-6 grid logos-grid grid-cols-2 md:grid-cols-4 mt-6">
         <img src="/assets/images/final/appcues.png" alt="Appcues" class="logo" />
