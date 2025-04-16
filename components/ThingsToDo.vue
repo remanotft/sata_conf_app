@@ -18,7 +18,7 @@
     </div>
 
     <!-- Carousel -->
-    <Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions"
+    <Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions" showIndicators="false"
       :autoplayInterval="3000">
       <template #item="slotProps">
         <div class="p-2 sm:p-3 md:p-4">
