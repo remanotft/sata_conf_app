@@ -773,18 +773,37 @@ h1{
   }
 
   .tab-selector{
+    border-radius: 90%;
     position: relative;
     display: flex;
     justify-content: space-evenly;
-    gap: 0.5rem /* 8px */;
-    background-color: #000;
+    background-color: #0e1726;
     margin-bottom: 2rem /* 32px */;
     padding-left: 1.25rem /* 20px */;
-    padding-right: 1.25rem /* 20px */;
-    padding-top: 1.25rem /* 8px */;
-    padding-bottom: 1.25rem /* 8px */;
-    border-radius: 0.5rem /* 8px */;
+    padding-right:1.25rem  /* 20px */;
+    padding-top:1.25rem   /* 8px */;
+    padding-bottom: 1.25rem  /* 8px */;
+    border-radius: 1.25rem  /* 8px */;
   }
+
+
+  
+  .todo-tab-selector{
+    border-radius: 90%;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #0e1726;
+    margin-bottom: 2rem /* 32px */;
+    padding-left: 0.1rem /* 20px */;
+    padding-right: 0.1rem /* 20px */;
+    padding-top: 0.1rem  /* 8px */;
+    padding-bottom: 0.1rem /* 8px */;
+    border-radius: 0.25rem /* 8px */;
+  }
+
+
+  
 
     .label {
       color: #1e9d57;
