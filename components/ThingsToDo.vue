@@ -19,8 +19,6 @@
 			</div>
 		</div>
 
-
-
 		<!-- Carousel -->
 		<Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions"
 			:showIndicators="false" :autoplayInterval="3000">

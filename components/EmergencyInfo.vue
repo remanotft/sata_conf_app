@@ -60,7 +60,7 @@ const emergencyInfo = [
   {
     name: 'Conference transfers',
     icon: 'pi pi-car',
-    CourtneySmith: '072 000 0000'
+    CourtneySmith: '078 546 9514'
   }
 ];
 </script>

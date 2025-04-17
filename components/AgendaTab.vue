@@ -32,8 +32,8 @@
 				<div v-for="(item, index) in filteredEvents" :key="index">
 
 					<!--  break -->
-					<div v-if="item.isBreak" class="my-3 w-full">
-						<div class="bg- py-2 text-white text-center" style="background-color: black;">
+					<div v-if="item.isBreak" class="w-full">
+						<div class="py-2 text-white text-center" style="background-color: black;">
 							<p class="font-semibold uppercase">{{ item.activity }}</p>
 							<div class="flex justify-center gap-1 p-2 text-xs md:text-lg meta-item">
 								<i class="pi pi-clock icon" />
