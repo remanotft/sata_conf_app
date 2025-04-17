@@ -10,16 +10,19 @@
       </div>
 
       <!-- Carousel -->
-      <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
-        :showIndicators="false" circular :autoplayInterval="3000">
-        <template #item="slotProps">
-          <div class="flex justify-center">
-            <img :src="slotProps.data.image" :alt="slotProps.data.name"
-              class="mb-4 rounded-xl w-40 md:w-56 h-28 md:h-48" />
-            <!-- <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div> -->
-          </div>
-        </template>
-      </Carousel>
+      <div class="pt-2">
+        <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
+          :showIndicators="false" circular :autoplayInterval="3000">
+          <template #item="slotProps">
+            <div class="flex justify-center">
+              <img :src="slotProps.data.image" :alt="slotProps.data.name"
+                class=" rounded-xl w-40 md:w-56 h-24 md:h-48" />
+              <!-- <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div> -->
+            </div>
+          </template>
+        </Carousel>
+      </div>
+
     </div>
   </div>
 </template>
@@ -27,7 +30,7 @@
 <script setup>
 
 const sponsors = ref([
-{
+  {
     name: 'Open Serve',
     image: '    https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Openserve.jpg',
   },
