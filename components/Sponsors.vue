@@ -14,7 +14,7 @@
         <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
           :showIndicators="false" circular :autoplayInterval="3000">
           <template #item="slotProps">
-            <div class="flex justify-center ">
+            <div class="flex justify-center p-8 md:p-16">
               <img :src="slotProps.data.image" :alt="slotProps.data.name"
               class="rounded-lg" />
               <!-- <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div> -->

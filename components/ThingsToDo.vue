@@ -58,7 +58,7 @@
 						<!-- Image -->
 						<div class="w-full">
 							<img :src="slotProps.data.imageUrl" :alt="slotProps.data.name"
-								class="rounded-t-lg w-full h-48 md:h-48 object-cover" />
+								class="rounded-t-lg w-full h-48 md:h-72 object-cover" />
 						</div>
 
 						<!-- Content -->

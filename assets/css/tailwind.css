@@ -845,7 +845,7 @@ h1{
     }
     
     .schedule-card {
-      border-left: 2px solid #16a34a; /* green-600 */
+      /* border-left: 2px solid #16a34a; green-600 */
       background-color: white;
       margin-bottom: 1rem;
     }
@@ -895,7 +895,7 @@ h1{
     }
     
     .schedule-body {
-      padding: 1.5rem;
+      /* padding: 0.25rem; */
       font-size: 0.9rem;
       height: auto;
     }

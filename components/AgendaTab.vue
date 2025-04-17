@@ -34,7 +34,7 @@
 					<!--  break -->
 					<div v-if="item.isBreak" class="w-full">
 						<div class="py-2 text-white text-center" style="background-color: black;">
-							<p class="font-semibold uppercase">{{ item.activity }}</p>
+							<p class="font-semibold uppercase text-sm md:text-lg">{{ item.activity }}</p>
 							<div class="flex justify-center gap-1 p-2 text-xs md:text-lg meta-item">
 								<i class="pi pi-clock icon" />
 								<strong>{{ item.startTime }} - {{ item.endTime }}</strong>
@@ -64,14 +64,14 @@
 							</div>
 						</div>
 
-						<!-- Participants -->
 						<div class="schedule-body">
+							<!-- Participants -->
 							<div v-if="item.participants.length" class="info-block text-xs">
-								<h5 class="font-bold text-sm info-label">Participants:</h5>
+								<!-- <h5 class="font-bold text-sm info-label">Participants:</h5> -->
 								<ul>
-									<div class="grid grid-cols-2 px-2 font-medium">
+									<div class="px-2 pt-2 font-medium">
 										<li v-for="(participant, pIndex) in item.participants" :key="pIndex"
-											class="w-full text-xs md:text-lg">
+											class="w-full text-base md:text-xl flex justify-center">
 											{{ participant }}
 										</li>
 									</div>
@@ -79,12 +79,12 @@
 							</div>
 
 							<!-- facilitators -->
-							<div v-if="item.facilitators.length" class="info-block text-xs">
-								<h5 class="font-bold text-sm info-label">Facilitators:</h5>
+							<div v-if="item.facilitators.length" class="info-block pt-2">
+								<h5 class="font-bold text-lg md:text-2xl info-label flex justify-center">Facilitators:</h5>
 								<ul>
-									<div class="grid grid-cols-2 px-2 font-medium">
+									<div class="px-2 font-medium">
 										<li v-for="(facilitator, pIndex) in item.facilitators" :key="pIndex"
-											class="w-full text-xs md:text-lg">
+											class="w-full text-base md:text-xl flex justify-center">
 											{{ facilitator }}
 										</li>
 									</div>
@@ -92,12 +92,12 @@
 							</div>
 
 							<!-- panelMembers -->
-							<div v-if="item.panelMembers.length" class="info-block text-xs">
-								<h5 class="font-bold text-sm info-label">Panel Members:</h5>
+							<div v-if="item.panelMembers.length" class="info-block">
+								<h5 class="font-bold text-lg md:text-2xl info-label flex justify-center">Panel Members:</h5>
 								<ul>
-									<div class="grid grid-cols-2 px-2 font-medium">
+									<div class="px-2 font-medium">
 										<li v-for="(panelMember, pIndex) in item.panelMembers" :key="pIndex"
-											class="w-full text-xs md:text-lg">
+											class="w-full text-base md:text-xl flex justify-center">
 											{{ panelMember }}
 										</li>
 									</div>
