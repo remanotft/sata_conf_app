@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="font-medium text-white text-xl">SPONSORS</h2>
+    <h2 class="font-bold md:font-extrabold text-white text-xl md:text-3xl">SPONSORS</h2>
 
     <div class="py-4 text-center" style="color: black">
       <!-- Globe Background -->
@@ -14,9 +14,9 @@
         <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
           :showIndicators="false" circular :autoplayInterval="3000">
           <template #item="slotProps">
-            <div class="flex justify-center">
+            <div class="flex justify-center ">
               <img :src="slotProps.data.image" :alt="slotProps.data.name"
-                class=" rounded-xl w-40 md:w-56 h-24 md:h-48" />
+              class="rounded-lg" />
               <!-- <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div> -->
             </div>
           </template>
@@ -43,7 +43,7 @@ const sponsors = ref([
 
   {
     name: 'Telkom',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Telkom.png',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Telkom.jpg',
   },
 
 

@@ -7,7 +7,7 @@
 
 
 		<!-- Tab Selector -->
-		<div class="flex justify-center">
+		<div class="flex justify-center pt-2">
 			<div class="flex rounded-lg md:w-[30rem] text-sm todo-tab-selector">
 				<div v-for="(item, index) in categories" :key="index" @click="selected = index" :class="[
 					'flex-1 px-4 py-2 text-center cursor-pointer font-semibold transition-all duration-300',

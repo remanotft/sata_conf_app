@@ -64,7 +64,7 @@
 			</section> -->
 
 			<!-- Things to do -->
-			<section id="things-to-do" class="py-20">
+			<section id="things-to-do" class="py-16">
 				<ThingsToDo />
 			</section>
 
