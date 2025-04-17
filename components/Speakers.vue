@@ -15,18 +15,20 @@
       <Carousel :value="speakersList.result" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
         circular :autoplayInterval="3000" class="z-20 relative" :showIndicators="false">
         <template #item="{ data }">
-          <div class="flex flex-col items-center p-2 md:text-xl">
-            <!-- <div class="border-2 border-green-600 rounded-full">   </div> -->
-            <img :src="data.imageUrl" alt="Speaker Photo"
-              class="p-3 border-2 border-green-600 rounded-full md:w-48 md:h-48 speaker-image" />
+          <div class="flex flex-col items-center gap-3 p-2 md:text-xl">
+            <div class="w-full lg:w-40 aspect-square">
+              <img :src="data.imageUrl" alt="Speaker Photo"
+                class="p-2 border-2 border-green-600 rounded-full w-full h-full object-cover" />
+            </div>
 
             <div class="title">
               <span class="md:text-xl">{{ data.firstName }} {{ data.lastName }}</span>
             </div>
-            <div class="text-green-600 md:text-xl subtitle">{{ data.title }}</div>
-            <p class="md:text-xl description">{{ data.bio }}</p>
-            <div class="md:text-xl subtitle">{{ data.company }}</div>
-            <a :href="data.linkedIn" target="_blank"><i class="text-xl pi pi-linkedin" /></a>
+
+            <!-- <div class="text-green-600 md:text-xl subtitle">{{ data.title }}</div> -->
+            <!-- <p class="overflow-y-auto md:text-xl">{{ data.bio }}</p> -->
+            <div class="text-green-500 md:text-xl subtitle">{{ data.company }}</div>
+            <!-- <a :href="data.linkedIn" target="_blank"><i class="text-xl pi pi-linkedin" /></a> -->
           </div>
         </template>
       </Carousel>

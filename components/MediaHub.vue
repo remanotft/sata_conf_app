@@ -20,7 +20,7 @@
     </div>
 
     <div class="flex justify-center">
-      <NuxtLink to="/media-hub" class="m-4 btn">See Full Media</NuxtLink>
+      <NuxtLink to="/media-hub" class="m-4 btn">See Image Gallery</NuxtLink>
     </div>
 
     <div class="pt-20">
@@ -47,7 +47,7 @@
       </Carousel>
 
       <div class="flex justify-center">
-        <NuxtLink to="/content-bites" class="m-4 btn">See Full Media</NuxtLink>
+        <NuxtLink to="/content-bites" class="m-4 btn">See Content Bites</NuxtLink>
       </div>
 
     </div>
