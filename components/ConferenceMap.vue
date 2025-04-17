@@ -85,8 +85,8 @@ const booths = ref([
     email: '',
     standNumber: '1',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Huawei.png',
-    position: { x: 43, y: 39 },
-    width: 6,
+    position: { x: 47, y: 39 },
+    width: 8,
     height: 6
   },
   {
@@ -95,8 +95,8 @@ const booths = ref([
     email: 'mana@providencesoft.com',
     standNumber: '2',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Providence.png',
-    position: { x: 51, y: 37 },
-    width: 6,
+    position: { x: 55, y: 39 },
+    width: 8,
     height: 6
   },
   {
@@ -105,8 +105,8 @@ const booths = ref([
     email: 'Sathish.Chandrasekaran@Amdocs.com',
     standNumber: '3',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Amdocs.png',
-    position: { x: 43, y: 45 },
-    width: 6,
+    position: { x: 47, y: 45 },
+    width: 8,
     height: 6
   },
   {
@@ -115,18 +115,19 @@ const booths = ref([
     email: '',
     standNumber: '',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Openserve.png',
-    position: { x: 52, y: 34 },
+    position: { x: 51, y: 34 },
     width: 17,
-    height: 6
+    height: 5
   },
+  
   {
     id: 'expo1',
     name: 'BCX',
     email: '',
     standNumber: '',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BCX.png',
-    position: { x: 73, y: 30 },
-    width: 6,
+    position: { x: 76, y: 32 },
+    width: 17,
     height: 6
   },
   {
@@ -135,8 +136,8 @@ const booths = ref([
     email: 'manelisi@bamtelecoms.co.za',
     standNumber: '5',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BAM Telecoms.png',
-    position: { x: 68, y: 36 },
-    width: 6,
+    position: { x: 72, y: 38 },
+    width: 9,
     height: 6
   },
   {
@@ -145,8 +146,8 @@ const booths = ref([
     email: '',
     standNumber: '6',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/ePocket.png',
-    position: { x: 77, y: 36 },
-    width: 6,
+    position: { x: 80, y:38 },
+    width: 8,
     height: 6
   },
   {
@@ -155,8 +156,8 @@ const booths = ref([
     email: '',
     standNumber: '7',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Giz.png',
-    position: { x: 68, y: 42 },
-    width: 6,
+    position: { x: 72, y: 44 },
+    width: 9,
     height: 6
   },
   {
@@ -165,8 +166,8 @@ const booths = ref([
     email: '',
     standNumber: '8',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Quadrupleplay.png',
-    position: { x: 77, y: 42 },
-    width: 6,
+    position: { x: 80, y: 44 },
+    width: 8,
     height: 6
   },
   {
@@ -175,8 +176,8 @@ const booths = ref([
     email: 'amom@ab4ir.org',
     standNumber: '9',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Africa+Beyond+4IR.png',
-    position: { x: 68, y: 48 },
-    width: 6,
+    position: { x: 72, y: 50 },
+    width: 9,
     height: 6
   },
   {
@@ -185,8 +186,8 @@ const booths = ref([
     email: 'esther.kamulali@ttcl.co.tz',
     standNumber: '10',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/TTCL.png',
-    position: { x: 77, y: 48 },
-    width: 6,
+    position: { x: 80, y: 50 },
+    width: 8,
     height: 6
   },
   {
@@ -195,8 +196,8 @@ const booths = ref([
     email: ' ',
     standNumber: '11',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Mauritius+Telecom.png',
-    position: { x: 36, y: 59 },
-    width: 6,
+    position: { x: 38, y: 61 },
+    width: 9,
     height: 6
   },
   {
@@ -205,8 +206,8 @@ const booths = ref([
     email: 'Chawada@bofinet.co.bw',
     standNumber: '12',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BofiNet.png',
-    position: { x: 44, y: 59 },
-    width: 6,
+    position: { x: 47, y: 61 },
+    width: 9,
     height: 6
   },
   {
@@ -215,8 +216,8 @@ const booths = ref([
     email: 'xujianwei01@inspur.com',
     standNumber: '13',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Inspur.png',
-    position: { x: 52, y: 59 },
-    width: 6,
+    position: { x: 55, y: 61 },
+    width: 8,
     height: 6
   },
   {
@@ -225,8 +226,8 @@ const booths = ref([
     email: 'aukodesigns@gmail.com',
     standNumber: '14',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Auko+Designs.png',
-    position: { x: 36, y: 67 },
-    width: 6,
+    position: { x: 38, y: 67 },
+    width: 9,
     height: 6
   },
   {
@@ -235,8 +236,8 @@ const booths = ref([
     email: 'shipenaa@telecom.na',
     standNumber: '8',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Telecom+Namibia.png',
-    position: { x: 44, y: 65 },
-    width: 6,
+    position: { x: 47, y: 67 },
+    width: 9,
     height: 6
   },
   {

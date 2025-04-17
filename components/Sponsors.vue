@@ -9,15 +9,17 @@
           class="top-20 left-0 absolute opacity-10 scale-110 transform" />
       </div>
 
-        <!-- Carousel -->
-        <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" :showIndicators="false" circular :autoplayInterval="3000">
-          <template #item="slotProps">
-            <div class="flex justify-center">
-                <img :src="slotProps.data.image" :alt="slotProps.data.name" class="bg-white mb-4 rounded-xl w-40 md:w-48 h-32 md:h-48" />
-                <!-- <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div> -->
-            </div>
-          </template>
-        </Carousel>
+      <!-- Carousel -->
+      <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
+        :showIndicators="false" circular :autoplayInterval="3000">
+        <template #item="slotProps">
+          <div class="flex justify-center">
+            <img :src="slotProps.data.image" :alt="slotProps.data.name"
+              class="mb-4 rounded-xl w-40 md:w-56 h-28 md:h-48" />
+            <!-- <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div> -->
+          </div>
+        </template>
+      </Carousel>
     </div>
   </div>
 </template>
@@ -25,35 +27,33 @@
 <script setup>
 
 const sponsors = ref([
+{
+    name: 'Open Serve',
+    image: '    https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Openserve.jpg',
+  },
+
+
   {
     name: 'BCX',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/BCX+LOGO+-+1.png',
+    image: '    https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BCX.jpg',
   },
 
   {
     name: 'Telkom',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/Telkom.png',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Telkom.png',
   },
-  
-  {
-    name: 'Open Serve',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/openserve-logo-colour.png',
-  },
-    
+
+
   {
     name: 'Inspur',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Inspur.png',
+    image: '    https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Inspur.jpg',
   },
 
-    
+
   {
     name: 'AMDOCS',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Exhibitors/Amdocs.png'
+    image: '    https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Amdocs.jpg',
   },
-
-
-
- 
 
 ])
 

@@ -75,7 +75,7 @@ const exhibitors = ref([
   },
   {
     name: 'Quadrupleplay',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Exhibitors/Full+Logos/Quadrupleplay.png',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Quadrupleplay.png',
   },
   {
     name: 'INSPUR',

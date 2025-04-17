@@ -89,6 +89,4 @@ const maintenanceMode = ref(false);
 
 </script>
 
-<style>
-
-</style>
+<style></style>
