@@ -24,7 +24,11 @@
           <div class="text-gray-300 text-xs md:text-sm">
             <strong class="font-bold">Phone:</strong> {{ info.Phone }}
           </div>
+          <div class="text-gray-300 text-xs md:text-sm">
+            <strong class="font-bold">Phone:</strong> {{ info.CourtneySmith }}
+          </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -49,6 +53,12 @@ const emergencyInfo = [
     Address: 'Rivonia Rd, Morningside, Sandton, 2057',
     Phone: '086 100 5555',
     icon: 'pi pi-heart'
+  },
+  {
+    name: 'Conference transfers',
+    Address: 'Rivonia Rd, Morningside, Sandton, 2057',
+    Phone: '086 100 5555',
+    CourtneySmith: '078 546 9514'
   }
 ];
 </script>

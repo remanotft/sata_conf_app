@@ -12,15 +12,28 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 	const duration = ref(0);
 	const isBreak = ref(false);
 	const activity = ref('');
+	const participantFlag = ref(false);
 	const participants = ref('');
+	const facilitatorFlag = ref(false);
+	const facilitators = ref('');
+	const panelMemberFlag = ref(false);
+	const panelMembers = ref('');
 	const agendaList = ref([]);
 	const agendaAddModalVisible = ref(false);
 	const agendaEditModalVisible = ref(false);
 	const selectedAgenda: any = ref({});
 	const agendaAvatarFile = ref('');
 
+	const splitFacilitators = computed(() => {
+		return facilitators.value.split('\n');
+	});
+
 	const splitParticipants = computed(() => {
 		return participants.value.split('\n');
+	});
+
+	const splitPanelMembers = computed(() => {
+		return panelMembers.value.split('\n');
 	});
 
 	const showEditAgendaModal = async (speaker: {}) => {
@@ -68,10 +81,10 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 						title: 'Agenda Item Deleted Successfully!',
 						icon: 'success',
 					}).then(async () => {
-							// await getCompanyConfigurations(companyId.value);
-							await getAgendaItems();
-							selectedAgenda.value = {};
-						});
+						// await getCompanyConfigurations(companyId.value);
+						await getAgendaItems();
+						selectedAgenda.value = {};
+					});
 				} else {
 					//@ts-expect-error
 					$swal.fire({
@@ -93,7 +106,7 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 
 			case 'Day 3':
 				return '2025-04-25';
-		} 
+		}
 	});
 
 	const createAgendaItem = async () => {
@@ -122,7 +135,12 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 						duration: duration.value,
 						isBreak: isBreak.value,
 						actvity: activity.value,
+						partipantFlag: participantFlag.value,
 						participants: '{[' + splitParticipants.value + ']}',
+						facilitatorFlag: facilitatorFlag.value,
+						facilitators: '{[' + splitFacilitators.value + ']}',
+						panelMemberFlag: panelMemberFlag.value,
+						panelMembers: '{[' + splitPanelMembers.value + ']}',
 						loggedInUser: loggedInUser.value.userId
 					}
 				});
@@ -168,6 +186,8 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 		deleteAgendaItem,
 		setDate,
 		splitParticipants,
+		splitFacilitators,
+		splitPanelMembers,
 		day,
 		date,
 		startTime,
@@ -175,7 +195,12 @@ export const useMyAgendaStore = defineStore("myAgendaStore", () => {
 		duration,
 		isBreak,
 		activity,
+		participantFlag,
 		participants,
+		facilitatorFlag,
+		facilitators,
+		panelMemberFlag,
+		panelMembers,
 		agendaAddModalVisible,
 		agendaEditModalVisible,
 		agendaList

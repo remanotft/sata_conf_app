@@ -19,10 +19,10 @@
       </div>
       <!-- Participants -->
       <div class="schedule-body">
-        <div class="info-block text-xs">
+        <div class="info-block text-xs md:text-xl">
           <span class="font-medium info-label">Participants:</span>
           <ul class="participants-list">
-            <li v-for="(participant, pIndex) in item.participants" :key="pIndex" class="text-xs">
+            <li v-for="(participant, pIndex) in item.participants" :key="pIndex" class="text-xl md:">
               {{ participant }}
             </li>
           </ul>

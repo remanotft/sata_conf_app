@@ -17,10 +17,10 @@
 					</template>
 				</Breadcrumb>
 			</div>
-			<div class="md:flex justify-between items-center pt-4 px-12">
+			<div class="flex justify-between items-center pt-4 md:px-12">
 				<h2 style="font-size: x-large; font-weight: 650;">AGENDA</h2>
 				<button @click="showAddAgentModal"
-					class="w-52 h-10 text-white font-montserrat font-semibold bg-black">Add
+					class="w-36 md:w-52 h-8 md:h-10 text-white text-xs md:text-sm font-montserrat font-semibold bg-black">Add
 					Agenda Item</button>
 			</div>
 
@@ -29,11 +29,9 @@
 				<DataTable ref="dt" :value="agendaList.result" dataKey="id" scrollable scroll-height="600px">
 					<Column field="id" header="ID" style="min-width: 2rem" class="font-montserrat font-medium">
 					</Column>
-					<Column field="day" header="Day" style="min-width: 10rem"
-						class="font-montserrat font-medium">
+					<Column field="day" header="Day" style="min-width: 10rem" class="font-montserrat font-medium">
 					</Column>
-					<Column field="date" header="Date" style="min-width: 10rem"
-						class="font-montserrat font-medium">
+					<Column field="date" header="Date" style="min-width: 10rem" class="font-montserrat font-medium">
 					</Column>
 					<Column field="startTime" header="Start Time" style="min-width: 10rem"
 						class="font-montserrat font-medium">
@@ -48,6 +46,12 @@
 						class="font-montserrat font-medium">
 					</Column>
 					<Column field="participants" header="Participants" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="facilitators" header="Facilitators" style="min-width: 10rem"
+						class="font-montserrat font-medium">
+					</Column>
+					<Column field="panelMembers" header="Panel Members" style="min-width: 10rem"
 						class="font-montserrat font-medium">
 					</Column>
 					<Column style="min-width: 4rem">
@@ -65,7 +69,7 @@
 
 	<!-- CREATE SPEAKER MODAL -->
 	<div>
-		<Dialog v-model:visible="agendaAddModalVisible" modal header="Add Speaker" :style="{ width: '40rem' }"
+		<Dialog v-model:visible="agendaAddModalVisible" modal header="Add Agenda Item" :style="{ width: '40rem' }"
 			style="--p-dialog-border-radius: 0">
 			<form @submit.prevent="createAgendaItem" class="space-y-6" action="">
 				<div class="grid gap-6 mb-6 md:grid-cols-3 items-center">
@@ -80,13 +84,6 @@
 						<span class=" text-base font-bold text-gray-900">Date:</span> {{ setDate }}
 					</div>
 				</div>
-				<!-- <div>
-					<FloatLabel variant="in">
-						<DatePicker class="w-96 text-xs" v-model="date" inputId="over_label" showIcon
-							iconDisplay="input" dateFormat="yy-mm-dd" />
-						<label for="over_label">Date</label>
-					</FloatLabel>
-				</div> -->
 				<div class="grid gap-6 mb-6 md:grid-cols-2">
 					<div class="flex-auto">
 						<label for="datepicker-12h" class="font-bold text-base block mb-2"> Start Time </label>
@@ -111,12 +108,40 @@
 						<Checkbox v-model="isBreak" binary />
 					</div>
 				</div>
+				<div class="card flex flex-wrap justify-center gap-8">
+					<div class="flex items-center gap-2">
+						<Checkbox v-model="participantFlag" binary />
+						<label> Participants </label>
+					</div>
+					<div class="flex items-center gap-2">
+						<Checkbox v-model="facilitatorFlag" binary />
+						<label> Facilitators </label>
+					</div>
+					<div class="flex items-center gap-2">
+						<Checkbox v-model="panelMemberFlag" binary />
+						<label> Panel Members </label>
+					</div>
+				</div>
 				<div>
-					<div>
+					<div v-if="participantFlag">
 						<label for="linkedIn" class="block mb-2 text-base font-bold text-gray-900">
 							Participants
 						</label>
 						<Textarea type="text" v-model="participants" class="w-full" required />
+					</div>
+
+					<div v-if="facilitatorFlag" class="pt-2">
+						<label for="linkedIn" class="block mb-2 text-base font-bold text-gray-900">
+							Facilitators
+						</label>
+						<Textarea type="text" v-model="facilitators" class="w-full" required />
+					</div>
+
+					<div v-if="panelMemberFlag" class="pt-2">
+						<label for="linkedIn" class="block mb-2 text-base font-bold text-gray-900">
+							Panel Members
+						</label>
+						<Textarea type="text" v-model="panelMembers" class="w-full" required />
 					</div>
 				</div>
 				<div class="flex justify-end">
@@ -131,12 +156,13 @@
 
 <script lang="ts" setup>
 definePageMeta({
-	layout: 'admin'
+	layout: 'admin',
+	middleware: ['auth-user']
 });
 
 const { assignUserData } = useMyAuthStore();
 const { showEditAgendaModal, showAddAgentModal, createAgendaItem, getAgendaItems, deleteAgendaItem } = useMyAgendaStore();
-const { agendaAddModalVisible, agendaEditModalVisible, day, date, startTime, endTime, duration, isBreak, activity, participants, splitParticipants, agendaList, setDate } = storeToRefs(useMyAgendaStore());
+const { agendaAddModalVisible, agendaEditModalVisible, day, date, startTime, endTime, duration, isBreak, activity, participantFlag, participants, facilitatorFlag, facilitators, panelMemberFlag, panelMembers, splitParticipants, agendaList, setDate } = storeToRefs(useMyAgendaStore());
 
 onMounted(async () => {
 	assignUserData();

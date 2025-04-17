@@ -724,7 +724,7 @@ h1{
       padding-bottom: 0.5rem;
       opacity: 0.8;
       background-color: #000000;
-      z-index: 1;
+      z-index: 999;
     }
     
     .footer-container {
@@ -838,7 +838,7 @@ h1{
     .schedule-meta {
       background-color: black;
       color: white;
-      padding: 10px 16px;
+      padding: 16px 30px 16px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -866,6 +866,7 @@ h1{
     .schedule-body {
       padding: 1.5rem;
       font-size: 0.9rem;
+      height: auto;
     }
     
   .icon {
@@ -878,33 +879,33 @@ h1{
   }
   
   .info-block {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.50rem;
     width: 100%;
   }
   
   .info-label {
     color: #4a5568;
     margin-right: 0.25rem;
-    padding-bottom: 3px;
-    margin-bottom: 3px;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
   }
   
   .participants-list {
     list-style-type: none;
-    padding: 0;
+    padding-top: 0.25rem;
     margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
-    gap: 1.25rem;
+    /* gap: 0.50rem; */
     width: 100%;
   }
   
   .participants-list li {
-    background-color: #16a34a;
     border-radius: 0.25rem;
     padding: 0.125rem 0.375rem;
-    color: #fff;
+    color: #000;
+    /* width: 100%; */
   }
   
     #map{
@@ -932,9 +933,9 @@ h1{
     }
   
   .speaker-image{
-    object-fit: cover;
-    height: 5rem /* 160px */;
-    width: 5rem /* 160px */;
+    object-fit: contain;
+    height: 10rem /* 160px */;
+    width: 10rem /* 160px */;
     border-radius: 100px;
     margin-bottom: 1rem /* 16px */;
   }
@@ -1091,20 +1092,18 @@ background-color: #000;
         filter: grayscale(0);
         opacity: 1;
       }
-      
 
-      
-.speaker-carousel-wrapper {
-    background-image: url('/assets/images/final/speaker Banner.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 4rem 1rem;
-    border-radius: 1rem;
-    position: relative;
-  }
-  
-
+      .p-carousel-indicator-list {
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: var(--p-carousel-indicator-list-padding);
+        gap: var(--p-carousel-indicator-list-gap);
+        margin: 0;
+        list-style: none;
+    }
+    
   @media (min-width: 768px) {
     .mobile-hero {
       display: none;
