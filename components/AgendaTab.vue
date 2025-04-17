@@ -20,8 +20,8 @@
 
 				<!-- Green Indicator -->
 				<div class="bottom-0 absolute bg-green-500 h-1 transition-all duration-300" :style="{
-					width: `${100 / uniqueDays.length}%`,
-					left: `${selectedDay * (100 / uniqueDays.length)}%`
+					width: `${(100 / uniqueDays.length)}%`,
+					left: `${selectedDay * ((100 / uniqueDays.length))}%`
 				}"></div>
 			</div>
 		</div>

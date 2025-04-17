@@ -773,7 +773,6 @@ h1{
   }
 
   .tab-selector{
-    border-radius: 90%;
     position: relative;
     display: flex;
     justify-content: space-evenly;
@@ -783,13 +782,12 @@ h1{
     padding-right:1.25rem  /* 20px */;
     padding-top:1.25rem   /* 8px */;
     padding-bottom: 1.25rem  /* 8px */;
-    border-radius: 1.25rem  /* 8px */;
+    border-radius: 0.5rem  /* 8px */;
   }
 
 
   
   .todo-tab-selector{
-    border-radius: 90%;
     position: relative;
     display: flex;
     justify-content: space-evenly;
