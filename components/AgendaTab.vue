@@ -35,7 +35,7 @@
 					<div v-if="item.isBreak" class="my-3 w-full">
 						<div class="bg- py-2 text-white text-center" style="background-color: black;">
 							<p class="font-semibold uppercase">{{ item.activity }}</p>
-							<div class="justify-center p-2 text-xs md:text-lg meta-item">
+							<div class="flex justify-center gap-1 p-2 text-xs md:text-lg meta-item">
 								<i class="pi pi-clock icon" />
 								<strong>{{ item.startTime }} - {{ item.endTime }}</strong>
 							</div>
@@ -53,7 +53,7 @@
 
 						<!-- Time & Participants row -->
 						<div class="schedule-meta">
-							<div class="justify-center text-xs md:text-lg meta-item">
+							<div class="flex justify-center gap-1 items-center text-xs md:text-lg meta-item">
 								<i class="pi pi-clock icon" />
 								<strong>{{ item.startTime }} - {{ item.endTime }}</strong>
 							</div>
