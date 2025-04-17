@@ -44,8 +44,10 @@
 			</section> -->
 
 			<!-- Speakers -->
-			<section id="speakers" class="py-20">
-				<Speakers />
+			<section class="pt-10">
+				<div id="speakers" class="py-20">
+					<Speakers />
+				</div>
 			</section>
 
 			<!-- Exhibitors -->
@@ -64,7 +66,7 @@
 			</section> -->
 
 			<!-- Things to do -->
-			<section id="things-to-do" class="py-20">
+			<section id="things-to-do" class="py-16">
 				<ThingsToDo />
 			</section>
 

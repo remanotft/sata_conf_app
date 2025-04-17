@@ -5,8 +5,8 @@
 		</div>
 		<div class="md:h-1 underline"></div>
 
+		<!-- Tab Selector-->
 		<div class="tab-selector-container">
-			<!-- Tab Selector-->
 			<div class="md:w-[30rem] text-white text-sm tab-selector">
 				<div v-for="(day, index) in uniqueDays" :key="index" @click="selectedDay = index"
 					class="px-2 text-center cursor-pointer">
@@ -20,8 +20,8 @@
 
 				<!-- Green Indicator -->
 				<div class="bottom-0 absolute bg-green-500 h-1 transition-all duration-300" :style="{
-					width: `${100 / uniqueDays.length}%`,
-					left: `${selectedDay * (100 / uniqueDays.length)}%`
+					width: `${(100 / uniqueDays.length)}%`,
+					left: `${selectedDay * ((100 / uniqueDays.length))}%`
 				}"></div>
 			</div>
 		</div>

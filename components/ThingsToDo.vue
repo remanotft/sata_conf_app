@@ -3,29 +3,58 @@
 		<h1 class="font-extrabold md:font-extrabold md:text-3xl">THINGS TO DO</h1>
 		<div class="underline"></div>
 
+		
+
+
 		<!-- Tab Selector -->
-		<div class="flex justify-center p-4">
-			<div class="flex border border-black rounded-full md:w-[30rem] overflow-hidden text-sm">
-				<div v-for="(item, index) in categories" :key="index" @click="index === 0 ? selected = index : null"
-					:class="[
-						'flex-1 text-center px-4 py-2 font-semibold cursor-pointer transition-all duration-300',
-						selected === index ? 'bg-black text-green-500' : 'bg-white text-black',
-						index !== categories.length - 1 ? 'border-r border-black' : '',
-						index === 0 ? 'rounded-l-full' : '',
-						index === categories.length - 1 ? 'rounded-r-full' : ''
-					]">
+		<div class="flex justify-center pt-2">
+			<div class="flex rounded-lg md:w-[30rem] text-sm todo-tab-selector">
+				<div v-for="(item, index) in categories" :key="index" @click="selected = index" :class="[
+					'flex-1 px-4 py-2 text-center cursor-pointer font-semibold transition-all duration-300',
+					selected === index ? 'bg-black text-green-500' : 'bg-white text-black',
+					index !== categories.length - 1 ? 'border-r border-black' : '',
+					index === 0 ? 'rounded-l-sm' : '',
+					index === categories.length - 1 ? 'rounded-r-sm' : ''
+				]">
 					{{ item.name.toUpperCase() }}
 				</div>
 			</div>
 		</div>
 
+		<!-- <div class="tab-selector-container">
+			<div class="md:w-[30rem] text-white text-sm tab-selector">
+				<div v-for="(item, index) in categories" :key="index" @click="selected = index"
+					class="px-2 py-2 text-center cursor-pointer">
+					<div class="font-semibold">
+						<span :class="selected === index ? 'text-green-500' : 'text-white'">
+							{{ item.name.toUpperCase() }}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div> 
+
+
+		<div class="flex justify-center">
+			<div class="flex border border-black rounded-full md:w-[30rem] overflow-hidden text-sm">
+				<div v-for="(item, index) in categories" :key="index" @click="selected = index" :class="[
+					'flex-1 text-center px-4 py-2 font-semibold cursor-pointer transition-all duration-300',
+					selected === index ? 'bg-black text-green-500' : 'bg-white text-black',
+					index !== categories.length - 1 ? 'border-r border-black' : '',
+					index === 0 ? 'rounded-l-full' : '',
+					index === categories.length - 1 ? 'rounded-r-full' : ''
+				]">
+					{{ item.name.toUpperCase() }}
+				</div>
+			</div>
+		</div> -->
+
 		<!-- Carousel -->
-		<Carousel :value="filteredThings" :numVisible="3" :numScroll="1" circular :responsiveOptions="responsiveOptions"
+		<Carousel :value="filteredThings" :numVisible="3" circular :responsiveOptions="responsiveOptions"
 			:showIndicators="false" :autoplayInterval="3000">
 			<template #item="slotProps">
 				<div class="p-2 md:p-5">
 					<div class="flex flex-col bg-white shadow-md rounded-lg overflow-hidden">
-
 						<!-- Image -->
 						<div class="w-full">
 							<img :src="slotProps.data.imageUrl" :alt="slotProps.data.name"
@@ -39,11 +68,6 @@
 								<div class="items-center font-medium md:text-lg text-2xl">
 									{{ slotProps.data.name }}
 								</div>
-
-								<!-- Description -->
-								<!-- <div class="h-28 overflow-y-auto text-gray-600 text-sm md:text-base">
-                  {{ slotProps.data.description }}
-                </div> -->
 
 								<!-- Contact Info -->
 								<div class="space-y-1 mt-2 text-gray-700 text-sm md:text-base">
@@ -68,11 +92,8 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
-
-
 				</div>
 			</template>
 		</Carousel>
@@ -81,14 +102,15 @@
 
 <script setup>
 
-const { thingsToDoList } = storeToRefs(useMyTodoStore())
-const { getAllThingsToDo } = useMyTodoStore()
 
-onMounted(async () => {
-	await getAllThingsToDo()
-})
+const { thingsToDoList } = storeToRefs(useMyTodoStore());
+const { getAllThingsToDo } = useMyTodoStore();
 
 const selected = ref(0);
+
+onMounted(async () => {
+	await getAllThingsToDo();
+});
 
 const categories = computed(() => {
 	if (!thingsToDoList.value?.result) return [];
@@ -100,34 +122,12 @@ const categories = computed(() => {
 	return uniqueCategories.map(name => ({ name }));
 });
 
-// const filteredThings = computed(() => {
-//     if (!thingsToDoList.value?.result || !categories.value.length) return [];
-
-//     return thingsToDoList.value.result.filter(item => 
-//         item.category === categories.value[selected.value]?.name
-//     );
-// });
-
 const filteredThings = computed(() => {
-	if (!thingsToDoList.value?.result || !categories.value.length) return [];
+	if (!thingsToDoList.value?.result || categories.value.length === 0) return [];
 
-	console.log("Current selected category:", categories.value[selected.value]?.name);
-	console.log("Available items:", thingsToDoList.value.result);
-
-	return thingsToDoList.value.result.filter(item => {
-		const categoryMatches = item.category === categories.value[selected.value]?.name;
-		console.log(`Item ${item.name}, category: ${item.category}, matches: ${categoryMatches}`);
-		return categoryMatches;
-	});
+	const categoryName = categories.value[selected.value]?.name;
+	return thingsToDoList.value.result.filter(item => item.category === categoryName);
 });
-
-
-const filteredEvents = computed(() => {
-	if (uniqueDays.value.length === 0) return []
-
-	const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
-	return allEvents.value.filter(event => event.day === currentDayId)
-})
 
 const responsiveOptions = ref([
 	{
@@ -142,7 +142,7 @@ const responsiveOptions = ref([
 	},
 	{
 		breakpoint: '767px',
-		numVisible: 4,
+		numVisible: 2,
 		numScroll: 1,
 	},
 	{
@@ -151,105 +151,12 @@ const responsiveOptions = ref([
 		numScroll: 1,
 	},
 ]);
-
-
 </script>
 
-<style>
-.tab {
-	background-color: white;
-	color: black;
-	transition: all 0.3s ease;
-}
-
-.tab-selected {
-	background-color: black;
-	color: #16E14E;
+<style scoped>
+.underline {
+	height: 2px;
+	background-color: #000;
+	margin-bottom: 1rem;
 }
 </style>
-
-
-<!-- const thingsToDo = [
-  {
-    category: 'Restaurants',
-    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
-    alt: '',
-    name: 'Sandton Sun & Towers',
-    description: 'An iconic 5-star landmark...',
-    phone: '+27 71 558 9858',
-    email: 'SandtonSun.Hotessa@southernsun.com',
-    website: 'https://www.southernsun.com/sandton-sun-and-towers'
-  },
-
-  {
-    category: 'Restaurants',
-    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-    alt: '',
-    name: 'Restaurants',
-    description: 'An iconic 5-star landmark...',
-    phone: '+27 71 558 9858',
-    email: 'SandtonSun.Hotessa@southernsun.com',
-    website: 'https://www.southernsun.com/sandton-sun-and-towers'
-  },
-
-  {
-    category: 'Restaurants',
-    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-
-    alt: '',
-    name: 'Restaurants',
-    description: 'An iconic 5-star landmark...',
-    phone: '+27 71 558 9858',
-    email: 'SandtonSun.Hotessa@southernsun.com',
-    website: 'https://www.southernsun.com/sandton-sun-and-towers'
-  },
-
-  {
-    category: 'Attractions',
-    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-
-    alt: '',
-    name: 'Nelson Mandela Square',
-    description: 'Cultural and shopping destination...',
-    phone: '+27 11 123 4567',
-    email: 'info@mandelasquare.co.za',
-    website: 'https://www.nelsonmandelasquare.co.za'
-  },
-
-  {
-    category: 'Attractions',
-    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-
-    alt: '',
-    name: 'Attractions',
-    description: 'Cultural and shopping destination...',
-    phone: '+27 11 123 4567',
-    email: 'info@mandelasquare.co.za',
-    website: 'https://www.nelsonmandelasquare.co.za'
-  },
-
-  {
-    category: 'Attractions',
-    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-
-    alt: '',
-    name: 'Nelson Mandela Square',
-    description: 'Cultural and shopping destination...',
-    phone: '+27 11 123 4567',
-    email: 'info@mandelasquare.co.za',
-    website: 'https://www.nelsonmandelasquare.co.za'
-  },
-
-  {
-    category: 'Amenities',
-    img: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-
-    alt: '',
-    name: 'Nelson Mandela Square',
-    description: 'Cultural and shopping destination...',
-    phone: '+27 11 123 4567',
-    email: 'info@mandelasquare.co.za',
-    website: 'https://www.nelsonmandelasquare.co.za'
-  },
-
-] -->
