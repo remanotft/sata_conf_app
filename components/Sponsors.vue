@@ -1,64 +1,65 @@
 <template>
-
-
   <div>
+    <h2 class="font-medium text-white text-xl">SPONSORS</h2>
 
-    <h2 class="mb-6 text-white section-title">SPONSORS</h2>
-
-    <div class="relative p-8 rounded-xl min-h-[400px] overflow-hidden text-center sponsor-section-with-bg">
-
-
-
-      <!-- Background image -->
-      <img src="/assets/images/final/Green overlay.png" alt="Background"
-        class="z-0 absolute inset-0 w-full h-full object-cover" />
-
-      <!-- Foreground content -->
-      <div class="z-10 relative sponsor-content">
-
-        <!-- Grey background for carousel area only -->
-        <div class="bg-white/40 p-6 rounded-xl w-full h-full">
-          <Carousel :value="exhibitors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions"
-            showIndicators="false">
-            <template #item="slotProps">
-              <div class="p-4">
-                <div class="flex flex-col items-center bg-opacity-90 shadow-sm p-6 rounded-xl h-full">
-                  <img src="/assets/images/final/BCX LOGO - 1.png" :alt="slotProps.data.name" class="mb-4 w-32 h-32 object-contain" />
-                  <div class="font-semibold text-gray-800 text-sm">
-                    {{ slotProps.data.name }}
-                  </div>
-                </div>
-              </div>
-            </template>
-          </Carousel>
-        </div>
+    <div class="py-4 text-center" style="color: black">
+      <!-- Globe Background -->
+      <div>
+        <img src="/assets/images/final/Green overlay.png" alt="Top left globe"
+          class="top-20 left-0 absolute opacity-10 scale-110 transform" />
       </div>
+
+
+    
+        <!-- Carousel -->
+        <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" :showIndicators="false" circular :autoplayInterval="3000">
+          <template #item="slotProps">
+            <div>
+              <div class="flex flex-col items-center shadow-sm p-6 border-green-500">
+                <img :src="slotProps.data.image" :alt="slotProps.data.name" class="mb-4 rounded-xl w-32 md:w-48 h-32 md:h-48" />
+                <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div>
+              </div>
+            </div>
+          </template>
+        </Carousel>
+
+
     </div>
   </div>
 </template>
 
-
 <script setup>
 
-const exhibitors = ref([
+const sponsors = ref([
   {
-    name: 'BofiNet',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Exhibitors/BofiNet+Logo.png'
+    name: 'BCX',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BCX.png',
   },
+
+  {
+    name: 'Telkom',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Telkom.png',
+  },
+  
+ 
+
+])
+
+const responsiveOptions = ref([
+  {
+    breakpoint: '1400px',
+    numVisible: 2,
+    numScroll: 1
+  },
+  {
+    breakpoint: '1024px',
+    numVisible: 2,
+    numScroll: 1
+  },
+  {
+    breakpoint: '768px',
+    numVisible: 1,
+    numScroll: 1
+  }
 ])
 </script>
-
-
-
-
-
-<!-- <div class="gap-6 grid logos-grid grid-cols-2 md:grid-cols-4 mt-6">
-        <img src="/assets/images/final/appcues.png" alt="Appcues" class="logo" />
-        <img src="/assets/images/final/appcues.png" alt="Insightly" class="logo" />
-        <img src="/assets/images/final/codeship.png" alt="Codeship" class="logo" />
-        <img src="/assets/images/final/instapage.png" alt="Instapage" class="logo" />
-        <img src="/assets/images/final/appcues.png" alt="Prezi" class="logo" />
-        <img src="/assets/images/final/typeform.png" alt="Typeform" class="logo" />
-        <img src="/assets/images/final/meetup.png" alt="Meetup" class="logo" />
-        <img src="/assets/images/final/pipedrive.png" alt="Pipedrive" class="logo" />
-      </div> -->

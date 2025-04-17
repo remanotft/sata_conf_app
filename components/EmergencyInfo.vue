@@ -18,16 +18,20 @@
         <!-- Info -->
         <div class="w-full text-left">
           <div class="mb-1 font-bold text-sm md:text-base">{{ info.name }}</div>
-          <div class="mb-1 text-gray-300 text-xs md:text-sm">
+
+          <div v-if="info.Address" class="mb-1 text-gray-300 text-xs md:text-sm">
             <strong class="font-extrabold">Address:</strong> {{ info.Address }}
           </div>
-          <div class="text-gray-300 text-xs md:text-sm">
+
+          <div v-if="info.Phone" class="text-gray-300 text-xs md:text-sm">
             <strong class="font-bold">Phone:</strong> {{ info.Phone }}
           </div>
-          <div class="text-gray-300 text-xs md:text-sm">
-            <strong class="font-bold">Phone:</strong> {{ info.CourtneySmith }}
+
+          <div v-if="info.CourtneySmith" class="text-gray-300 text-xs md:text-sm">
+            <strong class="font-bold">Courtney Smith:</strong> {{ info.CourtneySmith }}
           </div>
         </div>
+
 
       </div>
     </div>
@@ -56,9 +60,8 @@ const emergencyInfo = [
   },
   {
     name: 'Conference transfers',
-    Address: 'Rivonia Rd, Morningside, Sandton, 2057',
-    Phone: '086 100 5555',
-    CourtneySmith: '078 546 9514'
+    icon: 'pi pi-car',
+    CourtneySmith: '072 000 0000'
   }
 ];
 </script>

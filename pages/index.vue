@@ -85,7 +85,7 @@
 <script lang="ts" setup>
 import 'primeicons/primeicons.css';
 
-const maintenanceMode = ref(true);
+const maintenanceMode = ref(false);
 
 </script>
 

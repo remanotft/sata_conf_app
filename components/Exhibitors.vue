@@ -1,31 +1,23 @@
 <template>
-  <section class="relative bg-white px-4 py-12 overflow-hidden text-center">
+  <div class="relative bg-white px-4 text-center">
     <!-- Globe Backgrounds -->
-    <img
-    src="/assets/images/final/Black overlay.png"
-    alt="Top left globe"
-      class="top-0 left-0 z-0 absolute opacity-30 w-1/2 max-w-[300px] pointer-events-none"
-    />
-    <img
-    src="/assets/images/final/Black overlay.png"
-    alt="Bottom right globe"
-      class="right-0 bottom-0 z-0 absolute opacity-30 w-1/2 max-w-[300px] rotate-180 pointer-events-none"
-    />
+    <img src="/assets/images/final/Black overlay.png" alt="Top left globe"
+      class="top-0 left-0 z-0 absolute opacity-20 p-2 w-1/2 max-w-[300px] pointer-events-none" />
+      
+    <img src="/assets/images/final/Black overlay.png" alt="Bottom right globe"
+      class="right-0 bottom-0 z-0 absolute opacity-20 w-1/2 max-w-[300px] rotate-180 pointer-events-none" />
 
-  
+
     <!-- Content -->
     <div class="z-10 relative">
-      <h2 class="mb-2 font-bold text-xl">EXHIBITORS</h2>
-      <div class="md:h-1 underline"></div>
-      <p class="mx-auto mb-10 max-w-md text-gray-500 md:text-lg">
-        In consequat, quam id sodales hendrerit, eros mi molestie leo, nec lacinia risus neque tristique
-      </p>
+      <h1 class="p-4 font-bold md:font-bold md:text-3xl">EXHIBITORS</h1>
 
       <!-- Carousel -->
-      <Carousel :value="exhibitors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" :showIndicators="false">
+      <Carousel :value="exhibitors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" :autoplayInterval="3000"
+        showIndicators="false">
         <template #item="slotProps">
           <div class="p-4">
-            <div class="flex flex-col items-center bg-white shadow-sm p-6 rounded-xl h-full">
+            <div class="flex flex-col items-center bg-transparent shadow-sm p-6 rounded-xl h-full">
               <img :src="slotProps.data.image" :alt="slotProps.data.name" class="mb-4 w-auto h-16 object-contain" />
               <div class="font-semibold text-gray-800 text-sm">{{ slotProps.data.name }}</div>
             </div>
@@ -33,7 +25,7 @@
         </template>
       </Carousel>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
