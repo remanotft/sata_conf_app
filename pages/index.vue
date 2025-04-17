@@ -1,68 +1,94 @@
 <template>
-<div class="bg-white pb-32 overflow-x-hidden">
+	<div>
+		<div v-if="maintenanceMode">
+			<div id="header">
+				<Header />
+			</div>
 
-    <!-- HEADER -->
-    <div id="header">
-      <Header />
-    </div>
+			<!-- Hero Section -->
+			<section id="hero-section">
+				<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/OpenserveSATAComingSoonMobile.png"
+					alt="Hero image" class="mobile-hero">
 
-    <!-- Hero Section -->
-    <section id="hero-section">
-      <img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/Openserve+SATA+Mobile.png" alt="Hero image" class="mobile-hero">
+				<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/OpenserveSATAComingSoonDesktop.png"
+					alt="Hero image" class="desktop-hero">
+			</section>
 
-      <img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/Openserve+SATA+Desktop.png" alt="Hero image" class="desktop-hero">
-    </section>
+			<div id="footer">
+				<Footer />
+			</div>
+		</div>
+		<div v-else class="bg-white pb-32 overflow-x-hidden">
+			<!-- HEADER -->
+			<div id="header">
+				<Header />
+			</div>
 
-    <!-- Agenda -->
-    <section id="agenda" class="md:gap-4 md:grid md:grid-cols-2">
-      <AgendaTab />
-    </section>
+			<!-- Hero Section -->
+			<section id="hero-section">
+				<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/Openserve+SATA+Mobile.png"
+					alt="Hero image" class="mobile-hero">
 
-    <!-- Conference Map -->
-    <section id="map" class="py-10">
-      <ConferenceMap />
-    </section>
+				<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/Openserve+SATA+Desktop.png"
+					alt="Hero image" class="desktop-hero">
+			</section>
 
-    <!-- Speakers -->
-    <section id="speakers" class="py-20">
-      <Speakers />
-    </section>
+			<!-- Agenda -->
+			<section id="agenda" class="md:gap-4 md:grid md:grid-cols-2">
+				<AgendaTab />
+			</section>
 
-    <!-- Exhibitors -->
-    <section id="exhibitors" class="py-10">
-      <Exhibitors />
-    </section>
+			<!-- Conference Map -->
+			<section id="map" class="py-10">
+				<ConferenceMap />
+			</section>
 
-    <!-- Sponsors -->
-    <section id="sponsors" class="py-20">
-      <Sponsors />
-    </section>
+			<!-- Speakers -->
+			<section id="speakers" class="py-20">
+				<Speakers />
+			</section>
 
-    <!-- media Hub -->
-    <section id="media-hub" class="pt-20">
-      <MediaHub />
-    </section>
+			<!-- Exhibitors -->
+			<section id="exhibitors" class="py-10">
+				<Exhibitors />
+			</section>
 
-    <!-- Things to do -->
-    <section id="things-to-do" class="py-20">
-      <ThingsToDo />
-    </section>
+			<!-- Sponsors -->
+			<section id="sponsors" class="py-20">
+				<Sponsors />
+			</section>
 
-    <!-- emergency info -->
-    <section id="emergency-info" class="py-20">
-      <EmergencyInfo />
-    </section>
+			<!-- media Hub -->
+			<section id="media-hub" class="pt-20">
+				<MediaHub />
+			</section>
 
-    <div id="footer">
-      <Footer />
-    </div>
+			<!-- Things to do -->
+			<section id="things-to-do" class="py-20">
+				<ThingsToDo />
+			</section>
 
-  </div>
+			<!-- emergency info -->
+			<section id="emergency-info" class="py-20">
+				<EmergencyInfo />
+			</section>
+
+			<div id="footer">
+				<Footer />
+			</div>
+		</div>
+	</div>
+
+
 </template>
 
 <script lang="ts" setup>
 import 'primeicons/primeicons.css';
 
+const maintenanceMode = ref(true);
+
 </script>
 
-<style></style>
+<style>
+
+</style>
