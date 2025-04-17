@@ -9,21 +9,16 @@
           class="top-20 left-0 absolute opacity-10 scale-110 transform" />
       </div>
 
-
-    
         <!-- Carousel -->
         <Carousel :value="sponsors" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" :showIndicators="false" circular :autoplayInterval="3000">
           <template #item="slotProps">
-            <div>
-              <div class="flex flex-col items-center shadow-sm p-6 border-green-500">
-                <img :src="slotProps.data.image" :alt="slotProps.data.name" class="mb-4 rounded-xl w-32 md:w-48 h-32 md:h-48" />
-                <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div>
-              </div>
+            <div class="flex justify-center">
+              <!-- <div class="bg-white p-6 border-green-500"> -->
+                <img :src="slotProps.data.image" :alt="slotProps.data.name" class="bg-white mb-4 rounded-xl w-40 md:w-48 h-32 md:h-48" />
+                <!-- <div class="font-semibold text-white text-sm md:text-xl">{{ slotProps.data.name }}</div> -->
             </div>
           </template>
         </Carousel>
-
-
     </div>
   </div>
 </template>
@@ -33,14 +28,32 @@
 const sponsors = ref([
   {
     name: 'BCX',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BCX.png',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/BCX+LOGO+-+1.png',
   },
 
   {
     name: 'Telkom',
-    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Telkom.png',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/Telkom.png',
   },
   
+  {
+    name: 'Open Serve',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/openserve-logo-colour.png',
+  },
+    
+  {
+    name: 'Inspur',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Inspur.png',
+  },
+
+    
+  {
+    name: 'AMDOCS',
+    image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Exhibitors/Amdocs.png'
+  },
+
+
+
  
 
 ])
@@ -63,3 +76,6 @@ const responsiveOptions = ref([
   }
 ])
 </script>
+
+
+<!-- w-32 md:w-48 h-32 md:h-48 -->

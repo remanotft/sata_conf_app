@@ -4,23 +4,30 @@
 
 		<div class="relative mx-auto max-w-5xl">
 
-			<!-- Map Image -->
+			<!-- Static Map Image with Logos Included -->
+			<img
+				src="/assets/images/final/Floor Map Populated.png"
+				alt="Conference Map"
+				class="w-full"
+			/>
 
-			<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/SATA-Assets/Exhibitor+Map.png"
-				alt="Conference Map" class="w-full" />
-			<!-- Booth Logos -->
-			<div v-for="booth in booths" :key="booth.id"
-				class="absolute hover:scale-110 transition-transform cursor-pointer" :style="{
+			<div
+				v-for="booth in booths"
+				:key="booth.id"
+				class="absolute cursor-pointer"
+				:style="{
 					left: `${booth.position.x}%`,
 					top: `${booth.position.y}%`,
-					width: `${booth.size || 8}%`
-				}" @click="openBoothDetails(booth)">
-				<div class="p-1 rounded h-14" style="background: color #161616;">
-					<img :src="booth.logoUrl" :alt="booth.name" class="border border-green-500 rounded-lg w-full object-contain" />
-				</div>
+					width: `${booth.width}%`,
+					height: `${booth.height}%`,
+					transform: 'translate(-50%, -50%)'
+				}"
+				@click="openBoothDetails(booth)">
+				<div class="border border-red-500 rounded-lg w-full h-full"></div>
 			</div>
 		</div>
 
+		<!-- Dialog stays the same -->
 		<Dialog v-model:visible="visible" pt:root:class="!bg-transparent !border-0" pt:mask:class="backdrop-blur-sm"
 			style="--p-dialog-border-radius: 0;">
 			<template #container="{ closeCallback }">
@@ -46,12 +53,6 @@
 							<p class="font-semibold">Stand:</p>
 							<p class="ml-auto text-right">{{ selectedBooth.standNumber }}</p>
 						</div>
-						<!-- 
-            <div class="flex items-center gap-2">
-              <i class="text-white pi pi-user" />
-              <span class="font-semibold text-green-500">Member:</span>
-              <span class="ml-auto text-green-500 text-right">{{ selectedBooth.member }}</span>
-            </div> -->
 					</div>
 
 					<!-- Button -->
@@ -62,9 +63,9 @@
 				</div>
 			</template>
 		</Dialog>
-
 	</div>
 </template>
+
 
 <script setup>
 import { ref } from 'vue';
@@ -84,7 +85,9 @@ const booths = ref([
     email: '',
     standNumber: '1',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Huawei.png',
-    position: { x: 43, y: 37 }
+    position: { x: 43, y: 39 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -92,7 +95,9 @@ const booths = ref([
     email: 'mana@providencesoft.com',
     standNumber: '2',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Providence.png',
-    position: { x: 51, y: 37 }
+    position: { x: 51, y: 37 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -100,7 +105,9 @@ const booths = ref([
     email: 'Sathish.Chandrasekaran@Amdocs.com',
     standNumber: '3',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Amdocs.png',
-    position: { x: 43, y: 43 }
+    position: { x: 43, y: 45 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -108,7 +115,9 @@ const booths = ref([
     email: '',
     standNumber: '',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Openserve.png',
-    position: { x: 47, y: 31 },
+    position: { x: 52, y: 34 },
+    width: 17,
+    height: 6
   },
   {
     id: 'expo1',
@@ -116,7 +125,9 @@ const booths = ref([
     email: '',
     standNumber: '',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BCX.png',
-    position: { x: 73, y: 30 }
+    position: { x: 73, y: 30 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo1',
@@ -124,7 +135,9 @@ const booths = ref([
     email: 'manelisi@bamtelecoms.co.za',
     standNumber: '5',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BAM Telecoms.png',
-    position: { x: 68, y: 36 }
+    position: { x: 68, y: 36 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo1',
@@ -132,7 +145,9 @@ const booths = ref([
     email: '',
     standNumber: '6',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/ePocket.png',
-    position: { x: 77, y: 36 }
+    position: { x: 77, y: 36 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo1',
@@ -140,7 +155,9 @@ const booths = ref([
     email: '',
     standNumber: '7',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Giz.png',
-    position: { x: 68, y: 42 }
+    position: { x: 68, y: 42 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo1',
@@ -148,25 +165,29 @@ const booths = ref([
     email: '',
     standNumber: '8',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Quadrupleplay.png',
-    position: { x: 77, y: 42 }
+    position: { x: 77, y: 42 },
+    width: 6,
+    height: 6
   },
-
   {
     id: 'expo1',
     name: 'Africa Beyond',
     email: 'amom@ab4ir.org',
     standNumber: '9',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Africa+Beyond+4IR.png',
-    position: { x: 68, y: 48 }
+    position: { x: 68, y: 48 },
+    width: 6,
+    height: 6
   },
-
   {
     id: 'expo1',
     name: 'Tanzania Telecommunication Corporation',
     email: 'esther.kamulali@ttcl.co.tz',
     standNumber: '10',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/TTCL.png',
-    position: { x: 77, y: 48 }
+    position: { x: 77, y: 48 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -174,7 +195,9 @@ const booths = ref([
     email: ' ',
     standNumber: '11',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Mauritius+Telecom.png',
-    position: { x: 36, y: 59 }
+    position: { x: 36, y: 59 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -182,7 +205,9 @@ const booths = ref([
     email: 'Chawada@bofinet.co.bw',
     standNumber: '12',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/BofiNet.png',
-    position: { x: 44, y: 59 }
+    position: { x: 44, y: 59 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -190,7 +215,9 @@ const booths = ref([
     email: 'xujianwei01@inspur.com',
     standNumber: '13',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Inspur.png',
-    position: { x: 52, y: 59 }
+    position: { x: 52, y: 59 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -198,7 +225,9 @@ const booths = ref([
     email: 'aukodesigns@gmail.com',
     standNumber: '14',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Auko+Designs.png',
-    position: { x: 36, y: 65 }
+    position: { x: 36, y: 67 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -206,7 +235,9 @@ const booths = ref([
     email: 'shipenaa@telecom.na',
     standNumber: '8',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Telecom+Namibia.png',
-    position: { x: 44, y: 65 }
+    position: { x: 44, y: 65 },
+    width: 6,
+    height: 6
   },
   {
     id: 'expo3',
@@ -214,8 +245,17 @@ const booths = ref([
     email: '',
     standNumber: '',
     logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Telkom.png',
-    position: { x: 27, y: 63 }
+    position: { x: 30, y: 64 },
+    width: 7,
+    height: 11
   }
 ]);
 
+
 </script>
+
+<style scoped>
+.absolute.cursor-pointer:hover {
+  box-shadow: 0 0 0 2px #00ff00aa;
+}
+</style>
