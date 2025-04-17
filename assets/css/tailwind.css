@@ -708,6 +708,8 @@ h1{
       width: 100%;
       padding: 1rem;
       opacity: 0.8;
+      transition: background-color 0.3s ease;
+      z-index: 999;
     }
   
   .header-container {
@@ -716,6 +718,18 @@ h1{
       align-items: center;
     }
   
+    .scrolled-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.5rem;
+        opacity: 0.8;
+        transition: background-color 0.3s ease;
+        background-color: #000000;
+        z-index: 999;
+      }
+
     #footer {
       position: fixed;
       bottom: 0;
@@ -810,7 +824,7 @@ h1{
       width: 90vw; 
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      /* gap: 1rem; */
     }
     
     .schedule-card {
@@ -826,7 +840,7 @@ h1{
       padding: 5px;
       justify-content: center;
       align-items: center;
-  
+      text-align: center;
     }
     
     .schedule-title {
@@ -840,7 +854,7 @@ h1{
       color: white;
       padding: 16px 30px 16px 30px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       font-size: 0.7rem;
     }
@@ -848,7 +862,7 @@ h1{
     .meta-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      /* gap: 6px; */
     }
     
     .meta-separator {
@@ -934,10 +948,7 @@ h1{
   
   .speaker-image{
     object-fit: contain;
-    height: 10rem /* 160px */;
-    width: 10rem /* 160px */;
-    border-radius: 100px;
-    margin-bottom: 1rem /* 16px */;
+    margin-bottom: 1rem;
   }
   
   #media-hub{
