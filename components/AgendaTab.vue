@@ -80,7 +80,7 @@
 
 							<!-- facilitators -->
 							<div v-if="item.facilitators.length" class="info-block pt-2">
-								<h5 class="font-bold text-lg md:text-2xl info-label flex justify-center">Facilitators:</h5>
+								<h5 class="font-bold text-xl md:text-2xl info-label flex justify-center">Facilitators</h5>
 								<ul>
 									<div class="px-2 font-medium">
 										<li v-for="(facilitator, pIndex) in item.facilitators" :key="pIndex"
@@ -93,7 +93,7 @@
 
 							<!-- panelMembers -->
 							<div v-if="item.panelMembers.length" class="info-block">
-								<h5 class="font-bold text-lg md:text-2xl info-label flex justify-center">Panel Members:</h5>
+								<h5 class="font-bold text-xl md:text-2xl info-label flex justify-center">Panel Members</h5>
 								<ul>
 									<div class="px-2 font-medium">
 										<li v-for="(panelMember, pIndex) in item.panelMembers" :key="pIndex"
