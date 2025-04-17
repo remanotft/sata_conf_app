@@ -51,7 +51,7 @@
 			</section>
 
 			<!-- Exhibitors -->
-			<section id="exhibitors" class="py-10">
+			<section id="exhibitors" class="">
 				<Exhibitors />
 			</section>
 
