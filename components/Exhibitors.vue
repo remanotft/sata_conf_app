@@ -22,7 +22,7 @@
       <!-- Grid -->
       <div class="gap-4 grid grid-cols-3 md:grid-cols-3 p-4">
         <div v-for="(exhibitor, index) in exhibitors" :key="index"
-          class="flex flex-col items-center bg-transparent shadow-sm p-6">
+          class="flex flex-col items-center bg-transparent p-6">
           <img :src="exhibitor.image" :alt="exhibitor.name" class="mb-4 rounded-md w-auto h-16 object-contain" />
           <!-- <div class="font-semibold text-gray-800 text-sm">
             {{ exhibitor.name }}
