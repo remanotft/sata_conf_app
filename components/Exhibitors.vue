@@ -51,7 +51,7 @@
 const exhibitors = ref([
 	{
 		name: 'Africa Beyond',
-		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Africa+Beyond.png'
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Africa-Beyond-Resized.jpg'
 	},
 	{
 		name: 'Amdocs',
@@ -59,27 +59,27 @@ const exhibitors = ref([
 	},
 	{
 		name: 'Auko Designs',
-		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Auko+Designs.jpg'
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Auko-Designs-Resized.jpg'
 	},
 	{
 		name: 'BAM',
-		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BAM+Telecoms.png'
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BAM-Telecoms-Resized.jpg'
 	},
 	{
 		name: 'BCX',
-		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BCX.jpg'
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BCX-Logo-Resized.jpg'
 	},
 	{
 		name: 'BofiNet',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BofiNet.jpg'
 	},
 	{
-		name: 'DIF - GIZ and HAUS',
-		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Giz.jpg'
-	},
-	{
 		name: 'EPOCKET',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/ePocket.jpg'
+	},
+	{
+		name: 'DIF - GIZ and HAUS',
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Giz-Resized.jpg'
 	},
 	{
 		name: 'Hwawei',
@@ -90,21 +90,25 @@ const exhibitors = ref([
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Inspur.jpg',
 	},
 	{
+		name: 'IT Thynk',
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/IT-Thynk-Resized.jpg',
+	},
+	{
 		name: 'Mauritius Telecom',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Mauritius+Telecom.jpg'
 	},
 	{
 		name: 'Open Serve',
-		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Openserve.jpg'
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/OpenserveLogoResized.jpg'
 	},
 	{
 		name: 'Providence',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Providence.jpg',
 	},
-	// {
-	// 	name: 'Quadrupleplay',
-	// 	image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Updated+Logos/Quadrupleplay.png',
-	// },
+	{
+		name: 'Quadrupleplay',
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Quadrupleplay.jpg',
+	},
 	{
 		name: 'Tanzania Telecommunication Corporation',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/TTCL.jpg'
