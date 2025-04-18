@@ -20,7 +20,7 @@
 
 		<!-- Carousel -->
 		<div v-if="selected === 0">
-			<Carousel :data-key="filteredThings.id" :value="filteredThings" :numVisible="3" :numScroll="3" circular :autoplayInterval="3000"
+			<Carousel :data-key="filteredThings.id" :value="filteredThings" :numVisible="3" :numScroll="3" circular :autoplayInterval="3000" :showIndicators="false"
 				:responsiveOptions="responsiveOptions">
 				<template #item="slotProps">
 					<div class="p-2 md:p-5">
@@ -70,7 +70,7 @@
 			</Carousel>
 		</div>
 		<div v-if="selected === 1">
-			<Carousel :data-key="filteredThings.id" :value="filteredThings" :numVisible="3" :numScroll="3" circular :autoplayInterval="3000"
+			<Carousel :data-key="filteredThings.id" :value="filteredThings" :numVisible="3" :numScroll="3" circular :autoplayInterval="3000" :showIndicators="false"
 				:responsiveOptions="responsiveOptions">
 				<template #item="slotProps">
 					<div class="p-2 md:p-5">
@@ -120,7 +120,7 @@
 			</Carousel>
 		</div>
 		<div v-if="selected === 2">
-			<Carousel :data-key="filteredThings.id" :value="filteredThings" :numVisible="3" :numScroll="3" circular :autoplayInterval="3000"
+			<Carousel :data-key="filteredThings.id" :value="filteredThings" :numVisible="3" :numScroll="3" circular :autoplayInterval="3000" :showIndicators="false"
 				:responsiveOptions="responsiveOptions">
 				<template #item="slotProps">
 					<div class="p-2 md:p-5">
