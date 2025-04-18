@@ -85,11 +85,11 @@
                                         <vue-collapsible :isOpen="activeDropdown === 'invoice'">
                                             <ul class="sub-menu text-gray-500">
                                                 <li>
-                                                    <NuxtLink to="/apps/invoice/list" @click="toggleMobileMenu">{{
+                                                    <NuxtLink to="/admin/media-hub/image-gallery" @click="toggleMobileMenu">{{
                                                         $t('image_gallery') }}</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="/apps/invoice/preview" @click="toggleMobileMenu">{{
+                                                    <NuxtLink to="/admin/media-hub/content-bites" @click="toggleMobileMenu">{{
                                                         $t('content_bites') }}</NuxtLink>
                                                 </li>
                                             </ul>
@@ -123,11 +123,11 @@
                                 <vue-collapsible :isOpen="activeDropdown === 'users'">
                                     <ul class="sub-menu text-gray-500">
                                         <li>
-                                            <NuxtLink to="/users/profile" @click="toggleMobileMenu">{{ $t('profile') }}
+                                            <NuxtLink  @click="toggleMobileMenu">{{ $t('profile') }}
                                             </NuxtLink>
                                         </li>
                                         <li>
-                                            <NuxtLink to="/users/user-account-settings" @click="toggleMobileMenu">{{
+                                            <NuxtLink @click="toggleMobileMenu">{{
                                                 $t('account_settings') }}</NuxtLink>
                                         </li>
                                     </ul>

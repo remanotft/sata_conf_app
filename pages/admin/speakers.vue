@@ -86,7 +86,7 @@
 							<label for="title" class="block mb-2 text-sm font-medium text-gray-900">
 								Title
 							</label>
-							<InputText type="text" v-model="title" class="w-full" required />
+							<InputText type="text" v-model="title" class="w-full" />
 						</div>
 						<div>
 							<label for="company" class="block mb-2 text-sm font-medium text-gray-900">
