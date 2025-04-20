@@ -39,17 +39,19 @@
 			</section>
 
 			<!-- Conference Map -->
-			<section id="map" class="py-10">
+			<!-- <section id="map" class="py-10">
 				<ConferenceMap />
-			</section>
+			</section> -->
 
 			<!-- Speakers -->
-			<section id="speakers" class="py-20">
-				<Speakers />
+			<section class="pt-10">
+				<div id="speakers" class="py-20">
+					<Speakers />
+				</div>
 			</section>
 
 			<!-- Exhibitors -->
-			<section id="exhibitors" class="py-10">
+			<section id="exhibitors" class="">
 				<Exhibitors />
 			</section>
 
@@ -59,12 +61,12 @@
 			</section>
 
 			<!-- media Hub -->
-			<section id="media-hub" class="pt-20">
+			<!-- <section id="media-hub" class="pt-20">
 				<MediaHub />
-			</section>
+			</section> -->
 
 			<!-- Things to do -->
-			<section id="things-to-do" class="py-20">
+			<section id="things-to-do" class="py-16">
 				<ThingsToDo />
 			</section>
 
@@ -85,10 +87,8 @@
 <script lang="ts" setup>
 import 'primeicons/primeicons.css';
 
-const maintenanceMode = ref(true);
+const maintenanceMode = ref(false);
 
 </script>
 
-<style>
-
-</style>
+<style></style>

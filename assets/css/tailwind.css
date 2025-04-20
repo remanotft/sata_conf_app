@@ -708,6 +708,8 @@ h1{
       width: 100%;
       padding: 1rem;
       opacity: 0.8;
+      transition: background-color 0.3s ease;
+      z-index: 999;
     }
   
   .header-container {
@@ -716,6 +718,18 @@ h1{
       align-items: center;
     }
   
+    .scrolled-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.5rem;
+        opacity: 0.8;
+        transition: background-color 0.3s ease;
+        background-color: #000000;
+        z-index: 999;
+      }
+
     #footer {
       position: fixed;
       bottom: 0;
@@ -762,15 +776,32 @@ h1{
     position: relative;
     display: flex;
     justify-content: space-evenly;
-    gap: 0.5rem /* 8px */;
-    background-color: #000;
+    background-color: #0e1726;
     margin-bottom: 2rem /* 32px */;
     padding-left: 1.25rem /* 20px */;
-    padding-right: 1.25rem /* 20px */;
-    padding-top: 1.25rem /* 8px */;
-    padding-bottom: 1.25rem /* 8px */;
-    border-radius: 0.5rem /* 8px */;
+    padding-right:1.25rem  /* 20px */;
+    padding-top:1.25rem   /* 8px */;
+    padding-bottom: 1.25rem  /* 8px */;
+    border-radius: 0.5rem  /* 8px */;
   }
+
+
+  
+  .todo-tab-selector{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #0e1726;
+    margin-bottom: 2rem /* 32px */;
+    padding-left: 0.1rem /* 20px */;
+    padding-right: 0.1rem /* 20px */;
+    padding-top: 0.1rem  /* 8px */;
+    padding-bottom: 0.1rem /* 8px */;
+    border-radius: 0.25rem /* 8px */;
+  }
+
+
+  
 
     .label {
       color: #1e9d57;
@@ -810,11 +841,11 @@ h1{
       width: 90vw; 
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      /* gap: 1rem; */
     }
     
     .schedule-card {
-      border-left: 2px solid #16a34a; /* green-600 */
+      /* border-left: 2px solid #16a34a; green-600 */
       background-color: white;
       margin-bottom: 1rem;
     }
@@ -826,7 +857,7 @@ h1{
       padding: 5px;
       justify-content: center;
       align-items: center;
-  
+      text-align: center;
     }
     
     .schedule-title {
@@ -840,7 +871,7 @@ h1{
       color: white;
       padding: 16px 30px 16px 30px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       font-size: 0.7rem;
     }
@@ -848,7 +879,7 @@ h1{
     .meta-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      /* gap: 6px; */
     }
     
     .meta-separator {
@@ -864,7 +895,7 @@ h1{
     }
     
     .schedule-body {
-      padding: 1.5rem;
+      /* padding: 0.25rem; */
       font-size: 0.9rem;
       height: auto;
     }
@@ -934,10 +965,7 @@ h1{
   
   .speaker-image{
     object-fit: contain;
-    height: 10rem /* 160px */;
-    width: 10rem /* 160px */;
-    border-radius: 100px;
-    margin-bottom: 1rem /* 16px */;
+    margin-bottom: 1rem;
   }
   
   #media-hub{
