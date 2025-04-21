@@ -11,31 +11,31 @@
           class="px-2 text-center cursor-pointer">
           <div class="font-semibold">
             <span class="md:text-xl" :class="selectedDay === index ? 'text-green-500' : 'text-white'"> DAY {{ day.number
-              }} </span>
+            }} </span>
           </div>
           <div class="mt-0.5 text-white text-xs">{{ day.date }}</div>
         </div>
 
         <!-- Green Indicator -->
         <div class="bottom-0 absolute bg-green-500 h-1 transition-all duration-300" :style="{
-          width: '33.33%',
-          left: `${selectedDay * 33.33}%`
+          width: `${(100 / days.length)}%`,
+          left: `${selectedDay * ((100 / days.length))}%`
         }"></div>
       </div>
     </div>
 
     <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredEvents"
-      :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true"
-      :fullScreen="true" :showItemNavigators="true" :showThumbnails="false" containerStyle="max-width: 100%">
+      :responsiveOptions="responsiveOptions" :numVisible="7" :circular="true" :fullScreen="true"
+      :showItemNavigators="true" :showThumbnails="false" containerStyle="max-width: 100%">
       <template #item="slotProps">
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
       </template>
       <template #thumbnail="slotProps">
-        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" class="thumbnail"/>
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" class="thumbnail" />
       </template>
     </Galleria>
-  
-    <div v-if="images" class="gap-4 grid grid-cols-2 md:grid-cols-4" >
+
+    <div v-if="images" class="gap-4 grid grid-cols-2 md:grid-cols-4">
       <div v-for="(image, index) of filteredEvents" :key="index" class="">
         <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
       </div>
@@ -154,6 +154,19 @@ const images = ref([
   }
 ])
 
+const eventImages = computed(() => {
+  if (!imageGallery.value?.result) return []
+
+  return imageGallery.value.result.map(item => ({
+    id: item.id,
+    day: `day${item.day.replace('Day ', '')}`,
+    imageUrl: item.imageUrl,
+    altText: item.altText,
+    description: item.description,
+    is_active: item.is_active,
+  }))
+})
+
 const activeIndex = ref(0);
 const responsiveOptions = ref([
   {
@@ -184,6 +197,10 @@ const days = [
   { number: '03', date: 'April 19', id: 'day3' }
 ]
 
+
+
+
+
 //  filters events based on selected day
 const filteredEvents = computed(() => {
   const currentDayId = days[selectedDay.value].id
@@ -191,5 +208,4 @@ const filteredEvents = computed(() => {
 })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
