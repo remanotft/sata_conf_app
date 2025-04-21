@@ -1,7 +1,7 @@
 <template>
   <div class="pt-10">
     <h1 class="font-extrabold md:font-extrabold md:text-3xl">Video Gallery</h1>
-    <div class="md:h-1 underline"></div>
+    <div class="md:h-1 underline-2"></div>
 
     <!-- Tab Selector -->
     <div class="flex justify-center">
