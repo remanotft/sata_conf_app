@@ -117,7 +117,6 @@ const exhibitors = ref([
 		name: 'Tanzania Telecommunication Corporation',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/TTCL.jpg'
 	},
-
 	{
 		name: 'Telecom Namibia',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Telecom+Namibia.jpg'

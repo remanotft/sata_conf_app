@@ -39,9 +39,9 @@
 			</section>
 
 			<!-- Conference Map -->
-			<!-- <section id="map" class="py-10">
+			<section id="map" class="py-10">
 				<ConferenceMap />
-			</section> -->
+			</section>
 
 			<!-- Speakers -->
 			<section class="pt-10">
