@@ -3,7 +3,7 @@
 		<div class="flex justify-center mb-2 pt-8">
 			<h1 class="font-extrabold md:font-extrabold md:text-3xl">CONFERENCE AGENDA</h1>
 		</div>
-		<div class="md:h-1 underline"></div>
+		<div class="md:h-1 underline-2"></div>
 
 		<!-- Tab Selector-->
 		<div class="tab-selector-container">

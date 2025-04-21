@@ -3,7 +3,7 @@
 
     <!-- Title -->
     <h1 class="font-extrabold text-white md:text-2xl">EMERGENCY INFO</h1>
-    <div class="underline"></div>
+    <div class="underline-2"></div>
 
     <!-- Emergency Info Cards -->
     <!-- Emergency Info Cards -->

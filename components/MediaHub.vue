@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
-    <div class="underline"></div>
+    <div class="underline-2"></div>
 
     <div class="carousel-container">
       <swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
@@ -29,7 +29,7 @@
         <h1 class="font-extrabold md:font-extrabold md:text-3xl">CONTENT BITES</h1>
       </div>
 
-      <div class="underline"></div>
+      <div class="underline-2"></div>
 
        <!-- Video Carousel -->
       <Carousel :value="videos" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
