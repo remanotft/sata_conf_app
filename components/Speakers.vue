@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="font-extrabold md:font-extrabold text-white md:text-3xl">Meet Our Speakers</h1>
-    <div class="md:h-1 underline"></div>
+    <div class="md:h-1 underline-2"></div>
 
     <div class="relative bg-cover bg-no-repeat bg-center rounded-xl overflow-hidden speaker-carousel-wrapper">
       <!-- Background image -->

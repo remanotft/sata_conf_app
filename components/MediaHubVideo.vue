@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="font-extrabold md:font-extrabold md:text-3xl">Video Gallery</h1>
-    <div class="md:h-1 underline"></div>
+    <div class="md:h-1 underline-2"></div>
 
     <!-- Video Carousel -->
     <Carousel :value="videos" :numVisible="1" :numScroll="1" :responsiveOptions="responsiveOptions">
