@@ -986,7 +986,7 @@ h1{
 
       .swiper-button-next{
 
-color: #fff !important;
+color: #16a34a !important;
       }
 
       .swiper-pagination-bullet-active{
@@ -1000,7 +1000,7 @@ color: #fff !important;
 
       .swiper-button-prev{
 
-        color: #fff !important;
+        color: #16a34a !important;
               }
 
       .swiper-slide {
@@ -1053,8 +1053,6 @@ color: #fff !important;
         border-radius: 10px;
         margin-bottom: 1rem;
       }
-
-
 
       #emergency-info{
         background-color: #000;

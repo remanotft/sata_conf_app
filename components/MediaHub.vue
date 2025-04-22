@@ -3,6 +3,7 @@
     <h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
     <div class="underline-2"></div>
 
+    <!-- image gallery preview -->
     <div class="carousel-container">
       <swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
         :centered-slides="true" :loop="true" :effect="'coverflow'" :navigation="true" :pagination="{ clickable: true }"
@@ -13,16 +14,18 @@
           modifier: 2.5,
           slideShadows: false
         }">
-        <swiper-slide v-for="(image, index) in images" :key="index" class="swiper-slide">
-          <img :src="image" class="slide-image" />
+        <swiper-slide v-for="(image, index) in eventImages" :key="index" class="swiper-slide">
+          <img :src="image.imageUrl" class="slide-image" />
         </swiper-slide>
       </swiper>
     </div>
 
+    <!-- See more Button -->
     <div class="flex justify-center">
       <NuxtLink to="/media-hub" class="m-4 btn">See Image Gallery</NuxtLink>
     </div>
 
+    <!-- Video Gallery Preview -->
     <div class="pt-20">
 
       <div class="flex justify-center mb-2">
@@ -31,13 +34,13 @@
 
       <div class="underline-2"></div>
 
-       <!-- Video Carousel -->
-      <Carousel :value="videos" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
+      <!-- Video Carousel -->
+      <Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
         class="mx-auto px-4 md:px-0 max-w-5xl video-carousel" :showIndicators="true">
         <template #item="{ data }">
           <div class="p-2 md:p-6">
             <div class="shadow-md rounded-lg overflow-hidden video-wrapper">
-              <iframe class="video-container" :src="data.embedUrl" frameborder="0"
+              <iframe class="video-container" :src="data.videoUrl" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             </div>
@@ -62,6 +65,9 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { useMyContent_bitesStore } from '~/stores/media-hub/content_bites';
+import { useMyImage_galleryStore } from '~/stores/media-hub/image_gallery';
+
 
 const SwiperEffectCoverflow = EffectCoverflow;
 const SwiperNavigation = Navigation;
@@ -74,7 +80,6 @@ const images = ref([
   'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
   'https://primefaces.org/cdn/primevue/images/galleria/galleria6.jpg',
   'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
-
 ]);
 
 // Video data
@@ -114,6 +119,65 @@ const responsiveOptions = ref([
     numScroll: 1
   }
 ]);
+
+const contentBiteVideo = computed(() => {
+	if (!ContentBitesList.value?.result) return []
+
+	return ContentBitesList.value.result
+  .slice(0, 3)  //Limit to 3 videos
+  .map(item => {
+		let videoId = '';
+
+		if (item.videoUrl.includes('watch?v=')) {
+			videoId = item.videoUrl.split('watch?v=')[1].split('&')[0];
+		} else if (item.videoUrl.includes('embed/')) {
+			videoId = item.videoUrl.split('embed/')[1].split('?')[0];
+		}
+
+		const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : '';
+		const thumbnail = videoId
+			? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+			: '';
+
+		return {
+			id: item.id,
+			day: `day${item.day.replace('Day ', '')}`,
+			videoUrl: embedUrl,
+			speaker: item.speaker,
+			topic: item.topic,
+			is_active: item.is_active,
+			thumbnail,
+			altText: `${item.topic} by ${item.speaker}`
+		};
+	});
+});
+
+const eventImages = computed(() => {
+  if (!imageGalleryList.value?.result) return []
+
+  return imageGalleryList.value.result
+  .slice(0, 6)  //Limit to 6 images
+  .map(item => ({
+    id: item.id,
+    day: `day${item.day.replace('Day ', '')}`,
+    imageUrl: item.imageUrl,
+    altText: item.altText,
+    description: item.description,
+    is_active: item.is_active,
+  }))
+})
+
+const { getAllContentBites } = useMyContent_bitesStore()
+const { ContentBitesList } = storeToRefs(useMyContent_bitesStore())
+
+const { getAllImageGalleryItems } = useMyImage_galleryStore()
+const { imageGalleryList } = storeToRefs(useMyImage_galleryStore())
+
+onMounted(async () => {
+	await getAllImageGalleryItems();
+  await getAllContentBites();  
+})
+
 </script>
 
 <style scoped>
@@ -131,9 +195,6 @@ const responsiveOptions = ref([
   width: 100%;
   height: 100%;
 }
-
-
-
 </style>
 
 
