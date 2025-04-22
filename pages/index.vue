@@ -61,9 +61,9 @@
 			</section>
 
 			<!-- media Hub -->
-			<!-- <section id="media-hub" class="pt-20">
+			<section id="media-hub" class="pt-20">
 				<MediaHub />
-			</section> -->
+			</section>
 
 			<!-- Things to do -->
 			<section id="things-to-do" class="py-16">

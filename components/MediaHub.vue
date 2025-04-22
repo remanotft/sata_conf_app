@@ -3,6 +3,8 @@
     <h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
     <div class="underline-2"></div>
 
+
+    <!-- image gallery preview -->
     <div class="carousel-container">
       <swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
         :centered-slides="true" :loop="true" :effect="'coverflow'" :navigation="true" :pagination="{ clickable: true }"
@@ -13,16 +15,18 @@
           modifier: 2.5,
           slideShadows: false
         }">
-        <swiper-slide v-for="(image, index) in images" :key="index" class="swiper-slide">
-          <img :src="image" class="slide-image" />
+        <swiper-slide v-for="(image, index) in eventImages" :key="index" class="swiper-slide">
+          <img :src="image.imageUrl" class="slide-image" />
         </swiper-slide>
       </swiper>
     </div>
 
+    <!-- See more Button -->
     <div class="flex justify-center">
       <NuxtLink to="/media-hub" class="m-4 btn">See Image Gallery</NuxtLink>
     </div>
 
+    <!-- Video Gallery Preview -->
     <div class="pt-20">
 
       <div class="flex justify-center mb-2">
@@ -31,7 +35,7 @@
 
       <div class="underline-2"></div>
 
-       <!-- Video Carousel -->
+      <!-- Video Carousel -->
       <Carousel :value="videos" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
         class="mx-auto px-4 md:px-0 max-w-5xl video-carousel" :showIndicators="true">
         <template #item="{ data }">
@@ -114,6 +118,67 @@ const responsiveOptions = ref([
     numScroll: 1
   }
 ]);
+
+
+
+const uniqueDays = computed(() => {
+  if (!imageGalleryItems.value?.result) return []
+
+  // Get unique day entries
+  const dayMap = new Map()
+
+  imageGalleryItems.value.result.forEach(item => {
+    const dayNumber = item.day.replace('Day ', '')
+
+    if (!dayMap.has(dayNumber)) {
+      dayMap.set(dayNumber, {
+        dayNumber,
+        dayId: `day${dayNumber}`,
+      })
+    }
+  })
+
+  return Array.from(dayMap.values())
+    .sort((a, b) => parseInt(a.dayNumber) - parseInt(b.dayNumber))
+})
+
+const eventImages = computed(() => {
+  if (!imageGalleryItems.value?.result) return []
+
+  return imageGalleryItems.value.result.map(item => ({
+    id: item.id,
+    day: `day${item.day.replace('Day ', '')}`,
+    imageUrl: item.imageUrl,
+    altText: item.altText,
+    description: item.description,
+    is_active: item.is_active,
+  }))
+})
+
+
+const contentBiteVideo = computed(() => {
+	if (!contentBites.value?.result) return []
+
+	return contentBites.value.result.map(item => ({
+		id: item.id,
+		day: `day${item.day.replace('Day ', '')}`,
+		videoUrl: item.videoUrl,
+		speaker: item.speaker,
+		topic: item.topic,
+		is_active: item.is_active,
+	}))
+})
+
+
+
+const { getImageGalleryItems } = useMyMediaStore()
+const { imageGalleryItems } = storeToRefs(useMyMediaStore())
+
+onMounted(async () => {
+  await getImageGalleryItems();
+})
+
+
 </script>
 
 <style scoped>
@@ -131,9 +196,6 @@ const responsiveOptions = ref([
   width: 100%;
   height: 100%;
 }
-
-
-
 </style>
 
 
