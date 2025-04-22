@@ -45,6 +45,10 @@ const sponsors = ref([
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Telkom.jpg',
 	},
 
+	{
+		name: 'Telkom Business',
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Telkom-Business-Logo.jpg',
+	},
 
 	{
 		name: 'Inspur',
