@@ -1,4 +1,4 @@
-
+recent
 <template>
 	<div>
 		<img src="/assets/images/final/Black overlay.png" alt="Top right globe"
@@ -212,7 +212,8 @@ const onPageChange = (event) => {
 };
 
 const videoClick = (index) => {
-	activeIndex.value = index;
+	activeIndex.value = paginationStart.value + index;
+
 	displayCustom.value = true;
 };
 

@@ -3,7 +3,6 @@
     <h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
     <div class="underline-2"></div>
 
-
     <!-- image gallery preview -->
     <div class="carousel-container">
       <swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
@@ -67,6 +66,8 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useMyContent_bitesStore } from '~/stores/media-hub/content_bites';
+import { useMyImage_galleryStore } from '~/stores/media-hub/image_gallery';
+
 
 const SwiperEffectCoverflow = EffectCoverflow;
 const SwiperNavigation = Navigation;
@@ -79,7 +80,6 @@ const images = ref([
   'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
   'https://primefaces.org/cdn/primevue/images/galleria/galleria6.jpg',
   'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
-
 ]);
 
 // Video data
@@ -152,11 +152,12 @@ const contentBiteVideo = computed(() => {
 	});
 });
 
-
 const eventImages = computed(() => {
-  if (!imageGalleryItems.value?.result) return []
+  if (!imageGalleryList.value?.result) return []
 
-  return imageGalleryItems.value.result.map(item => ({
+  return imageGalleryList.value.result
+  .slice(0, 6)  //Limit to 6 images
+  .map(item => ({
     id: item.id,
     day: `day${item.day.replace('Day ', '')}`,
     imageUrl: item.imageUrl,
@@ -166,21 +167,16 @@ const eventImages = computed(() => {
   }))
 })
 
-
-
 const { getAllContentBites } = useMyContent_bitesStore()
 const { ContentBitesList } = storeToRefs(useMyContent_bitesStore())
 
-
-const { getImageGalleryItems } = useMyMediaStore()
-const { imageGalleryItems } = storeToRefs(useMyMediaStore())
+const { getAllImageGalleryItems } = useMyImage_galleryStore()
+const { imageGalleryList } = storeToRefs(useMyImage_galleryStore())
 
 onMounted(async () => {
-  await getImageGalleryItems();
-  await getAllContentBites();
-
+	await getAllImageGalleryItems();
+  await getAllContentBites();  
 })
-
 
 </script>
 

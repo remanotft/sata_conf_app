@@ -3,13 +3,11 @@
 		<h1 class="font-extrabold md:font-extrabold md:text-3xl">Media Hub</h1>
 		<div class="md:h-1 underline-2"></div>
 
-
-
 		<div class="flex justify-center">
 
 			<!-- Tab Selector-->
-			<div
-				class="relative flex justify-evenly gap-2 bg-black mb-8 md:p- px-5 py-2 rounded-lg md:w-[30rem] text-white text-sm">
+			<div class="relative flex justify-evenly gap-2 mb-8 md:p- px-5 py-2 rounded-lg md:w-[30rem] text-white text-sm"
+				style="background-color: #000;">
 				<div v-for="(day, index) in uniqueDays" :key="index" @click="selectedDay = index"
 					class="px-2 text-center cursor-pointer">
 					<div class="font-semibold">
@@ -33,7 +31,7 @@
 			:showThumbnails="false" containerStyle="max-width: 80%">
 			<template #item="slotProps">
 				<div>
-					<div>
+					<div class="w-full">
 						<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText" class="" />
 					</div>
 				</div>
@@ -43,26 +41,26 @@
 			</template>
 		</Galleria>
 
+		<!-- Thumbnails -->
 		<div v-if="eventImages" class="gap-4 grid grid-cols-2 md:grid-cols-4">
-			<div v-for="(image, index) of filteredMedia" :key="index" class="aspect-square">
-				<img :src="image.imageUrl" :alt="image.altText" class="w-full h-full object-cover cursor-pointer"
-					@click="imageClick(index)" />
+			<div v-for="(image, index) of paginatedMedia" :key="index" class="aspect-square">
+				<img :src="image.imageUrl" :alt="image.altText"
+					class="rounded-md w-full h-full cursor-pointer" @click="imageClick(index)" />
 			</div>
 		</div>
-<!-- 
+
 		<div class="mt-auto">
 			<Paginator :rows="itemsPerPage" :totalRecords="filteredMedia.length" v-model:first="paginationStart"
-				:rowsPerPageOptions="[4, 8, 12, 16]" @page="onPageChange($event)" class="mt-6" />
-		</div> -->
+				:rowsPerPageOptions="[8, 12, 16]" @page="onPageChange($event)" class="mt-6" />
+		</div>
 
 	</div>
 </template>
 
-<script setup>
-import { ref, computed } from 'vue';
+<script setup lang="ts">
+import { useMyImage_galleryStore } from '~/stores/media-hub/image_gallery';
 
-
-const itemsPerPage = ref(4);
+const itemsPerPage = ref(8);
 const paginationStart = ref(0);
 
 
@@ -174,6 +172,13 @@ const images = ref([
 	}
 ])
 
+const onPageChange = (event:any) => {
+	paginationStart.value = event.first;
+	
+	if (event.rows) {
+		itemsPerPage.value = event.rows;
+	}
+};
 
 const activeIndex = ref(0);
 const responsiveOptions = ref([
@@ -192,10 +197,11 @@ const responsiveOptions = ref([
 ]);
 const displayCustom = ref(false);
 
-const imageClick = (index) => {
-	activeIndex.value = index;
+const imageClick = (index : number) => {
+	activeIndex.value = paginationStart.value + index;
 	displayCustom.value = true;
 };
+
 
 // Days data 
 const selectedDay = ref(0)
@@ -206,12 +212,12 @@ const days = [
 ]
 
 const uniqueDays = computed(() => {
-	if (!imageGalleryItems.value?.result) return []
+	if (!imageGalleryList.value?.result) return []
 
 	// Get unique day entries
 	const dayMap = new Map()
 
-	imageGalleryItems.value.result.forEach(item => {
+	imageGalleryList.value.result.forEach((item:any) => {
 		const dayNumber = item.day.replace('Day ', '')
 
 		if (!dayMap.has(dayNumber)) {
@@ -227,9 +233,9 @@ const uniqueDays = computed(() => {
 })
 
 const eventImages = computed(() => {
-	if (!imageGalleryItems.value?.result) return []
+	if (!imageGalleryList.value?.result) return []
 
-	return imageGalleryItems.value.result.map(item => ({
+	return imageGalleryList.value.result.map((item:any) => ({
 		id: item.id,
 		day: `day${item.day.replace('Day ', '')}`,
 		imageUrl: item.imageUrl,
@@ -244,25 +250,26 @@ const filteredMedia = computed(() => {
 	if (uniqueDays.value.length === 0) return []
 
 	const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
-	return eventImages.value.filter(image => image.day === currentDayId)
+	return eventImages.value
+	.filter((image:any) => image.day === currentDayId)
+	.sort ((a:any, b:any) => b.id - a.id)
+
 });
 
 
 
-const filteredVideos = computed(() => {
-	if (contentBiteVideo.value.length === 0) return []
-
-	const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
-	return contentBiteVideo.value.filter(video => video.day === currentDayId)
+const paginatedMedia = computed(() => {
+	const end = paginationStart.value + itemsPerPage.value;
+	return filteredMedia.value.slice(paginationStart.value, end);
 });
 
-const { getImageGalleryItems } = useMyMediaStore()
-const { imageGalleryItems } = storeToRefs(useMyMediaStore())
+
+const { getAllImageGalleryItems } = useMyImage_galleryStore()
+const { imageGalleryList } = storeToRefs(useMyImage_galleryStore())
 
 onMounted(async () => {
-	await getImageGalleryItems();
+	await getAllImageGalleryItems();
 })
-
 
 </script>
 
