@@ -171,6 +171,8 @@ export const useMySpeakersStore = defineStore("mySpeakersStore", () => {
 		});
 
 		speakersList.value = response;
+
+		return response;
 	}
 
 

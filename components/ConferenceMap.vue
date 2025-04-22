@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<h1 class="px-8 pb-4 font-extrabold md:font-extrabold md:text-3xl">CONFERENCE MAP</h1>
+		<h1 class="px-8 font-extrabold md:font-extrabold md:text-3xl">CONFERENCE MAP</h1>
 
 		<div class="relative mx-auto max-w-5xl">
 
 			<!-- Static Map Image with Logos Included -->
-			<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Conference/Without+Border+-+Expo+Floor+Map.jpg"
+			<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Conference/New+Expo+Floor+Plan.jpg"
 				alt="Conference Map" class="w-full" />
 			<!-- <img src="/assets/images/final/Expo Floor Map 1.png" alt="Conference Map" class="w-full" /> -->
 
