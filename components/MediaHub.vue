@@ -36,12 +36,12 @@
       <div class="underline-2"></div>
 
       <!-- Video Carousel -->
-      <Carousel :value="videos" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
+      <Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
         class="mx-auto px-4 md:px-0 max-w-5xl video-carousel" :showIndicators="true">
         <template #item="{ data }">
           <div class="p-2 md:p-6">
             <div class="shadow-md rounded-lg overflow-hidden video-wrapper">
-              <iframe class="video-container" :src="data.embedUrl" frameborder="0"
+              <iframe class="video-container" :src="data.videoUrl" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             </div>
@@ -66,6 +66,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { useMyContent_bitesStore } from '~/stores/media-hub/content_bites';
 
 const SwiperEffectCoverflow = EffectCoverflow;
 const SwiperNavigation = Navigation;
@@ -119,28 +120,38 @@ const responsiveOptions = ref([
   }
 ]);
 
+const contentBiteVideo = computed(() => {
+	if (!ContentBitesList.value?.result) return []
 
+	return ContentBitesList.value.result
+  .slice(0, 3)  //Limit to 3 videos
+  .map(item => {
+		let videoId = '';
 
-const uniqueDays = computed(() => {
-  if (!imageGalleryItems.value?.result) return []
+		if (item.videoUrl.includes('watch?v=')) {
+			videoId = item.videoUrl.split('watch?v=')[1].split('&')[0];
+		} else if (item.videoUrl.includes('embed/')) {
+			videoId = item.videoUrl.split('embed/')[1].split('?')[0];
+		}
 
-  // Get unique day entries
-  const dayMap = new Map()
+		const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : '';
+		const thumbnail = videoId
+			? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+			: '';
 
-  imageGalleryItems.value.result.forEach(item => {
-    const dayNumber = item.day.replace('Day ', '')
+		return {
+			id: item.id,
+			day: `day${item.day.replace('Day ', '')}`,
+			videoUrl: embedUrl,
+			speaker: item.speaker,
+			topic: item.topic,
+			is_active: item.is_active,
+			thumbnail,
+			altText: `${item.topic} by ${item.speaker}`
+		};
+	});
+});
 
-    if (!dayMap.has(dayNumber)) {
-      dayMap.set(dayNumber, {
-        dayNumber,
-        dayId: `day${dayNumber}`,
-      })
-    }
-  })
-
-  return Array.from(dayMap.values())
-    .sort((a, b) => parseInt(a.dayNumber) - parseInt(b.dayNumber))
-})
 
 const eventImages = computed(() => {
   if (!imageGalleryItems.value?.result) return []
@@ -156,19 +167,9 @@ const eventImages = computed(() => {
 })
 
 
-const contentBiteVideo = computed(() => {
-	if (!contentBites.value?.result) return []
 
-	return contentBites.value.result.map(item => ({
-		id: item.id,
-		day: `day${item.day.replace('Day ', '')}`,
-		videoUrl: item.videoUrl,
-		speaker: item.speaker,
-		topic: item.topic,
-		is_active: item.is_active,
-	}))
-})
-
+const { getAllContentBites } = useMyContent_bitesStore()
+const { ContentBitesList } = storeToRefs(useMyContent_bitesStore())
 
 
 const { getImageGalleryItems } = useMyMediaStore()
@@ -176,6 +177,8 @@ const { imageGalleryItems } = storeToRefs(useMyMediaStore())
 
 onMounted(async () => {
   await getImageGalleryItems();
+  await getAllContentBites();
+
 })
 
 

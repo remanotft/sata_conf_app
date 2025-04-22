@@ -1,7 +1,9 @@
 <template>
 	<div>
-		<h1 class="font-extrabold md:font-extrabold md:text-3xl">Image Gallery</h1>
+		<h1 class="font-extrabold md:font-extrabold md:text-3xl">Media Hub</h1>
 		<div class="md:h-1 underline-2"></div>
+
+
 
 		<div class="flex justify-center">
 
@@ -26,14 +28,13 @@
 		</div>
 
 		<!-- Image Gallery -->
-		<Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredEvents"
+		<Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredMedia"
 			:responsiveOptions="responsiveOptions" :circular="true" :fullScreen="true" :showItemNavigators="true"
 			:showThumbnails="false" containerStyle="max-width: 80%">
 			<template #item="slotProps">
 				<div>
 					<div>
-						<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText"
-							class="" />
+						<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText" class="" />
 					</div>
 				</div>
 			</template>
@@ -43,16 +44,27 @@
 		</Galleria>
 
 		<div v-if="eventImages" class="gap-4 grid grid-cols-2 md:grid-cols-4">
-			<div v-for="(image, index) of filteredEvents" :key="index" class="aspect-square">
+			<div v-for="(image, index) of filteredMedia" :key="index" class="aspect-square">
 				<img :src="image.imageUrl" :alt="image.altText" class="w-full h-full object-cover cursor-pointer"
 					@click="imageClick(index)" />
 			</div>
 		</div>
+<!-- 
+		<div class="mt-auto">
+			<Paginator :rows="itemsPerPage" :totalRecords="filteredMedia.length" v-model:first="paginationStart"
+				:rowsPerPageOptions="[4, 8, 12, 16]" @page="onPageChange($event)" class="mt-6" />
+		</div> -->
+
 	</div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue';
+
+
+const itemsPerPage = ref(4);
+const paginationStart = ref(0);
+
 
 const images = ref([
 	{
@@ -227,12 +239,21 @@ const eventImages = computed(() => {
 	}))
 })
 
-//  filters events based on selected day
-const filteredEvents = computed(() => {
+//  filters media based on selected day
+const filteredMedia = computed(() => {
 	if (uniqueDays.value.length === 0) return []
 
 	const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
 	return eventImages.value.filter(image => image.day === currentDayId)
+});
+
+
+
+const filteredVideos = computed(() => {
+	if (contentBiteVideo.value.length === 0) return []
+
+	const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
+	return contentBiteVideo.value.filter(video => video.day === currentDayId)
 });
 
 const { getImageGalleryItems } = useMyMediaStore()
