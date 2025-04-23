@@ -4,7 +4,6 @@
 		<div class="md:h-1 underline-2"></div>
 
 		<div class="flex justify-center">
-
 			<!-- Tab Selector-->
 			<div class="relative flex justify-evenly gap-2 mb-8 md:p- px-5 py-2 rounded-lg md:w-[30rem] text-white text-sm"
 				style="background-color: #000;">
@@ -26,26 +25,42 @@
 		</div>
 
 		<!-- Image Gallery -->
-		<Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredMedia"
+		<!-- <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredMedia"
 			:responsiveOptions="responsiveOptions" :circular="true" :fullScreen="true" :showItemNavigators="true"
 			:showThumbnails="false" containerStyle="max-width: 80%">
 			<template #item="slotProps">
 				<div>
-					<div class="w-full">
+					<div class="w-full h-2/3 object-contain">
 						<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText" class="" />
 					</div>
 				</div>
 			</template>
+<template #thumbnail="slotProps">
+				<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText" class="thumbnail" />
+			</template>
+</Galleria> -->
+
+
+		<Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredMedia"
+			:responsiveOptions="responsiveOptions" :circular="true" :fullScreen="true" :showItemNavigators="true"
+			:showThumbnails="false" class="mx-auto max-w-screen-lg">
+			<template #item="slotProps">
+				<div>
+					<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText"
+						class="max-h-[80vh] object-contain" />
+				</div>
+			</template>
+
 			<template #thumbnail="slotProps">
 				<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText" class="thumbnail" />
 			</template>
 		</Galleria>
-
+		
 		<!-- Thumbnails -->
 		<div v-if="eventImages" class="gap-4 grid grid-cols-2 md:grid-cols-4">
 			<div v-for="(image, index) of paginatedMedia" :key="index" class="aspect-square">
-				<img :src="image.imageUrl" :alt="image.altText"
-					class="rounded-md w-full h-full cursor-pointer" @click="imageClick(index)" />
+				<img :src="image.imageUrl" :alt="image.altText" class="rounded-md w-full h-full cursor-pointer"
+					@click="imageClick(index)" />
 			</div>
 		</div>
 
@@ -62,7 +77,6 @@ import { useMyImage_galleryStore } from '~/stores/media-hub/image_gallery';
 
 const itemsPerPage = ref(8);
 const paginationStart = ref(0);
-
 
 const images = ref([
 	{
@@ -172,9 +186,9 @@ const images = ref([
 	}
 ])
 
-const onPageChange = (event:any) => {
+const onPageChange = (event: any) => {
 	paginationStart.value = event.first;
-	
+
 	if (event.rows) {
 		itemsPerPage.value = event.rows;
 	}
@@ -197,7 +211,7 @@ const responsiveOptions = ref([
 ]);
 const displayCustom = ref(false);
 
-const imageClick = (index : number) => {
+const imageClick = (index: number) => {
 	activeIndex.value = paginationStart.value + index;
 	displayCustom.value = true;
 };
@@ -217,7 +231,7 @@ const uniqueDays = computed(() => {
 	// Get unique day entries
 	const dayMap = new Map()
 
-	imageGalleryList.value.result.forEach((item:any) => {
+	imageGalleryList.value.result.forEach((item: any) => {
 		const dayNumber = item.day.replace('Day ', '')
 
 		if (!dayMap.has(dayNumber)) {
@@ -235,7 +249,7 @@ const uniqueDays = computed(() => {
 const eventImages = computed(() => {
 	if (!imageGalleryList.value?.result) return []
 
-	return imageGalleryList.value.result.map((item:any) => ({
+	return imageGalleryList.value.result.map((item: any) => ({
 		id: item.id,
 		day: `day${item.day.replace('Day ', '')}`,
 		imageUrl: item.imageUrl,
@@ -251,8 +265,8 @@ const filteredMedia = computed(() => {
 
 	const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
 	return eventImages.value
-	.filter((image:any) => image.day === currentDayId)
-	.sort ((a:any, b:any) => b.id - a.id)
+		.filter((image: any) => image.day === currentDayId)
+		.sort((a: any, b: any) => b.id - a.id)
 
 });
 
