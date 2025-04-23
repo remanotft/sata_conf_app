@@ -981,7 +981,7 @@ h1{
       
       .swiper {
         width: 100%;
-        padding: 50px 0;
+        /* padding: 50px 0; */
       }
 
       .swiper-button-next{
@@ -1013,8 +1013,10 @@ color: #16a34a !important;
       
       .slide-image {
         background-color: #333;
+        margin: auto;
         object-fit: cover;
         border-radius: 8px;
+        height: 400px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
       }
       
