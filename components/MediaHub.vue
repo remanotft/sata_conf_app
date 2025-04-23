@@ -4,7 +4,8 @@
     <div class="underline-2"></div>
 
     <!-- image gallery preview -->
-    <div class="carousel-container">
+    <div class="carousel-container" v-if="eventImages.length > 0">
+
       <swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
         :centered-slides="true" :loop="true" :effect="'coverflow'" :navigation="true" :pagination="{ clickable: true }"
         :cover-flow-effect="{
@@ -73,6 +74,92 @@ const SwiperEffectCoverflow = EffectCoverflow;
 const SwiperNavigation = Navigation;
 const SwiperPagination = Pagination;
 
+
+// Responsive configuration for the carousel
+const responsiveOptions = ref([
+  {
+    breakpoint: '1024px',
+    numVisible: 1,
+    numScroll: 1
+  },
+  {
+    breakpoint: '768px',
+    numVisible: 1,
+    numScroll: 1
+  },
+  {
+    breakpoint: '560px',
+    numVisible: 1,
+    numScroll: 1
+  }
+]);
+
+const contentBiteVideo = computed(() => {
+  if (!ContentBitesList.value?.result) return []
+
+  return ContentBitesList.value.result
+    .slice(0, 3)  //Limit to 3 videos
+    .map(item => {
+      let videoId = '';
+
+      if (item.videoUrl.includes('watch?v=')) {
+        videoId = item.videoUrl.split('watch?v=')[1].split('&')[0];
+      } else if (item.videoUrl.includes('embed/')) {
+        videoId = item.videoUrl.split('embed/')[1].split('?')[0];
+      }
+
+      const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : '';
+      const thumbnail = videoId
+        ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+        : '';
+
+      return {
+        id: item.id,
+        day: `day${item.day.replace('Day ', '')}`,
+        videoUrl: embedUrl,
+        speaker: item.speaker,
+        topic: item.topic,
+        is_active: item.is_active,
+        thumbnail,
+        altText: `${item.topic} by ${item.speaker}`
+      };
+    });
+});
+
+const eventImages = computed(() => {
+  if (!imageGalleryList.value?.result) return []
+
+  return imageGalleryList.value.result
+    .slice(0, 6)  //Limit to 6 images
+    .map(item => ({
+      id: item.id,
+      day: `day${item.day.replace('Day ', '')}`,
+      imageUrl: item.imageUrl,
+      altText: item.altText,
+      description: item.description,
+      is_active: item.is_active,
+    }))
+})
+
+
+const { getAllContentBites } = useMyContent_bitesStore()
+const { ContentBitesList } = storeToRefs(useMyContent_bitesStore())
+
+const { getAllImageGalleryItems } = useMyImage_galleryStore()
+const { imageGalleryList } = storeToRefs(useMyImage_galleryStore())
+
+onMounted(async () => {
+  await getAllImageGalleryItems();
+  await getAllContentBites();
+
+  setTimeout(() => {
+    swiperInstance.value?.update();
+  }, 100);
+
+
+})
+
+
 const images = ref([
   'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
   'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
@@ -101,83 +188,6 @@ const videos = ref([
   }
 ]);
 
-// Responsive configuration for the carousel
-const responsiveOptions = ref([
-  {
-    breakpoint: '1024px',
-    numVisible: 1,
-    numScroll: 1
-  },
-  {
-    breakpoint: '768px',
-    numVisible: 1,
-    numScroll: 1
-  },
-  {
-    breakpoint: '560px',
-    numVisible: 1,
-    numScroll: 1
-  }
-]);
-
-const contentBiteVideo = computed(() => {
-	if (!ContentBitesList.value?.result) return []
-
-	return ContentBitesList.value.result
-  .slice(0, 3)  //Limit to 3 videos
-  .map(item => {
-		let videoId = '';
-
-		if (item.videoUrl.includes('watch?v=')) {
-			videoId = item.videoUrl.split('watch?v=')[1].split('&')[0];
-		} else if (item.videoUrl.includes('embed/')) {
-			videoId = item.videoUrl.split('embed/')[1].split('?')[0];
-		}
-
-		const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : '';
-		const thumbnail = videoId
-			? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-			: '';
-
-		return {
-			id: item.id,
-			day: `day${item.day.replace('Day ', '')}`,
-			videoUrl: embedUrl,
-			speaker: item.speaker,
-			topic: item.topic,
-			is_active: item.is_active,
-			thumbnail,
-			altText: `${item.topic} by ${item.speaker}`
-		};
-	});
-});
-
-const eventImages = computed(() => {
-  if (!imageGalleryList.value?.result) return []
-
-  return imageGalleryList.value.result
-  .slice(0, 6)  //Limit to 6 images
-  .map(item => ({
-    id: item.id,
-    day: `day${item.day.replace('Day ', '')}`,
-    imageUrl: item.imageUrl,
-    altText: item.altText,
-    description: item.description,
-    is_active: item.is_active,
-  }))
-})
-
-const { getAllContentBites } = useMyContent_bitesStore()
-const { ContentBitesList } = storeToRefs(useMyContent_bitesStore())
-
-const { getAllImageGalleryItems } = useMyImage_galleryStore()
-const { imageGalleryList } = storeToRefs(useMyImage_galleryStore())
-
-onMounted(async () => {
-	await getAllImageGalleryItems();
-  await getAllContentBites();  
-})
-
 </script>
 
 <style scoped>
@@ -198,4 +208,3 @@ onMounted(async () => {
 </style>
 
 
-<!-- src="https://www.youtube.com/embed/uvrpzdaQQ8Y?si=qjDZwfgTDSW30Q2G" -->
