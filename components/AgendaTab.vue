@@ -154,7 +154,7 @@ const calculateParticipants = (participants) => {
 }
 
 const noOfParticipants = ref(0);
-const selectedDay = ref(0)
+const selectedDay = ref(1)
 
 const uniqueDays = computed(() => {
 	if (!agendaList.value?.result) return []
