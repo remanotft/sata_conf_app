@@ -39,7 +39,7 @@
 			</section>
 
 			<!-- Conference Map -->
-			<section id="map" class="py-10">
+			<section id="map" class="pb-8 pt-8 md:pt-12">
 				<ConferenceMap />
 			</section>
 
@@ -61,12 +61,12 @@
 			</section>
 
 			<!-- media Hub -->
-			<!-- <section id="media-hub" class="pt-20">
+			<section id="media-hub" class="pt-6 md:pt-12">
 				<MediaHub />
-			</section> -->
+			</section>
 
 			<!-- Things to do -->
-			<section id="things-to-do" class="py-16">
+			<section id="things-to-do" class="pb-16 pt-6 md:pt-12">
 				<ThingsToDo />
 			</section>
 

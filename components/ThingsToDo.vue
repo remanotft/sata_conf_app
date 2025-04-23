@@ -169,12 +169,10 @@
 				</template>
 			</Carousel>
 		</div>
-
 	</div>
 </template>
 
 <script setup>
-
 
 const { thingsToDoList } = storeToRefs(useMyTodoStore());
 const { getAllThingsToDo } = useMyTodoStore();
