@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="font-extrabold md:font-extrabold md:text-3xl">Media Hub</h1>
+		<h1 class="font-extrabold md:font-extrabold md:text-3xl">Image Gallery</h1>
 		<div class="md:h-1 underline-2"></div>
 
 		<div class="flex justify-center">
@@ -57,19 +57,33 @@
 		</Galleria>
 
 		<!-- Thumbnails -->
-		<div v-if="eventImages" class="gap-4 grid grid-cols-2 md:grid-cols-4">
+		<!-- <div v-if="eventImages" class="gap-4 grid grid-cols-2 md:grid-cols-4">
 			<div v-for="(image, index) of paginatedMedia" :key="index" class="aspect-square">
 				<img :src="image.imageUrl" :alt="image.altText"
 					class="rounded-md w-full h-full object-cover cursor-pointer" @click="imageClick(index)" />
 
 			</div>
+		</div> -->
+
+		<!-- Thumbnails -->
+		<div v-if="eventImages" class="gap-2 space-y-2 md:columns-3">
+			<div v-for="(image, index) of visibleMedia" :key="index" class="rounded-md overflow-hidden">
+				<img :src="image.imageUrl" :alt="image.altText"
+					class="w-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
+					@click="imageClick(index)" />
+			</div>
 		</div>
 
+		<div class="flex justify-center mt-6" v-if="visibleMedia.length < filteredMedia.length">
+			<button @click="loadMore" class="bg-black hover:bg-gray-800 px-4 py-2 rounded-md text-white">
+				Load More
+			</button>
+		</div>
 
-		<div class="mt-auto">
+		<!-- <div class="mt-auto">
 			<Paginator :rows="itemsPerPage" :totalRecords="filteredMedia.length" v-model:first="paginationStart"
 				:rowsPerPageOptions="[8, 12, 16]" @page="onPageChange($event)" class="mt-6" />
-		</div>
+		</div> -->
 
 	</div>
 </template>
@@ -77,7 +91,22 @@
 <script setup lang="ts">
 import { useMyImage_galleryStore } from '~/stores/media-hub/image_gallery';
 
-const itemsPerPage = ref(8);
+// massonry 
+
+
+const itemsPerLoad = 9
+const visibleCount = ref(itemsPerLoad)
+
+const loadMore = () => {
+	visibleCount.value += itemsPerLoad
+}
+
+const visibleMedia = computed(() => {
+	return filteredMedia.value.slice(0, visibleCount.value)
+})
+
+
+const itemsPerPage = ref(9);
 const paginationStart = ref(0);
 
 const images = ref([
