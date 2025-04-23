@@ -130,7 +130,6 @@ const eventImages = computed(() => {
   if (!imageGalleryList.value?.result) return []
 
   return imageGalleryList.value.result
-    .slice(0, 6)  //Limit to 6 images
     .map(item => ({
       id: item.id,
       day: `day${item.day.replace('Day ', '')}`,
