@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1 class="font-extrabold md:font-extrabold md:text-3xl">THINGS TO DO</h1>
-		<div class="underline"></div>
+		<div class="underline-2"></div>
 
 		<!-- Tab Selector -->
 		<div class="flex justify-center pt-2">
@@ -43,14 +43,14 @@
 									<div class="space-y-1 mt-2 text-gray-700 text-sm md:text-base">
 										<div class="font-semibold">
 											<i class="p-2 text-gray-600 text-base pi pi-envelope"></i>
-											<a :href="`mailto:${slotProps.data.email}`" class="hover:underline">
+											<a :href="`mailto:${slotProps.data.email}`" class="hover:underline-2">
 												{{ slotProps.data.email }}
 											</a>
 										</div>
 										<div class="flex justify-between font-semibold">
 											<div>
 												<i class="p-2 text-gray-600 text-base pi pi-phone"></i>
-												<a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline">
+												<a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline-2">
 													{{ slotProps.data.phoneNo }}
 												</a>
 											</div>
@@ -93,14 +93,14 @@
 									<div class="space-y-1 mt-2 text-gray-700 text-sm md:text-base">
 										<div class="font-semibold">
 											<i class="p-2 text-gray-600 text-base pi pi-envelope"></i>
-											<a :href="`mailto:${slotProps.data.email}`" class="hover:underline">
+											<a :href="`mailto:${slotProps.data.email}`" class="hover:underline-2">
 												{{ slotProps.data.email }}
 											</a>
 										</div>
 										<div class="flex justify-between font-semibold">
 											<div>
 												<i class="p-2 text-gray-600 text-base pi pi-phone"></i>
-												<a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline">
+												<a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline-2">
 													{{ slotProps.data.phoneNo }}
 												</a>
 											</div>
@@ -143,14 +143,14 @@
 									<div class="space-y-1 mt-2 text-gray-700 text-sm md:text-base">
 										<div class="font-semibold">
 											<i class="p-2 text-gray-600 text-base pi pi-envelope"></i>
-											<a :href="`mailto:${slotProps.data.email}`" class="hover:underline">
+											<a :href="`mailto:${slotProps.data.email}`" class="hover:underline-2">
 												{{ slotProps.data.email }}
 											</a>
 										</div>
 										<div class="flex justify-between font-semibold">
 											<div>
 												<i class="p-2 text-gray-600 text-base pi pi-phone"></i>
-												<a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline">
+												<a :href="`tel:${slotProps.data.phoneNo}`" class="hover:underline-2">
 													{{ slotProps.data.phoneNo }}
 												</a>
 											</div>
@@ -169,12 +169,10 @@
 				</template>
 			</Carousel>
 		</div>
-
 	</div>
 </template>
 
 <script setup>
-
 
 const { thingsToDoList } = storeToRefs(useMyTodoStore());
 const { getAllThingsToDo } = useMyTodoStore();
@@ -227,7 +225,7 @@ const responsiveOptions = ref([
 </script>
 
 <style scoped>
-.underline {
+.underline-2 {
 	height: 2px;
 	background-color: #000;
 	margin-bottom: 1rem;

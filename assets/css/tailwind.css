@@ -70,12 +70,12 @@
 
     .sidebar ul.sub-menu li button,
     .sidebar ul.sub-menu li a {
-        @apply flex w-full items-center px-9 py-2.5 before:h-0.5 before:w-2 before:rounded before:bg-gray-300 hover:bg-gray-100
-  hover:text-primary hover:before:!bg-primary ltr:before:mr-2 rtl:before:ml-2 dark:before:bg-gray-500 dark:hover:bg-gray-900 dark:hover:text-primary;
+        @apply flex w-full items-center px-9 py-2.5 before:h-0.5 before:w-2 before:rounded before:bg-gray-300 
+  hover:text-green-700 ltr:before:mr-2 rtl:before:ml-2 dark:before:bg-gray-500 dark:hover:bg-gray-900 dark:hover:text-primary;
     }
     .sidebar ul.sub-menu li button.active,
     .sidebar ul.sub-menu li a.active {
-        @apply text-primary before:bg-primary;
+        @apply text-green-500 ;
     }
 
     .sidebar .nav-item a div:first-child svg,
@@ -692,7 +692,7 @@ h1{
     font-size: 12px;
   }
   
-  .underline{
+  .underline-2{
     background-color: #1e9d57;
     margin-left: auto;
     margin-right: auto;
@@ -986,7 +986,7 @@ h1{
 
       .swiper-button-next{
 
-color: #fff !important;
+color: #16a34a !important;
       }
 
       .swiper-pagination-bullet-active{
@@ -1000,7 +1000,7 @@ color: #fff !important;
 
       .swiper-button-prev{
 
-        color: #fff !important;
+        color: #16a34a !important;
               }
 
       .swiper-slide {
@@ -1053,8 +1053,6 @@ color: #fff !important;
         border-radius: 10px;
         margin-bottom: 1rem;
       }
-
-
 
       #emergency-info{
         background-color: #000;

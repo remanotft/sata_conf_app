@@ -33,7 +33,7 @@
                                     <li class="nav-item">
                                         <NuxtLink to="/admin/agenda" class="group" @click="toggleMobileMenu">
                                             <div class="flex items-center">
-                                                <icon-menu-chat class="shrink-0 " />
+                                                <icon-calendar class="shrink-0 " />
 
                                                 <span
                                                     class="text-white-light ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{{
@@ -45,7 +45,7 @@
                                     <li class="nav-item">
                                         <NuxtLink to="/admin/speakers" class="group" @click="toggleMobileMenu">
                                             <div class="flex items-center">
-                                                <icon-menu-mailbox class="shrink-0 group-hover:!text-white" />
+                                                <icon-user class="shrink-0 group-hover:!text-white" />
 
                                                 <span
                                                     class="text-white-light ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{{
@@ -57,7 +57,7 @@
                                     <li class="nav-item">
                                         <NuxtLink to="/admin/todo" class="group" @click="toggleMobileMenu">
                                             <div class="flex items-center">
-                                                <icon-menu-todo class="shrink-0 group-hover:!text-primary" />
+                                                <icon-pencil-paper class="shrink-0 group-hover:!text-gray-300" />
 
                                                 <span
                                                     class="text-white-light ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{{
@@ -71,7 +71,7 @@
                                             :class="{ active: activeDropdown === 'invoice' }"
                                             @click="activeDropdown === 'invoice' ? (activeDropdown = null) : (activeDropdown = 'invoice')">
                                             <div class="flex items-center">
-                                                <icon-menu-invoice class="shrink-0 group-hover:!text-primary" />
+                                                <icon-play-circle class="shrink-0 group-hover:!text-gray-300" />
 
                                                 <span
                                                     class="text-white-light ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{{
@@ -83,14 +83,14 @@
                                             </div>
                                         </button>
                                         <vue-collapsible :isOpen="activeDropdown === 'invoice'">
-                                            <ul class="sub-menu text-gray-500">
-                                                <li>
-                                                    <NuxtLink to="/admin/media-hub/image-gallery" @click="toggleMobileMenu">{{
-                                                        $t('image_gallery') }}</NuxtLink>
-                                                </li>
+                                            <ul class="sub-menu text-gray-300">
                                                 <li>
                                                     <NuxtLink to="/admin/media-hub/content-bites" @click="toggleMobileMenu">{{
                                                         $t('content_bites') }}</NuxtLink>
+                                                </li>
+                                                <li>
+                                                    <NuxtLink to="/admin/media-hub/image-gallery" @click="toggleMobileMenu">{{
+                                                        $t('image_gallery') }}</NuxtLink>
                                                 </li>
                                             </ul>
                                         </vue-collapsible>

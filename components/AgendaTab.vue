@@ -3,7 +3,7 @@
 		<div class="flex justify-center mb-2 pt-8">
 			<h1 class="font-extrabold md:font-extrabold md:text-3xl">CONFERENCE AGENDA</h1>
 		</div>
-		<div class="md:h-1 underline"></div>
+		<div class="md:h-1 underline-2"></div>
 
 		<!-- Tab Selector-->
 		<div class="tab-selector-container">
@@ -27,7 +27,12 @@
 		</div>
 
 		<!-- Content section -->
-		<div class="mt-5">
+		<div v-if="loading">
+			<div class="card flex justify-center">
+				<ProgressSpinner style="--p-progressspinner-color-one: #1e9d57; --p-progressspinner-color-two: #000; --p-progressspinner-color-three: #fff; --p-progressspinner-color-four: #1e9d57"/>
+			</div>
+		</div>
+		<div v-cloak class="mt-5">
 			<div class="gap-4 md:gap-16 md:px-72 schedule-list">
 				<div v-for="(item, index) in filteredEvents" :key="index">
 
@@ -80,7 +85,8 @@
 
 							<!-- facilitators -->
 							<div v-if="item.facilitators.length" class="info-block pt-2">
-								<h5 class="font-bold text-xl md:text-2xl info-label flex justify-center">Facilitators</h5>
+								<h5 class="font-bold text-xl md:text-2xl info-label flex justify-center">Facilitators
+								</h5>
 								<ul>
 									<div class="px-2 font-medium">
 										<li v-for="(facilitator, pIndex) in item.facilitators" :key="pIndex"
@@ -93,7 +99,8 @@
 
 							<!-- panelMembers -->
 							<div v-if="item.panelMembers.length" class="info-block">
-								<h5 class="font-bold text-xl md:text-2xl info-label flex justify-center">Panel Members</h5>
+								<h5 class="font-bold text-xl md:text-2xl info-label flex justify-center">Panel Members
+								</h5>
 								<ul>
 									<div class="px-2 font-medium">
 										<li v-for="(panelMember, pIndex) in item.panelMembers" :key="pIndex"
@@ -121,9 +128,11 @@ const { agendaList } = storeToRefs(useMyAgendaStore())
 const { getAgendaItems } = useMyAgendaStore()
 
 onMounted(async () => {
-	await getAgendaItems()
+	await getAgendaItems();
+	loading.value = false;
 });
 
+const loading = ref(true);
 
 const calculateParticipants = (participants) => {
 	let a = [];
@@ -205,5 +214,7 @@ const filteredEvents = computed(() => {
 
 	const currentDayId = uniqueDays.value[selectedDay.value]?.dayId
 	return allEvents.value.filter(event => event.day === currentDayId)
-})
+});
+
 </script>
+<style></style>

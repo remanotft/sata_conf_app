@@ -11,7 +11,7 @@
 			class="bottom-52 md:top-80 xl:left-[1700px] left-24 z-0 absolute opacity-20 p-2 w-1/2 max-w-[300px] -rotate-90 pointer-events-none" /> -->
 
 		<img src="/assets/images/final/Black overlay.png" alt="Bottom right globe"
-			class="top-[860px] md:top-[700px] lg:top-[600px] xl:top-[620px] left-80 md:left-[720px] lg:left-[980px] xl:left-[1800px] z-0 absolute opacity-20 max-w-[300px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transform" />
+			class="top-[980px] md:top-[700px] lg:top-[600px] xl:top-[620px] left-80 md:left-[720px] lg:left-[980px] xl:left-[1800px] z-0 absolute opacity-20 max-w-[300px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transform" />
 
 
 		<!-- Content -->
@@ -94,6 +94,10 @@ const exhibitors = ref([
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/IT-Thynk-Resized.jpg',
 	},
 	{
+		name: 'KhoiTech',
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Khoi-Logo.jpg',
+	},
+	{
 		name: 'Mauritius Telecom',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Mauritius+Telecom.jpg'
 	},
@@ -113,7 +117,6 @@ const exhibitors = ref([
 		name: 'Tanzania Telecommunication Corporation',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/TTCL.jpg'
 	},
-
 	{
 		name: 'Telecom Namibia',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Telecom+Namibia.jpg'
@@ -121,6 +124,14 @@ const exhibitors = ref([
 	{
 		name: 'Telkom',
 		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Telkom.jpg'
+	},
+	{
+		name: 'Vision AI',
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Vision-AI-Logo.jpg'
+	},
+	{
+		name: 'YS Connect',
+		image: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/YS-Connect-Logo.jpg'
 	}
 ])
 
