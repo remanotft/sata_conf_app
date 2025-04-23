@@ -5,7 +5,7 @@
 		<div class="relative mx-auto max-w-5xl">
 
 			<!-- Static Map Image with Logos Included -->
-			<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Conference/New+Expo+Floor+Plan.jpg"
+			<img src="https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Conference/New+Expo+Floor+Plan-3.jpg"
 				alt="Conference Map" class="w-full" />
 			<!-- <img src="/assets/images/final/Expo Floor Map 1.png" alt="Conference Map" class="w-full" /> -->
 
@@ -176,12 +176,12 @@ const booths = ref([
 	{
 		id: 9,
 		expo: 'Expo-2',
-		name: 'Providence Software Solutions',
-		email: 'mana@providencesoft.com',
-		website: 'https://providencesoft.com',
-		websiteFriendlyName: 'www.providencesoft.com',
+		name: 'Hwawei',
+		email: '',
+		website: 'https://www.huawei.com/za',
+		websiteFriendlyName: 'www.huawei.com',
 		standNumber: '1',
-		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Providence.jpg',
+		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Huawei.jpg',
 		position: { x: 47, y: 39.5 },
 		width: 8,
 		height: 6
@@ -189,12 +189,12 @@ const booths = ref([
 	{
 		id: 10,
 		expo: 'Expo-2',
-		name: 'Hwawei',
+		name: 'Providence Software Solutions',
 		email: 'mana@providencesoft.com',
-		website: 'https://www.huawei.com/za',
-		websiteFriendlyName: 'www.huawei.com',
+		website: 'https://providencesoft.com',
+		websiteFriendlyName: 'www.providencesoft.com',
 		standNumber: '2',
-		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Huawei.jpg',
+		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Providence.jpg',
 		position: { x: 55, y: 39.5 },
 		width: 8,
 		height: 6
@@ -254,12 +254,12 @@ const booths = ref([
 	{
 		id: 15,
 		expo: 'Expo-3',
-		name: 'BofiNet',
-		email: 'chawada@bofinet.co.bw',
-		website: '',
-		websiteFriendlyName: '',
+		name: 'Inspur Group',
+		email: 'xujianwei01@inspur.com',
+		website: 'https://fr.inspur.com',
+		websiteFriendlyName: 'www.fr.inspur.com',
 		standNumber: '12',
-		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BofiNet.jpg',
+		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Inspur.jpg',
 		position: { x: 47, y: 61 },
 		width: 9,
 		height: 6
@@ -267,12 +267,12 @@ const booths = ref([
 	{
 		id: 16,
 		expo: 'Expo-3',
-		name: 'Inspur Group',
-		email: 'xujianwei01@inspur.com',
-		website: 'https://fr.inspur.com',
-		websiteFriendlyName: 'www.fr.inspur.com',
+		name: 'BofiNet',
+		email: 'chawada@bofinet.co.bw',
+		website: '',
+		websiteFriendlyName: '',
 		standNumber: '13',
-		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/Inspur.jpg',
+		logoUrl: 'https://tft-dna-brand-architects-cc.s3.af-south-1.amazonaws.com/image-gallery/Logo+Symbols/JPEG+Logos/BofiNet.jpg',
 		position: { x: 55, y: 61 },
 		width: 8,
 		height: 6

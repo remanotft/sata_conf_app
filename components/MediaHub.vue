@@ -27,16 +27,16 @@
     </div>
 
     <!-- Video Gallery Preview -->
-    <div class="pt-20">
+    <!-- <div class="pt-20">
 
       <div class="flex justify-center mb-2">
         <h1 class="font-extrabold md:font-extrabold md:text-3xl">CONTENT BITES</h1>
       </div>
 
-      <div class="underline-2"></div>
+      <div class="underline-2"></div> -->
 
       <!-- Video Carousel -->
-      <Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
+      <!-- <Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
         class="mx-auto px-4 md:px-0 max-w-5xl video-carousel" :showIndicators="true">
         <template #item="{ data }">
           <div class="p-2 md:p-6">
@@ -54,7 +54,7 @@
         <NuxtLink to="/content-bites" class="m-4 btn">See Content Bites</NuxtLink>
       </div>
 
-    </div>
+    </div> -->
 
   </div>
 </template>
