@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="font-extrabold md:font-extrabold md:text-3xl">Media Hub</h1>
+		<h1 class="font-extrabold md:font-extrabold md:text-3xl">Image Gallery</h1>
 		<div class="md:h-1 underline-2"></div>
 
 		<div class="flex justify-center">
@@ -66,7 +66,7 @@
 		</div> -->
 
 		<!-- Thumbnails -->
-		<div v-if="eventImages" class="gap-2 space-y-2 columns-2 md:columns-3">
+		<div v-if="eventImages" class="gap-2 space-y-2 md:columns-3">
 			<div v-for="(image, index) of visibleMedia" :key="index" class="rounded-md overflow-hidden">
 				<img :src="image.imageUrl" :alt="image.altText"
 					class="w-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
