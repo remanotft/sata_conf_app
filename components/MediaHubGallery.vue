@@ -55,14 +55,16 @@
 				<img :src="slotProps.item.imageUrl" :alt="slotProps.item.altText" class="thumbnail" />
 			</template>
 		</Galleria>
-		
+
 		<!-- Thumbnails -->
 		<div v-if="eventImages" class="gap-4 grid grid-cols-2 md:grid-cols-4">
 			<div v-for="(image, index) of paginatedMedia" :key="index" class="aspect-square">
-				<img :src="image.imageUrl" :alt="image.altText" class="rounded-md w-full h-full cursor-pointer"
-					@click="imageClick(index)" />
+				<img :src="image.imageUrl" :alt="image.altText"
+					class="rounded-md w-full h-full object-cover cursor-pointer" @click="imageClick(index)" />
+
 			</div>
 		</div>
+
 
 		<div class="mt-auto">
 			<Paginator :rows="itemsPerPage" :totalRecords="filteredMedia.length" v-model:first="paginationStart"
