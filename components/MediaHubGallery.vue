@@ -80,10 +80,10 @@
 			</button>
 		</div>
 
-		<div class="mt-auto">
+		<!-- <div class="mt-auto">
 			<Paginator :rows="itemsPerPage" :totalRecords="filteredMedia.length" v-model:first="paginationStart"
 				:rowsPerPageOptions="[8, 12, 16]" @page="onPageChange($event)" class="mt-6" />
-		</div>
+		</div> -->
 
 	</div>
 </template>
