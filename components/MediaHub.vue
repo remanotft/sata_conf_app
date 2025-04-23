@@ -1,62 +1,60 @@
 <template>
-  <div>
-    <h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
-    <div class="underline-2"></div>
+	<div>
+		<h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
+		<div class="underline-2"></div>
 
-    <!-- image gallery preview -->
-    <div class="carousel-container" v-if="eventImages.length > 0">
+		<!-- image gallery preview -->
+		<div class="carousel-container" v-if="eventImages.length > 0">
 
-      <swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
-        :centered-slides="true" :loop="true" :effect="'coverflow'" :navigation="true" :pagination="{ clickable: true }"
-        :cover-flow-effect="{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-          slideShadows: false
-        }">
-        <swiper-slide v-for="(image, index) in eventImages" :key="index" class="swiper-slide">
-          <img :src="image.imageUrl" class="slide-image" />
-        </swiper-slide>
-      </swiper>
-    </div>
+			<swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
+				:centered-slides="true" :loop="true" :effect="'coverflow'" :navigation="true"
+				:pagination="{ clickable: true }" :cover-flow-effect="{
+					rotate: 0,
+					stretch: 0,
+					depth: 100,
+					modifier: 2.5,
+					slideShadows: false
+				}">
+				<swiper-slide v-for="(image, index) in eventImages" :key="index" class="swiper-slide">
+					<img :src="image.imageUrl" class="slide-image" />
+				</swiper-slide>
+			</swiper>
+		</div>
 
-    <!-- See more Button -->
-    <div class="flex justify-center">
-      <NuxtLink to="/media-hub" class="m-4 btn">See Image Gallery</NuxtLink>
-    </div>
+		<!-- See more Button -->
+		<div class="flex justify-center">
+			<NuxtLink to="/media-hub" class="m-4 btn">See Image Gallery</NuxtLink>
+		</div>
 
-    <!-- Video Gallery Preview -->
-    <!-- <div class="pt-20">
+		<!-- Video Gallery Preview -->
+		<!-- <div class="pt-20">
+			<div class="flex justify-center mb-2">
+				<h1 class="font-extrabold md:font-extrabold md:text-3xl">CONTENT BITES</h1>
+			</div>
 
-      <div class="flex justify-center mb-2">
-        <h1 class="font-extrabold md:font-extrabold md:text-3xl">CONTENT BITES</h1>
-      </div>
+			<div class="underline-2"></div>
 
-      <div class="underline-2"></div> -->
+			<Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular
+				:responsiveOptions="responsiveOptions" class="mx-auto px-4 md:px-0 max-w-5xl video-carousel"
+				:showIndicators="true">
+				<template #item="{ data }">
+					<div class="p-2 md:p-6">
+						<div class="shadow-md rounded-lg overflow-hidden video-wrapper">
+							<iframe class="video-container" :src="data.videoUrl" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+						</div>
+						<h3 class="mt-3 md:mt-5 font-medium text-lg text-center">{{ data.title }}</h3>
+					</div>
+				</template>
+			</Carousel>
 
-      <!-- Video Carousel -->
-      <!-- <Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular :responsiveOptions="responsiveOptions"
-        class="mx-auto px-4 md:px-0 max-w-5xl video-carousel" :showIndicators="true">
-        <template #item="{ data }">
-          <div class="p-2 md:p-6">
-            <div class="shadow-md rounded-lg overflow-hidden video-wrapper">
-              <iframe class="video-container" :src="data.videoUrl" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-            <h3 class="mt-3 md:mt-5 font-medium text-lg text-center">{{ data.title }}</h3>
-          </div>
-        </template>
-      </Carousel>
+			<div class="flex justify-center">
+				<NuxtLink to="/content-bites" class="m-4 btn">See Content Bites</NuxtLink>
+			</div>
+		</div> -->
 
-      <div class="flex justify-center">
-        <NuxtLink to="/content-bites" class="m-4 btn">See Content Bites</NuxtLink>
-      </div>
-
-    </div> -->
-
-  </div>
+	</div>
 </template>
 
 <script setup>
@@ -77,68 +75,67 @@ const SwiperPagination = Pagination;
 
 // Responsive configuration for the carousel
 const responsiveOptions = ref([
-  {
-    breakpoint: '1024px',
-    numVisible: 1,
-    numScroll: 1
-  },
-  {
-    breakpoint: '768px',
-    numVisible: 1,
-    numScroll: 1
-  },
-  {
-    breakpoint: '560px',
-    numVisible: 1,
-    numScroll: 1
-  }
+	{
+		breakpoint: '1024px',
+		numVisible: 1,
+		numScroll: 1
+	},
+	{
+		breakpoint: '768px',
+		numVisible: 1,
+		numScroll: 1
+	},
+	{
+		breakpoint: '560px',
+		numVisible: 1,
+		numScroll: 1
+	}
 ]);
 
 const contentBiteVideo = computed(() => {
-  if (!ContentBitesList.value?.result) return []
+	if (!ContentBitesList.value?.result) return []
 
-  return ContentBitesList.value.result
-    .slice(0, 3)  //Limit to 3 videos
-    .map(item => {
-      let videoId = '';
+	return ContentBitesList.value.result
+		.slice(0, 3)  //Limit to 3 videos
+		.map(item => {
+			let videoId = '';
 
-      if (item.videoUrl.includes('watch?v=')) {
-        videoId = item.videoUrl.split('watch?v=')[1].split('&')[0];
-      } else if (item.videoUrl.includes('embed/')) {
-        videoId = item.videoUrl.split('embed/')[1].split('?')[0];
-      }
+			if (item.videoUrl.includes('watch?v=')) {
+				videoId = item.videoUrl.split('watch?v=')[1].split('&')[0];
+			} else if (item.videoUrl.includes('embed/')) {
+				videoId = item.videoUrl.split('embed/')[1].split('?')[0];
+			}
 
-      const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : '';
-      const thumbnail = videoId
-        ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-        : '';
+			const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : '';
+			const thumbnail = videoId
+				? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+				: '';
 
-      return {
-        id: item.id,
-        day: `day${item.day.replace('Day ', '')}`,
-        videoUrl: embedUrl,
-        speaker: item.speaker,
-        topic: item.topic,
-        is_active: item.is_active,
-        thumbnail,
-        altText: `${item.topic} by ${item.speaker}`
-      };
-    });
+			return {
+				id: item.id,
+				day: `day${item.day.replace('Day ', '')}`,
+				videoUrl: embedUrl,
+				speaker: item.speaker,
+				topic: item.topic,
+				is_active: item.is_active,
+				thumbnail,
+				altText: `${item.topic} by ${item.speaker}`
+			};
+		});
 });
 
 const eventImages = computed(() => {
-  if (!imageGalleryList.value?.result) return []
+	if (!imageGalleryList.value?.result) return []
 
-  return imageGalleryList.value.result
-    .slice(0, 6)  //Limit to 6 images
-    .map(item => ({
-      id: item.id,
-      day: `day${item.day.replace('Day ', '')}`,
-      imageUrl: item.imageUrl,
-      altText: item.altText,
-      description: item.description,
-      is_active: item.is_active,
-    }))
+	return imageGalleryList.value.result
+		.map(item => ({
+			id: item.id,
+			day: `day${item.day.replace('Day ', '')}`,
+			imageUrl: item.imageUrl,
+			altText: item.altText,
+			description: item.description,
+			is_active: item.is_active,
+		}))
 })
 
 
@@ -149,62 +146,60 @@ const { getAllImageGalleryItems } = useMyImage_galleryStore()
 const { imageGalleryList } = storeToRefs(useMyImage_galleryStore())
 
 onMounted(async () => {
-  await getAllImageGalleryItems();
-  await getAllContentBites();
+	await getAllImageGalleryItems();
+	await getAllContentBites();
 
-  setTimeout(() => {
-    swiperInstance.value?.update();
-  }, 100);
+	setTimeout(() => {
+		swiperInstance.value?.update();
+	}, 100);
 
 
 })
 
 
 const images = ref([
-  'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
-  'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
-  'https://primefaces.org/cdn/primevue/images/galleria/galleria3.jpg',
-  'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-  'https://primefaces.org/cdn/primevue/images/galleria/galleria6.jpg',
-  'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
+	'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
+	'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
+	'https://primefaces.org/cdn/primevue/images/galleria/galleria3.jpg',
+	'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
+	'https://primefaces.org/cdn/primevue/images/galleria/galleria6.jpg',
+	'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
 ]);
 
 // Video data
 const videos = ref([
-  {
-    url: 'https://www.youtube.com/watch?v=uvrpzdaQQ8Y',
-    embedUrl: 'https://www.youtube.com/embed/uvrpzdaQQ8Y',
-    title: 'Video 1'
-  },
-  {
-    url: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
-    embedUrl: 'https://www.youtube.com/embed/jNQXAC9IVRw',
-    title: 'Video 2'
-  },
-  {
-    url: 'https://www.youtube.com/watch?v=uvrpzdaQQ8Y',
-    embedUrl: 'https://www.youtube.com/embed/uvrpzdaQQ8Y',
-    title: 'Video 3'
-  }
+	{
+		url: 'https://www.youtube.com/watch?v=uvrpzdaQQ8Y',
+		embedUrl: 'https://www.youtube.com/embed/uvrpzdaQQ8Y',
+		title: 'Video 1'
+	},
+	{
+		url: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
+		embedUrl: 'https://www.youtube.com/embed/jNQXAC9IVRw',
+		title: 'Video 2'
+	},
+	{
+		url: 'https://www.youtube.com/watch?v=uvrpzdaQQ8Y',
+		embedUrl: 'https://www.youtube.com/embed/uvrpzdaQQ8Y',
+		title: 'Video 3'
+	}
 ]);
 
 </script>
 
 <style scoped>
 .video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  /* 16:9 aspect ratio */
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+	/* 16:9 aspect ratio */
 }
 
 .video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 </style>
-
-
