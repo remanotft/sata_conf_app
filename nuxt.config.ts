@@ -36,6 +36,10 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
 		apiBase: process.env.NUXT_DNA_API_BASE,
+        public: {
+            posthogPublicKey: 'phc_rZ1RjqlThtKR3naxXaa6zMwZGIr1K6afoJqTtF6wnWL',
+            posthogHost: 'https://us.i.posthog.com'
+          }
 	},
     modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@sidebase/nuxt-auth', '@primevue/nuxt-module'],
     auth: {

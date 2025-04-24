@@ -1,58 +1,61 @@
 <template>
 	<div>
-		<h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
-		<div class="underline-2"></div>
+		<div class="md:pb-12 md:pt-2">
+			<h1 class="font-extrabold md:font-extrabold md:text-3xl">MEDIA HUB</h1>
+			<div class="underline-2"></div>
 
-		<!-- image gallery preview -->
-		<div class="carousel-container" v-if="eventImages.length > 0">
+			<!-- image gallery preview -->
+			<div class="carousel-container md:pt-6" v-if="eventImages.length > 0">
 
-			<swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
-				:centered-slides="true" :loop="true" :effect="'coverflow'" :navigation="true"
-				:pagination="{ clickable: true }" :cover-flow-effect="{
-					rotate: 0,
-					stretch: 0,
-					depth: 100,
-					modifier: 2.5,
-					slideShadows: false
-				}">
-				<swiper-slide v-for="(image, index) in eventImages" :key="index" class="swiper-slide">
-					<img :src="image.imageUrl" class="slide-image" />
-				</swiper-slide>
-			</swiper>
+				<swiper :modules="[SwiperEffectCoverflow, SwiperNavigation, SwiperPagination]" :slides-per-view="2"
+					:centered-slides="true" :loop="true" :effect="'coverflow'" :navigation="true"
+					:pagination="{ clickable: true }" :cover-flow-effect="{
+						rotate: 0,
+						stretch: 0,
+						depth: 100,
+						modifier: 2.5,
+						slideShadows: false
+					}">
+					<swiper-slide v-for="(image, index) in eventImages" :key="index" class="swiper-slide">
+						<img :src="image.imageUrl" class="slide-image" />
+					</swiper-slide>
+				</swiper>
+			</div>
+
+			<!-- See more Button -->
+			<div class="flex justify-center pb-12">
+				<NuxtLink to="/media-hub" class="mt-8 btn md:w-80 md:text-lg">View Image Gallery <i
+						class="pi pi-arrow-right pl-2 text-xs"></i></NuxtLink>
+			</div>
 		</div>
 
-		<!-- See more Button -->
-		<div class="flex justify-center">
-			<NuxtLink to="/media-hub" class="m-4 btn">See Image Gallery</NuxtLink>
-		</div>
 
 		<!-- Video Gallery Preview -->
-		<!-- <div class="pt-20">
+		<div class="pt-6 md:pt-16" style="background-color: #000;">
 			<div class="flex justify-center mb-2">
-				<h1 class="font-extrabold md:font-extrabold md:text-3xl">CONTENT BITES</h1>
+				<h1 class="font-extrabold md:font-extrabold md:text-3xl text-white">CONTENT BITES</h1>
 			</div>
 
 			<div class="underline-2"></div>
 
 			<Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular
-				:responsiveOptions="responsiveOptions" class="mx-auto px-4 md:px-0 max-w-5xl video-carousel"
-				:showIndicators="true">
+				:responsiveOptions="responsiveOptions" class="w-full md:max-w-5xl mx-auto" :showIndicators="true">
 				<template #item="{ data }">
-					<div class="p-2 md:p-6">
+					<div class="md:p-6">
 						<div class="shadow-md rounded-lg overflow-hidden video-wrapper">
 							<iframe class="video-container" :src="data.videoUrl" frameborder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 								allowfullscreen></iframe>
 						</div>
-						<h3 class="mt-3 md:mt-5 font-medium text-lg text-center">{{ data.title }}</h3>
 					</div>
 				</template>
 			</Carousel>
 
-			<div class="flex justify-center">
-				<NuxtLink to="/content-bites" class="m-4 btn">See Content Bites</NuxtLink>
+			<div class="flex justify-center items-center md:pb-6">
+				<NuxtLink to="/content-bites" class="my-8 btn md:w-80 text-white md:text-lg">View All Content Bites <i
+						class="pi pi-arrow-right pl-2 text-xs"></i></NuxtLink>
 			</div>
-		</div> -->
+		</div>
 
 	</div>
 </template>
@@ -63,15 +66,13 @@ import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css/pagination';
 import { useMyContent_bitesStore } from '~/stores/media-hub/content_bites';
 import { useMyImage_galleryStore } from '~/stores/media-hub/image_gallery';
-
 
 const SwiperEffectCoverflow = EffectCoverflow;
 const SwiperNavigation = Navigation;
 const SwiperPagination = Pagination;
-
 
 // Responsive configuration for the carousel
 const responsiveOptions = ref([
@@ -138,7 +139,6 @@ const eventImages = computed(() => {
 		}))
 })
 
-
 const { getAllContentBites } = useMyContent_bitesStore()
 const { ContentBitesList } = storeToRefs(useMyContent_bitesStore())
 
@@ -155,7 +155,6 @@ onMounted(async () => {
 
 
 })
-
 
 const images = ref([
 	'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
@@ -191,14 +190,11 @@ const videos = ref([
 .video-wrapper {
 	position: relative;
 	width: 100%;
-	padding-bottom: 56.25%;
-	/* 16:9 aspect ratio */
+	padding-bottom: 75%;
 }
 
 .video-container {
 	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
 }
