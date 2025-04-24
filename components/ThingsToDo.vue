@@ -224,10 +224,5 @@ const responsiveOptions = ref([
 ]);
 </script>
 
-<style scoped>
-.underline-2 {
-	height: 2px;
-	background-color: #000;
-	margin-bottom: 1rem;
-}
+<style>
 </style>

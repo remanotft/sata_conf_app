@@ -61,12 +61,12 @@
 			</section>
 
 			<!-- media Hub -->
-			<section id="media-hub" class="pt-6 md:pt-12">
+			<section class="pt-10 md:pt-12">
 				<MediaHub />
 			</section>
 
 			<!-- Things to do -->
-			<section id="things-to-do" class="pb-16 pt-6 md:pt-12">
+			<section id="things-to-do" class="pb-16 pt-12 md:pt-16">
 				<ThingsToDo />
 			</section>
 
