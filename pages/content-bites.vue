@@ -36,26 +36,29 @@ recent
 				<!-- Video Galleria -->
 				<Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="filteredVideos"
 					:responsiveOptions="responsiveOptions" :circular="true" :fullScreen="true"
-					:showItemNavigators="true" :showThumbnails="false" containerStyle="max-width: 100%">
+					:showItemNavigators="true" :showItemNavigatorsOnHover="true" :showThumbnails="false"
+					containerStyle="max-width: 100%">
 
 					<template #item="slotProps">
-						<div class="p-5 px-6 md:px-16" style="background-color: white;">
+						<div class="p-5 px-6 md:px-16" style="background-color: black;">
 							<div class="w-full">
-								<iframe class="w-full h-[60vh] aspect-video" :src="slotProps.item.videoUrl"
+								<iframe class="rounded-lg w-full h-[60vh] aspect-video" :src="slotProps.item.videoUrl"
 									frameborder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 									allowfullscreen></iframe>
 							</div>
 
-							<div class="space-y-1 mt-2 p-3 font-semibold text-gray-900 text-sm"
-								style="background-color: white;">
-								<p>Speaker:</p> {{ slotProps.item.speaker }}
-								<div class="flex flex-col">
-									<p>Topic:</p> {{ slotProps.item.topic }}
+							<div class="space-y-1 mt-2 p-3 font-semibold text-white text-sm"
+								style="background-color: black;">
+								<div v-if="slotProps.item.speaker">
+									<p>Speaker:</p> {{ slotProps.item.speaker }}
 								</div>
-								<p class="mt-1 text-xs">
+								<div class="flex flex-col">
+									<p v-if="slotProps.item.speaker">Topic:</p> {{ slotProps.item.topic }}
+								</div>
+								<!-- <p class="mt-1 text-xs">
 									<span>Description:</span> {{ slotProps.item.description }}
-								</p>
+								</p> -->
 							</div>
 						</div>
 					</template>
@@ -72,10 +75,10 @@ recent
 					<!-- Video grid - now shows only paginated items -->
 					<div class="gap-6 grid grid-cols-1 md:grid-cols-4">
 						<div v-for="(video, index) of paginatedVideos" :key="index" class="flex flex-col items-center">
-							<div class="cursor-pointer" @click="videoClick(paginationStart + index)">
+							<div class="w-72 cursor-pointer" @click="videoClick(paginationStart + index)">
 								<div class="relative">
 									<img :src="video.thumbnail" :alt="video.altText"
-										class="mx-auto rounded-md w-72 cursor-pointer" />
+										class="mx-auto rounded-md w-full cursor-pointer" />
 
 									<!-- Youtube icon  -->
 									<div class="absolute inset-0 flex justify-center items-center">
@@ -83,13 +86,16 @@ recent
 									</div>
 
 								</div>
-								<div class="space-y-1 mt-2 p-3 w-full md:h-32 text-gray-900 text-center">
-									<div class="font-semibold text-sm">
-										<p>Speaker:</p> {{ video.speaker }}
+								<div class="space-y-1 mt-2 pt-1 pb-2 pl-2 w-full md:h-32 text-gray-900 md:text-center">
+									<div class="font-semibold text-sm" v-if="video.speaker">
+										<p> Speaker:</p> <span class="pl-2">{{ video.speaker }}</span>
 									</div>
-									<div class="font-semibold text-sm">
-										<p>Topic:</p> {{ video.topic }}
+
+									<div class="w-full font-semibold text-sm break-words whitespace-normal">
+										<p v-if="video.speaker"> Topic:</p> 
+										<span class="flex md:justify-center pl-2">{{ video.topic }}</span>
 									</div>
+
 								</div>
 							</div>
 						</div>
@@ -205,7 +211,7 @@ const paginatedVideos = computed(() => {
 // Handle page change
 const onPageChange = (event) => {
 	paginationStart.value = event.first;
-	
+
 	if (event.rows) {
 		itemsPerPage.value = event.rows;
 	}
