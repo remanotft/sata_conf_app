@@ -27,7 +27,7 @@
 		</div>
 
 		<!-- Video Gallery Preview -->
-		<!-- <div class="pt-20">
+		<div class="pt-5">
 			<div class="flex justify-center mb-2">
 				<h1 class="font-extrabold md:font-extrabold md:text-3xl">CONTENT BITES</h1>
 			</div>
@@ -35,8 +35,7 @@
 			<div class="underline-2"></div>
 
 			<Carousel :value="contentBiteVideo" :numVisible="1" :numScroll="1" circular
-				:responsiveOptions="responsiveOptions" class="mx-auto px-4 md:px-0 max-w-5xl video-carousel"
-				:showIndicators="true">
+				:responsiveOptions="responsiveOptions" class="px-2 w-full md:max-w-5xl" :showIndicators="true">
 				<template #item="{ data }">
 					<div class="p-2 md:p-6">
 						<div class="shadow-md rounded-lg overflow-hidden video-wrapper">
@@ -52,7 +51,7 @@
 			<div class="flex justify-center">
 				<NuxtLink to="/content-bites" class="m-4 btn">See Content Bites</NuxtLink>
 			</div>
-		</div> -->
+		</div>
 
 	</div>
 </template>
@@ -63,15 +62,13 @@ import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css/pagination';
 import { useMyContent_bitesStore } from '~/stores/media-hub/content_bites';
 import { useMyImage_galleryStore } from '~/stores/media-hub/image_gallery';
-
 
 const SwiperEffectCoverflow = EffectCoverflow;
 const SwiperNavigation = Navigation;
 const SwiperPagination = Pagination;
-
 
 // Responsive configuration for the carousel
 const responsiveOptions = ref([
@@ -138,7 +135,6 @@ const eventImages = computed(() => {
 		}))
 })
 
-
 const { getAllContentBites } = useMyContent_bitesStore()
 const { ContentBitesList } = storeToRefs(useMyContent_bitesStore())
 
@@ -155,7 +151,6 @@ onMounted(async () => {
 
 
 })
-
 
 const images = ref([
 	'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
@@ -191,14 +186,11 @@ const videos = ref([
 .video-wrapper {
 	position: relative;
 	width: 100%;
-	padding-bottom: 56.25%;
-	/* 16:9 aspect ratio */
+	padding-bottom: 75%;
 }
 
 .video-container {
 	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
 }
