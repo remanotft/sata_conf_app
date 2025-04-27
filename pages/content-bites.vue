@@ -217,10 +217,16 @@ const onPageChange = (event) => {
 	}
 };
 
-const videoClick = (index) => {
-	activeIndex.value = paginationStart.value + index;
+// const videoClick = (index) => {
+// 	activeIndex.value = paginationStart.value + index;
 
-	displayCustom.value = true;
+// 	displayCustom.value = true;
+// };
+
+
+const videoClick = (index) => {
+  activeIndex.value = index;
+  displayCustom.value = true;
 };
 
 
